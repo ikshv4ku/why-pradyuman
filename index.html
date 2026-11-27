@@ -1,0 +1,1746 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Why Pradyuman · Harness Engineering</title>
+<meta name="description" content="Pradyuman Singh Shekhawat for Inter-IIT Tech Meet 15.0, No-Prep: Harness Engineering. A summer doing his engineering through Databricks’ internal agent harness, a multi-agent system ranked 11th of 46 submissions at CLEF 2026, and the systems depth underneath.">
+<meta property="og:title" content="Why Pradyuman · Harness Engineering">
+<meta property="og:description" content="Every model needs a harness. Every harness needs a charioteer. The case for Pradyuman Singh Shekhawat in Inter-IIT Tech Meet 15.0, No-Prep: Harness Engineering.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Why Pradyuman · Harness Engineering">
+<meta name="twitter:description" content="Every model needs a harness. Every harness needs a charioteer.">
+<meta name="theme-color" content="#f6f5f2">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='none' stroke='%232b3a8f' stroke-width='2.5'/%3E%3Cpath d='M16 3v26M3 16h26M6.8 6.8l18.4 18.4M25.2 6.8 6.8 25.2' stroke='%232b3a8f' stroke-width='1.6'/%3E%3Ccircle cx='16' cy='16' r='3.4' fill='%232b3a8f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Eczar:wght@400..800&amp;family=Mukta:wght@300;400;500;600;700&amp;family=Spline+Sans+Mono:wght@400..600&amp;display=swap">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+:root{
+  --paper:#f6f5f2;--paper-2:#efede7;--card:#fdfcf9;--ink:#1b1a17;--ink-2:#55524b;--ink-3:#6e6a62;--rule:#dcd8cf;--rule-2:#c9c4b9;
+  --nila:#2b3a8f;--nila-wash:#e4e7f4;--nila-soft:#c9cfec;
+  --night:#121319;--night-2:#1b1d26;--night-line:#2b2e3b;--night-ink:#e9e7e0;--night-mut:#a19e95;--night-nila:#a9b5ff;
+  --serif:"Eczar","Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --deva:"Eczar","Tiro Devanagari Sanskrit","Noto Serif Devanagari","Kohinoor Devanagari","Nirmala UI",Mangal,serif;
+  --sans:"Mukta","Segoe UI","Gill Sans","Gill Sans MT",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:"Spline Sans Mono",ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  --pad:clamp(20px,4.2vw,56px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+html.con-open{overflow:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 18px/1.6 var(--sans);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;font-kerning:normal;overflow-x:hidden}
+svg{display:block}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.2em}
+a:hover{color:var(--nila)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--nila);outline-offset:3px;border-radius:6px}
+::selection{background:var(--nila-wash);color:var(--ink)}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;margin:0;letter-spacing:-.012em;text-wrap:balance}
+p,ul,ol,dl,dd,figure,blockquote{margin:0}
+ul,ol{padding:0;list-style:none}
+.wrap{max-width:1280px;margin-inline:auto;padding-inline:var(--pad)}
+.eyebrow{font:600 11.5px/1.3 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2);margin:0 0 20px}
+.h2{font-size:clamp(34px,4.3vw,60px);line-height:1.04;letter-spacing:-.02em}
+.lead{font-size:clamp(18px,1.45vw,20px);line-height:1.55;color:var(--ink-2);max-width:54ch;margin-top:22px}
+.source{font:400 11.5px/1.55 var(--mono);color:var(--ink-3);margin-top:14px;max-width:72ch}
+.source a{color:inherit}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:12px;top:-80px;z-index:100;background:var(--ink);color:var(--paper);padding:10px 14px;border-radius:8px;font-weight:600;text-decoration:none}
+.skip:focus{top:12px;color:var(--paper)}
+kbd{font:500 12px/1 var(--mono);border:1px solid var(--rule-2);border-bottom-width:2px;border-radius:6px;padding:3px 6px;background:var(--card);color:var(--ink)}
+.deva{font-family:var(--deva)}
+
+/* loader */
+.loader{display:none}
+.js .loader{display:grid;place-items:center;position:fixed;inset:0;z-index:95;background:var(--paper);transition:opacity .32s ease,visibility .32s;animation:failsafe 0s 3s forwards}
+@keyframes failsafe{to{opacity:0;visibility:hidden}}
+.loader.out{opacity:0;visibility:hidden}
+.loader-in{width:min(260px,64vw);display:grid;gap:16px;justify-items:center}
+.loader-in svg{width:30px;height:30px;color:var(--nila)}
+.loader-bar{width:100%;height:1px;background:var(--rule);overflow:hidden}
+.loader-bar i{display:block;height:100%;background:var(--ink);transform-origin:left;transform:scaleX(0)}
+.loader-txt{font:500 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--ink-2);display:flex;gap:.7em}
+@media (prefers-reduced-motion:reduce){.js .loader{display:none}}
+
+/* nav */
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
+.brand{display:flex;align-items:center;gap:10px;white-space:nowrap;text-decoration:none;font:600 19px/1 var(--serif);letter-spacing:-.01em}
+.brand svg{width:22px;height:22px;color:var(--nila)}
+.nav ul{display:flex;gap:28px;font-size:15.5px}
+.nav ul a{text-decoration:none;color:var(--ink-2)}
+.nav ul a:hover{color:var(--ink)}
+.kbtn{display:inline-flex;align-items:center;gap:9px;font:500 13px/1 var(--mono);border:1px solid var(--ink);border-radius:999px;padding:8px 14px 8px 8px;background:transparent;cursor:pointer}
+.kbtn kbd{padding:2px 6px}
+.kbtn:hover{background:var(--ink);color:var(--paper)}
+.nav-r{display:flex;align-items:center;gap:28px}
+@media (max-width:880px){.nav ul{display:none}}
+
+/* hero */
+.hero{padding:clamp(20px,4.5vw,64px) 0 clamp(80px,9vw,132px)}
+.hero-grid{display:grid;gap:56px}
+@media (min-width:1100px){.hero-grid{grid-template-columns:minmax(0,1.14fr) minmax(0,.86fr);gap:clamp(48px,5vw,80px);align-items:center}}
+.display{font-size:clamp(42px,5.25vw,80px);line-height:1;font-weight:500;letter-spacing:-.026em}
+.display span{display:block}
+.display .l2{color:var(--nila)}
+.hero-sub{margin-top:0;font:500 12.5px/1.5 var(--mono);color:var(--ink-2);letter-spacing:.01em}
+.hero-sub strong{display:block;font:600 21px/1.3 var(--serif);color:var(--ink);letter-spacing:-.005em;margin-bottom:2px}
+.hero-sub .sep{opacity:.8}
+.hero-p{margin-top:16px;max-width:47ch;font-size:clamp(18px,1.4vw,20px);line-height:1.55;color:var(--ink-2)}
+.hero-cta{margin-top:34px;display:flex;flex-wrap:wrap;gap:14px 20px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:var(--paper);border:0;border-radius:999px;padding:16px 24px 16px 18px;font:500 15.5px/1 var(--mono);cursor:pointer;text-decoration:none}
+.pill:hover{background:var(--nila);color:#fff}
+.pill .run{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#2f3140}
+.pill .run svg{width:9px;height:9px;color:#fff;margin-left:2px}
+.hint{font-size:14.5px;color:var(--ink-2)}
+.js .rv{opacity:0;transform:translateY(14px)}
+.ready .rv{opacity:1;transform:none;transition:opacity .7s ease,transform 1s cubic-bezier(.2,.75,.15,1);transition-delay:calc(var(--d,0)*1ms)}
+
+/* proof chart */
+.proof{background:var(--card);border:1px solid var(--rule);border-radius:18px;padding:clamp(22px,2.6vw,34px)}
+.proof-k{font:500 11.5px/1.4 var(--mono);color:var(--ink-2);letter-spacing:.02em}
+.proof-t{font-size:clamp(25px,2.3vw,32px);line-height:1.12;margin-top:6px}
+.db{position:relative;margin-top:22px}
+.db-row{position:relative;padding-top:8px}
+.db-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.db-model{font:600 17px/1.2 var(--serif)}
+.db-delta{font:600 12px/1 var(--mono);color:var(--nila)}
+.db-track{position:relative;height:66px;background:linear-gradient(90deg,var(--rule) 1px,transparent 1px) 0 0/calc(100%/6) 100%;box-shadow:inset -1px 0 var(--rule)}
+.db-line{position:absolute;top:32px;height:2px;background:var(--nila);left:calc(var(--lo)*1%*5/3);width:calc((var(--hi) - var(--lo))*1%*5/3);transform-origin:left center}
+.db-dot{position:absolute;top:33px;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%}
+.db-dot.lo{left:calc(var(--lo)*1%*5/3);border:2px solid var(--ink);background:var(--card)}
+.db-dot.hi{left:calc(var(--hi)*1%*5/3);background:var(--nila);box-shadow:0 0 0 4px var(--nila-wash)}
+.db-lab{position:absolute;font:500 11.5px/1.2 var(--mono);white-space:nowrap;color:var(--ink-2)}
+.db-lab b{color:var(--ink);font-weight:600}
+.db-lab.lo{top:46px;left:calc(var(--lo)*1%*5/3)}
+.db-lab.hi{top:6px;left:calc(var(--hi)*1%*5/3)}
+.db-lab.hi b{color:var(--nila)}
+.db-lab.s{margin-left:-4px}
+.db-lab.e{transform:translateX(-100%);margin-left:4px}
+.db-axis{position:relative;height:22px;border-top:1px solid var(--ink);margin-top:6px}
+.db-axis span{position:absolute;top:7px;transform:translateX(-50%);font:400 11px/1 var(--mono);color:var(--ink-3);left:calc(var(--v)*1%*5/3)}
+.db-axis span:last-child{transform:translateX(-100%)}
+.js .db-line{transform:scaleX(0)}
+.js .db-dot.hi,.js .db-lab.hi{opacity:0}
+.js .db-dot.hi{transform:scale(.2)}
+.ready .db-line{transform:none;transition:transform 1.05s cubic-bezier(.25,.7,.1,1) calc(450ms + var(--i)*170ms)}
+.ready .db-dot.hi,.ready .db-lab.hi{opacity:1;transition:opacity .35s ease calc(1250ms + var(--i)*170ms),transform .5s cubic-bezier(.3,1.5,.5,1) calc(1250ms + var(--i)*170ms)}
+.ready .db-dot.hi{transform:none}
+.proof-note{margin-top:22px;display:flex;gap:12px;align-items:center;font:500 13.5px/1.45 var(--mono);color:var(--nila)}
+.proof-note::before{content:"";flex:none;width:22px;height:1px;background:currentColor}
+
+/* verse */
+.verse{padding:clamp(80px,10vw,150px) 0 clamp(64px,8vw,110px);border-top:1px solid var(--rule)}
+.verse-grid{display:grid;gap:56px}
+@media (min-width:1020px){.verse-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(56px,6vw,96px);align-items:start}}
+.verse-intro p+p{margin-top:16px}
+.verse-intro .lead+.lead{margin-top:16px}
+.sloka{text-align:center;padding:clamp(30px,4vw,50px) clamp(8px,3vw,40px);border-block:1px solid var(--ink);position:relative}
+.sloka::before,.sloka::after{content:"";position:absolute;left:0;right:0;height:1px;background:var(--ink)}
+.sloka::before{top:4px}.sloka::after{bottom:4px}
+.sloka .deva{font-weight:500;font-size:clamp(25px,3vw,40px);line-height:1.55}
+.sloka .deva>span,.iast>span{display:block}
+.pada{display:inline-block;white-space:nowrap}
+.iast{font:400 clamp(16px,1.35vw,19px)/1.6 var(--serif);color:var(--ink-2);margin-top:16px}
+.trans{font:500 clamp(20px,1.9vw,26px)/1.32 var(--serif);margin:22px auto 0;max-width:30ch}
+.sloka cite{display:block;margin-top:16px;font:500 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);font-style:normal}
+.sloka .next{margin-top:28px;padding-top:24px;border-top:1px dashed var(--rule-2)}
+.sloka .next .trans{font-size:clamp(18px,1.6vw,21px);margin-top:12px}
+.map-h{grid-column:1/-1;font-size:clamp(22px,2vw,26px);margin-top:8px}
+.map{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--ink);margin-top:-36px}
+@media (min-width:760px){.map{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:1100px){.map{grid-template-columns:repeat(6,minmax(0,1fr))}}
+.map>div{padding:18px 18px 20px 0;border-bottom:1px solid var(--rule)}
+.map dt{font:600 21px/1.15 var(--serif)}
+.map dt span{display:block;font:400 14.5px/1.4 var(--sans);color:var(--ink-2);margin-top:4px}
+.map dd{margin-top:10px;font-size:15.5px;line-height:1.35;color:var(--nila);font-weight:600}
+.map .n{font:500 11px/1 var(--mono);color:var(--ink-3);display:block;margin-bottom:10px}
+
+/* ride */
+.ride{position:relative;border-top:1px solid var(--rule)}
+.ride-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;z-index:0}
+.chariot{width:100%;height:100%;color:var(--ink)}
+.ride-steps{position:relative;z-index:2;margin-top:-100vh;margin-top:-100svh;pointer-events:none}
+.ride-intro{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;width:min(480px,38vw);pointer-events:auto;padding:96px 0}
+.station{min-height:140vh;position:relative}
+.card{pointer-events:auto;position:sticky;top:max(20px,6vh);width:min(500px,40vw);background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:26px 30px 24px;box-shadow:0 1px 0 rgba(27,26,23,.03),0 34px 60px -44px rgba(27,26,23,.45)}
+.sub{position:relative}
+.loopfig{border-top:0;padding-top:0;margin-top:6px}
+.loop{position:relative;width:100%;max-width:430px;aspect-ratio:100/86;margin:4px auto 0}
+.loop-ring{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.loop-c{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;font:500 19px/1.15 var(--serif);color:var(--nila);width:34%}
+.loop-c span{display:block;color:var(--ink)}
+.loop-n li{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);width:128px;text-align:center;font:400 10px/1.3 var(--mono);color:var(--ink-2);background:var(--card);border:1.5px solid var(--nila);border-radius:12px;padding:6px 6px 7px}
+.loop-n b{display:block;font:600 15px/1.1 var(--serif);color:var(--nila);margin-bottom:3px}
+.loop-n span{display:block}
+.loop-n span:nth-of-type(1){color:var(--ink);font-weight:600}
+.loop-d{margin-top:14px;padding-top:12px;border-top:1px solid var(--rule);font-size:14.5px}
+@media (max-width:520px){
+  .loop{aspect-ratio:auto;max-width:none}
+  .loop-ring{display:none}
+  .loop-c{position:static;transform:none;width:auto;text-align:left;font-size:17px;margin:4px 0 12px}
+  .loop-c span{display:inline}
+  .loop-n{position:relative;display:grid;gap:8px;padding:0 40px 0 0}
+  .loop-n::after{content:"next day";position:absolute;right:2px;top:20px;bottom:20px;width:26px;border:1.5px solid var(--nila);border-left:0;border-radius:0 12px 12px 0;writing-mode:vertical-rl;font:500 9.5px/1 var(--mono);color:var(--nila);display:flex;align-items:center;justify-content:center;padding-left:7px}
+  .loop-n li{position:relative;left:auto;top:auto;transform:none;width:auto;text-align:left;padding:7px 10px 8px}
+  .loop-n li:first-child::after{content:"";position:absolute;right:-13px;top:50%;margin-top:-5px;border:5px solid transparent;border-right:7px solid var(--nila);border-left:0}
+  .loop-n li:not(:last-child)::before{content:"";position:absolute;left:22px;bottom:-9px;height:8px;width:1.5px;background:var(--nila)}
+  .loop-n b{display:inline;font-size:14.5px;margin:0 6px 0 0}
+  .loop-n span{display:inline}
+  .loop-n span:nth-of-type(1)::after{content:": "}
+  .loop-n span:nth-of-type(1)::after{content:": "}
+}
+.st-h.big{font-size:clamp(24px,2.1vw,28px);margin-top:12px}
+.st-p.vm{margin-top:16px;padding-top:14px;border-top:1px solid var(--rule)}
+.st-p.vm b,.st-p b{color:var(--ink);font-weight:600}
+.tree,.planner{width:100%;max-width:400px;height:auto;margin-top:8px;font-family:var(--mono)}
+.spread{margin-top:10px;display:grid;gap:7px;font-size:14px;line-height:1.35;color:var(--ink-2)}
+.spread li{position:relative;padding-left:24px}
+.spread li::before{content:"";position:absolute;left:2px;top:.3em;width:10px;height:10px;border-radius:50%;border:1.5px solid var(--ink);background:var(--card);z-index:1}
+.spread li:not(:last-child)::after{content:"";position:absolute;left:7px;top:calc(.3em + 10px);bottom:-10px;width:1px;background:var(--rule-2)}
+.spread li.k::before{background:var(--nila);border-color:var(--nila)}
+.spread b{color:var(--ink);font-weight:600}
+.st-top{display:flex;justify-content:space-between;align-items:center;font:500 11.5px/1 var(--mono);color:var(--ink-3)}
+.st-top svg{width:34px;height:34px;color:var(--nila)}
+.st-name{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 14px;margin-top:8px;font-size:clamp(36px,3.3vw,46px);line-height:1.05;outline:none}
+.st-name .deva{font-size:.6em;color:var(--ink-3);font-weight:500}
+.st-role{font:600 11.5px/1.3 var(--sans);letter-spacing:.17em;text-transform:uppercase;color:var(--nila);margin-top:8px}
+.st-h{font-size:21px;line-height:1.24;margin-top:16px;letter-spacing:-.008em}
+.st-p{margin-top:8px;font-size:16px;line-height:1.55;color:var(--ink-2)}
+.viz{margin-top:16px;padding-top:14px;border-top:1px solid var(--rule)}
+.viz-t{font:600 15px/1.3 var(--serif);color:var(--ink)}
+.viz-c{font-size:14px;line-height:1.5;color:var(--ink-2);margin-top:8px}
+.viz .source{margin-top:8px;font-size:11px}
+.slope{width:100%;max-width:400px;height:auto;margin-top:6px;font-family:var(--mono)}
+.bars{display:grid;grid-template-columns:auto minmax(40px,1fr) auto;gap:6px 10px;align-items:center;margin-top:8px;font-size:13.5px}
+.bars .k{grid-column:1/-1;font:500 11px/1.3 var(--mono);color:var(--ink-3);margin-top:6px}
+.bars span{color:var(--ink-2)}
+.bars i{display:block;height:10px;border-radius:2px;background:var(--rule-2);width:calc(var(--w)*1%)}
+.bars i.hi{background:var(--nila)}
+.bars b{font:600 12px/1 var(--mono);text-align:right}
+.agents{width:100%;max-width:400px;height:auto;margin-top:8px;font-family:var(--mono)}
+.rank{display:flex;gap:2px;align-items:flex-end;height:30px;margin-top:12px;max-width:400px}
+.rank i{flex:1 1 0;height:12px;background:var(--rule-2);border-radius:1px}
+.rank i.me{height:28px;background:var(--nila)}
+.rank-l{font-size:14px;line-height:1.45;color:var(--ink-2);margin-top:8px}
+.rank-l b{color:var(--ink);font-weight:600}
+/* smriti */
+.sm-wrap{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin-top:10px}
+.sm{position:relative;width:100%;max-width:290px;aspect-ratio:1/1;margin:4px auto 0}
+.sm-ring{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.sm-node{position:absolute;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;border:1.5px solid var(--ink);background:var(--card);cursor:pointer;display:grid;place-items:center;padding:0;font:600 20px/1 var(--serif)}
+.sm-node small{position:absolute;top:calc(100% + 3px);left:50%;transform:translateX(-50%);white-space:nowrap;font:500 10px/1.2 var(--mono);color:var(--ink-2);letter-spacing:.02em;background:var(--card);padding:1px 3px;border-radius:3px}
+.sm-node.w{border-color:var(--nila);color:var(--nila)}
+.sm-node[aria-pressed=true]{background:var(--nila);color:#fff;border-color:var(--nila)}
+.sm-node:hover{box-shadow:0 0 0 4px var(--nila-wash)}
+.sm-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:36%;aspect-ratio:1/1;border-radius:50%;border:1px dashed var(--rule-2);background:var(--paper);cursor:pointer;display:grid;place-content:center;gap:2px;padding:4px;font:600 15px/1.1 var(--serif)}
+.sm-core small{font:500 9.5px/1.25 var(--mono);color:var(--ink-3)}
+.sm-core[aria-pressed=true]{border:1.5px solid var(--nila);color:var(--nila)}
+.sm-out{min-height:4.6em;font-size:14.5px;line-height:1.5;color:var(--ink-2);background:var(--paper);border-radius:10px;padding:10px 12px}
+.sm-out b{color:var(--ink);font-weight:600}
+.sm-out em{font:500 10.5px/1 var(--mono);font-style:normal;color:var(--nila);letter-spacing:.04em;display:block;margin-bottom:4px;text-transform:uppercase}
+.sm-tag{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-top:12px}
+.sm-tag strong{font:500 21px/1.2 var(--serif);color:var(--nila)}
+.sm-tag span{font-size:13.5px;color:var(--ink-2)}
+/* marga */
+.tl-bar{display:flex;gap:2px;height:8px;margin-top:12px}
+.tl-bar i{flex-grow:var(--m);background:var(--rule-2);border-radius:1px}
+.tl-bar i.k{background:var(--nila)}
+.tl-scale{display:flex;justify-content:space-between;gap:8px;font:400 10.5px/1.2 var(--mono);color:var(--ink-3);margin-top:5px}
+@media (max-width:480px){.tl-scale .mid{display:none}}
+.tl{margin-top:10px;display:grid;gap:3px;font-size:14px;line-height:1.35}
+.tl li{display:grid;grid-template-columns:44px 1fr;gap:8px;color:var(--ink-2)}
+.tl time{font:500 11.5px/1.6 var(--mono);color:var(--ink-3)}
+.tl b{color:var(--ink);font-weight:600}
+.tl li.k b,.tl li.k time{color:var(--nila)}
+.rules{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.rules li{font:500 11.5px/1.2 var(--mono);border:1px solid var(--rule-2);border-radius:999px;padding:6px 10px;color:var(--ink)}
+.rules li.k{border-color:var(--nila);color:var(--nila)}
+/* stage overlays */
+.tags{position:absolute;inset:0;pointer-events:none}
+.tag{position:absolute;left:0;top:0;opacity:0;transition:opacity .4s ease;will-change:transform}
+.tag i{position:absolute;left:-5px;top:-5px;width:10px;height:10px;border-radius:50%;background:var(--nila);box-shadow:0 0 0 5px rgba(43,58,143,.16)}
+.tag{--lh:22px}
+.tag::before{content:"";position:absolute;left:0;bottom:6px;width:1px;height:var(--lh);background:var(--nila)}
+.tag.dn::before{bottom:auto;top:6px}
+ .tag span{position:absolute;left:-1px;bottom:calc(var(--lh) + 6px);white-space:nowrap;padding:7px 11px 8px;background:var(--card);border:1px solid var(--rule);border-left:2px solid var(--nila);border-radius:0 8px 8px 0;font:500 11.5px/1.3 var(--mono);color:var(--ink-2)}
+.tag span b{display:block;font:600 16px/1.2 var(--serif);color:var(--nila);margin-bottom:1px}
+.tag.dn span{bottom:auto;top:calc(var(--lh) + 6px)}
+.tag.flip span{left:auto;right:-1px;border-left:1px solid var(--rule);border-right:2px solid var(--nila);border-radius:8px 0 0 8px;text-align:right}
+.ride-stage[data-active=ashva] .tag[data-k=ashva],.ride-stage[data-active=rashmi] .tag[data-k=rashmi],.ride-stage[data-active=sarathi] .tag[data-k=sarathi],.ride-stage[data-active=ratha] .tag[data-k=ratha],.ride-stage[data-active=marga] .tag{opacity:1}
+.stepper{position:absolute;top:24px;right:clamp(16px,3vw,40px);display:flex;gap:2px;padding:5px;background:rgba(246,245,242,.92);border:1px solid var(--rule);border-radius:999px}
+.stepper::after{content:"";position:absolute;left:22px;right:22px;bottom:-1px;height:2px;background:var(--nila);transform:scaleX(var(--p,0));transform-origin:left;border-radius:2px}
+.stepper button{display:flex;align-items:center;gap:7px;border:0;background:transparent;border-radius:999px;padding:7px 12px 7px 9px;font:500 14px/1 var(--sans);color:var(--ink-2);cursor:pointer;min-height:36px}
+.stepper button svg{width:20px;height:20px;flex:none}
+.stepper button:hover{color:var(--ink)}
+.stepper button[aria-current=step]{background:var(--ink);color:var(--paper)}
+/* chariot drawing */
+.chariot .ln{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1 1;stroke-dashoffset:calc(1 - var(--draw,1))}
+.chariot .ln.f{fill:var(--paper)}
+.chariot .hf{fill:var(--hatch,url(#hk));fill-opacity:var(--draw,1)}
+.chariot .horse .hf{fill:var(--hatch2,url(#hk2))}
+.chariot .pf{fill:var(--paper);stroke:none}
+.chariot .ink{fill:currentColor;stroke:none;opacity:var(--draw,1)}
+.chariot .thin{stroke-width:1}
+.chariot .bold{stroke-width:2.4}
+.chariot .horse .ln{stroke-width:1.05}
+.chariot .horse .thin{stroke-width:.6}
+.chariot .road{fill:none;stroke:currentColor;stroke-width:1.2;opacity:calc(var(--draw,1)*.7)}
+.chariot .stip{fill:url(#st);opacity:var(--draw,1)}
+.chariot .rimband{fill:none;stroke:var(--paper);stroke-width:16}
+.chariot .part{color:var(--ink);transition:color .5s ease,opacity .5s ease}
+.ride-stage:is([data-active=ashva],[data-active=rashmi],[data-active=sarathi],[data-active=ratha]) .part{opacity:.24}
+.ride-stage[data-active=marga] .part{opacity:.5}
+.ride-stage[data-active=ashva] .p-ashva,.ride-stage[data-active=rashmi] .p-rashmi,.ride-stage[data-active=sarathi] .p-sarathi,.ride-stage[data-active=ratha] .p-ratha,.ride-stage[data-active=marga] .p-marga{opacity:1;color:var(--nila)}
+.ride-stage[data-active=ashva] .p-ashva,.ride-stage[data-active=sarathi] .p-sarathi,.ride-stage[data-active=ratha] .p-ratha{--hatch:url(#hn);--hatch2:url(#hn2)}
+.ride-stage[data-active=rashmi] .p-rashmi .ln{stroke-width:2.6}
+.ride-stage[data-active=marga] .p-marga .road{opacity:1}
+@media (max-width:959px){
+  .ride-stage{height:46vh;height:46svh;border-bottom:1px solid var(--rule);background:var(--paper);z-index:3}
+  .ride-steps{margin-top:0;pointer-events:auto;z-index:1}
+  .ride-intro{min-height:0;width:auto;padding:56px 0 8px}
+  .station{min-height:0;padding:28px 0 36px}
+  .station:last-child{padding-bottom:72px}
+  .sub+.sub{margin-top:20px}
+  .card{position:relative;top:0;width:auto;padding:22px 20px 20px}
+  .stepper{top:auto;bottom:10px;left:50%;right:auto;transform:translateX(-50%)}
+  .stepper button{padding:7px 9px}
+  .stepper button span{display:none}
+  .stepper button[aria-current=step] span{display:inline}
+  .tag span{font-size:10.5px;padding:5px 8px 6px}
+  .ride-stage[data-active=marga] .tag:not([data-k=marga]){opacity:0}
+  .tag.dn[data-k=ratha]::before{top:auto;bottom:6px}
+  .tag.dn[data-k=ratha] span{top:auto;bottom:calc(var(--lh) + 6px)}
+  .tag span b{font-size:14px}
+}
+
+/* sections */
+.sec{padding:clamp(88px,11vw,168px) 0;border-top:1px solid var(--rule)}
+.sec-head{max-width:860px;margin-bottom:clamp(40px,5vw,64px)}
+/* hood */
+.hood-cols,.hood-list>li{display:grid;grid-template-columns:44px minmax(0,3.2fr) minmax(0,3fr) minmax(0,3.6fr);gap:12px 28px;align-items:start}
+.hood-cols{font:600 11px/1.3 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);padding-bottom:14px;border-bottom:1px solid var(--ink)}
+.hood-list>li{padding:26px 0;border-bottom:1px solid var(--rule)}
+.hood-list svg{width:34px;height:34px;color:var(--nila);margin-top:4px}
+.hood-list h3{font-size:clamp(23px,2vw,28px);line-height:1.15}
+.hood-list h3 span{display:block;font:400 15.5px/1.4 var(--sans);color:var(--ink-2);margin-top:4px;letter-spacing:0}
+.hood-list .team{display:inline-block;margin-top:8px;font:500 10.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);border:1px solid var(--rule-2);border-radius:999px;padding:5px 8px}
+.hood-list .what{font-size:15.5px;line-height:1.5;color:var(--ink-2);padding-top:6px}
+.hood-list .why{font:500 clamp(17px,1.4vw,19px)/1.4 var(--serif);padding-top:3px}
+.hood-list .lbl{display:none}
+.hood-foot{margin-top:28px;font-size:15.5px;color:var(--ink-2);max-width:80ch}
+@media (max-width:900px){
+  .hood-cols{display:none}
+  .hood-list>li{grid-template-columns:40px minmax(0,1fr);gap:6px 16px}
+  .hood-list>li>*:not(svg){grid-column:2}
+  .hood-list .lbl{display:block;font:600 10.5px/1.3 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin:10px 0 2px}
+}
+/* receipts */
+.receipts{columns:3 300px;column-gap:clamp(24px,3vw,40px)}
+.rc-w{break-inside:avoid;padding:6px 4px 34px;filter:drop-shadow(0 12px 16px rgba(27,26,23,.10)) drop-shadow(0 1px 1px rgba(27,26,23,.08))}
+.rc{position:relative;background:#fffefa;padding:22px 24px 34px;transform:rotate(var(--r,0deg));-webkit-mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50%/14px 100%;mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50%/14px 100%}
+@media (prefers-reduced-motion:reduce){.rc{transform:none}}
+.rc-top{display:flex;justify-content:space-between;font:500 10.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding-bottom:14px;border-bottom:1px dashed var(--rule-2)}
+.rc h3{font-size:25px;line-height:1.12;margin-top:16px;padding-right:76px}
+.rc-p{font-size:15.5px;line-height:1.5;color:var(--ink-2);margin-top:8px}
+.rc-items{margin-top:14px;font:400 13px/1.45 var(--mono);display:grid;gap:5px}
+.rc-items li{display:flex;gap:8px;align-items:baseline}
+.rc-items li span:first-child{flex:none;font-weight:600;color:var(--ink)}
+.rc-items li::after{content:"";order:1;flex:1;border-bottom:1px dotted var(--rule-2);transform:translateY(-4px);min-width:12px}
+.rc-items li span:last-child{order:2;text-align:right;color:var(--ink-2)}
+.rc-tot{display:flex;justify-content:space-between;margin-top:12px;padding-top:10px;border-top:1px dashed var(--rule-2);font:600 13px/1.3 var(--mono)}
+.rc-day{margin-top:14px;font:500 16.5px/1.35 var(--serif);color:var(--nila)}
+.stamp{position:absolute;top:50px;right:18px;transform:rotate(-9deg);border:2px solid var(--nila);color:var(--nila);border-radius:5px;padding:5px 7px 4px;font:600 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;opacity:.82}
+/* photographs: duotone toward ink, indigo and paper, with a fine engraving screen */
+.duo{position:relative;overflow:hidden;isolation:isolate;background:#f6f5f2}
+.duo img{display:block;width:100%;height:auto;filter:grayscale(1) contrast(1.14) brightness(1.04);mix-blend-mode:multiply;transition:filter .6s ease}
+.duo::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(27,26,23,.09) 0 1px,transparent 1px 3px);mix-blend-mode:multiply;transition:opacity .6s ease}
+.duo::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:#1f2a6e;mix-blend-mode:screen;transition:opacity .6s ease}
+.duo:hover img{filter:none}
+.duo:hover::before,.duo:hover::after{opacity:0}
+@media (prefers-reduced-motion:reduce){.duo img,.duo::before,.duo::after{transition:none}}
+.plate{padding:4px;background:var(--card);border:1px solid var(--ink);border-radius:12px;flex:none}
+.plate .duo{border-radius:8px}
+.hero-who{display:flex;align-items:center;gap:18px;margin-top:28px}
+.hero-who .plate{width:92px}
+.hero-who .duo img{aspect-ratio:1/1;object-fit:cover}
+.rc-fig{margin:16px 0 2px}
+.rc-fig .duo{border-radius:3px}
+.rc-fig .duo img{aspect-ratio:4/3;object-fit:cover}
+.rc-fig figcaption{margin-top:7px;font:500 11px/1.35 var(--mono);color:var(--ink-3);letter-spacing:.02em}
+.cta-grid{display:grid;gap:28px;margin-top:clamp(36px,4vw,52px);align-items:end}
+@media (min-width:900px){.cta-grid{grid-template-columns:minmax(0,720px) 220px;gap:40px}.cta-ph{order:2}}
+.cta-ph{width:min(220px,52vw)}
+.cta-ph .duo img{aspect-ratio:4/5;object-fit:cover}
+.cta-ph figcaption{margin-top:10px;font:600 15px/1.3 var(--serif)}
+.cta-ph figcaption span{display:block;font:500 11px/1.4 var(--mono);color:var(--ink-3);margin-top:2px}
+@media (max-width:640px){.hero-who{gap:14px}.hero-who .plate{width:76px}}
+/* ideas */
+.ideas-g{display:grid;gap:clamp(20px,2.4vw,32px)}
+@media (min-width:900px){.ideas-g{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.idea{display:flex;flex-direction:column;border:1.5px dashed var(--rule-2);border-radius:16px;padding:22px 24px 24px}
+.idea .idea-k{margin:0;font:500 10.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.idea-art{width:100%;height:auto;margin:18px 0 20px;font-family:var(--mono)}
+.idea h3{font-size:clamp(23px,2vw,27px);line-height:1.15}
+.idea p{margin-top:10px;font-size:16px;line-height:1.55;color:var(--ink-2)}
+.idea .idea-from{margin-top:auto;padding-top:14px;border-top:1px dashed var(--rule-2);font-size:14px}
+.idea p:not(.idea-from):not(.idea-k){margin-bottom:18px}
+.idea-from span{display:block;font:600 10.5px/1.3 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--nila);margin-bottom:4px}
+/* availability */
+.avail-grid{display:grid;gap:64px}
+@media (min-width:1020px){.avail-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(56px,6vw,96px)}}
+.cal{margin-top:40px}
+.cal-g{display:grid;grid-template-columns:repeat(15,minmax(0,1fr));gap:3px}
+.cal-d{text-align:center;padding:8px 0 9px;border-top:1px solid var(--ink);font:600 14px/1 var(--mono)}
+.cal-d small{display:block;font:400 10px/1 var(--mono);color:var(--ink-3);margin-bottom:6px}
+.cal-b{margin-top:4px;height:30px;border-radius:4px;display:flex;align-items:center;padding:0 8px;font:500 11px/1.1 var(--mono);white-space:nowrap;overflow:hidden}
+.cal-b.free{background:var(--nila-wash);color:var(--nila)}
+.cal-b.trav{border:1px solid var(--ink);color:var(--ink)}
+.cal-b.meet{background:var(--nila);color:#fff}
+.cal-b.out{border:1px dashed var(--ink-3);color:var(--ink-2);justify-content:center;padding:0}
+.cal-n{margin-top:8px;font:400 11px/1.3 var(--mono);color:var(--ink-3);text-align:right;border-right:1px solid var(--ink-3);padding-right:6px}
+.cal .source{margin-top:18px}
+.h3{font-size:clamp(26px,2.4vw,34px);line-height:1.1}
+.avail-p{margin-top:16px;color:var(--ink-2);max-width:52ch}
+.doms{margin-top:30px;border-top:1px solid var(--ink)}
+.doms>div{display:grid;grid-template-columns:26px minmax(0,1fr);gap:4px 16px;padding:20px 0;border-bottom:1px solid var(--rule)}
+.doms .seat{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--ink-2);margin-top:6px}
+.doms .ask .seat{background:var(--nila);border-color:var(--nila);box-shadow:0 0 0 4px var(--nila-wash)}
+.doms dt{font:600 21px/1.25 var(--serif)}
+.doms dt span{font:600 10.5px/1 var(--sans);letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3);margin-left:10px;vertical-align:3px}
+.doms .ask dt span{color:var(--nila)}
+.doms dd{grid-column:2;font-size:15.5px;line-height:1.5;color:var(--ink-2)}
+/* cta */
+.cta{position:relative;overflow:hidden;padding:clamp(96px,12vw,180px) 0 clamp(80px,9vw,120px);border-top:1px solid var(--rule)}
+.cta-wheel{position:absolute;right:-14vw;top:50%;width:min(80vw,900px);height:auto;transform:translateY(-50%);color:var(--nila);opacity:.16;pointer-events:none}
+.cta .wrap{position:relative}
+.cta-h{font-size:clamp(56px,10.5vw,164px);line-height:.95;letter-spacing:-.035em}
+.audition{max-width:720px;border:1px solid var(--ink);border-radius:16px;padding:24px 26px 22px;background:var(--card)}
+.audition .eyebrow{margin-bottom:10px;color:var(--nila)}
+.audition blockquote p{font:500 clamp(21px,2vw,26px)/1.3 var(--serif)}
+.audition blockquote footer{margin-top:10px;font-size:14.5px;color:var(--ink-2)}
+.audition .why{margin-top:14px;padding-top:12px;border-top:1px dashed var(--rule-2);font-size:15px;color:var(--ink-2)}
+.cta-q{margin-top:34px;font:400 clamp(18px,1.6vw,21px)/1.5 var(--serif);color:var(--ink-2);max-width:56ch}
+.cta-links{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
+.opill{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--ink);border-radius:999px;padding:15px 22px;font:500 15px/1 var(--sans);text-decoration:none;background:rgba(246,245,242,.7)}
+.opill:hover{background:var(--ink);color:var(--paper)}
+.cta-links .pill{font-family:var(--sans);font-size:15.5px;padding:15px 24px}
+.cta-mail{margin-top:16px;font:500 13px/1.4 var(--mono);color:var(--ink-2)}
+/* footer */
+.foot{border-top:1px solid var(--rule);padding:28px 0 96px;font-size:14.5px;color:var(--ink-2)}
+.foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px 40px;align-items:flex-start}
+.foot p strong{font:600 16px/1.4 var(--serif);color:var(--ink)}
+.foot details{max-width:620px}
+.foot summary{cursor:pointer;font:500 13px/1.4 var(--mono);color:var(--ink)}
+.foot details ul{margin-top:12px;display:grid;gap:6px;font:400 12.5px/1.45 var(--mono)}
+/* fab + console */
+@media (max-width:640px){html .fab{padding:8px 12px 8px 8px;font-size:12px}}
+.fab{position:fixed;right:clamp(14px,2vw,28px);bottom:clamp(14px,2vw,28px);z-index:40;display:inline-flex;gap:9px;align-items:center;background:var(--night);color:var(--night-ink);border:0;border-radius:999px;padding:9px 16px 9px 9px;font:500 13px/1 var(--mono);cursor:pointer;box-shadow:0 14px 30px -12px rgba(18,19,25,.55);transition:transform .25s ease,opacity .25s ease}
+.fab kbd{background:#262936;color:var(--night-ink);border-color:#3a3d4a}
+.fab:hover{background:var(--nila)}
+.fab:focus-visible{outline-color:var(--nila)}
+html.con-open .fab{opacity:0;pointer-events:none}
+.con{position:fixed;inset:auto 0 0;margin:0 auto;width:min(960px,100%);max-width:100%;height:min(74vh,660px);max-height:100%;padding:0;border:0;border-radius:18px 18px 0 0;background:var(--night);color:var(--night-ink);flex-direction:column;box-shadow:0 -30px 90px -20px rgba(0,0,0,.5);transform:translateY(104%);transition:transform .38s cubic-bezier(.2,.8,.2,1);overflow:hidden}
+.con[open]{display:flex}
+.con.is-open{transform:none}
+.con::backdrop{background:rgba(18,19,25,.4)}
+@media (prefers-reduced-motion:reduce){.con{transition:none}}
+@media (max-width:640px){.con{height:88vh;height:88svh;border-radius:14px 14px 0 0}}
+.con :focus-visible{outline-color:var(--night-nila)}
+.con-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px 12px 18px;border-bottom:1px solid var(--night-line)}
+.con-title{display:flex;gap:10px;align-items:center;font:500 13px/1.2 var(--mono);color:var(--night-ink);min-width:0}
+.con-title svg{width:18px;height:18px;color:var(--night-nila);flex:none}
+.con-title span{color:var(--night-mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.con-x{display:inline-flex;align-items:center;gap:8px;background:transparent;border:1px solid #3a3d4a;color:var(--night-ink);border-radius:8px;padding:6px 10px;cursor:pointer;font:500 12px/1 var(--mono)}
+.con-x:hover{border-color:var(--night-nila)}
+.con-out{flex:1;overflow:auto;padding:18px 20px 10px;font:400 14px/1.62 var(--mono);overscroll-behavior:contain;scrollbar-color:#3a3d4a transparent}
+.con-out .blk{margin-bottom:18px;max-width:84ch}
+.con-out p{margin:0 0 3px}
+.c-cmd{color:var(--night-nila);font-weight:500}
+.c-cmd::before{content:"› ";color:var(--night-mut)}
+.c-h{color:#fff;font-weight:600}
+.c-h::before{content:"● ";color:var(--night-nila)}
+.c-li{padding-left:1.6em;text-indent:-1.1em}
+.c-li::before{content:"• ";color:var(--night-nila)}
+.c-src{color:var(--night-mut);font-size:12.5px}
+.c-src::before{content:"└ "}
+.c-ok{color:#c9f0d0}
+.c-err{color:#ffb4a8}
+.c-kv{display:grid;grid-template-columns:16ch minmax(0,1fr);gap:0 14px}
+.c-kv b{color:var(--night-nila);font-weight:500}
+.c-kv span{color:var(--night-ink)}
+.con-out a{color:var(--night-nila)}
+.con-out .caret{display:inline-block;width:.55em;height:1.05em;background:var(--night-nila);vertical-align:-.16em;margin-left:1px}
+.con-chips{display:flex;gap:8px;overflow-x:auto;padding:10px 14px;border-top:1px solid var(--night-line);scrollbar-width:none;-webkit-mask:linear-gradient(90deg,#000 calc(100% - 48px),transparent);mask:linear-gradient(90deg,#000 calc(100% - 48px),transparent)}
+.con-chips button:last-child{margin-right:40px}
+.con-chips::-webkit-scrollbar{display:none}
+.con-chips button{flex:none;font:500 12.5px/1 var(--mono);color:var(--night-ink);background:var(--night-2);border:1px solid #2f3242;border-radius:999px;padding:8px 12px;cursor:pointer}
+.con-chips button:hover{border-color:var(--night-nila);color:#fff}
+.con-in{display:flex;align-items:center;gap:10px;margin:2px 12px 0;padding:11px 14px;border:1px solid #3a3d4a;border-radius:10px;background:#0d0e13}
+.con-in span{color:var(--night-nila);font:600 17px/1 var(--mono)}
+.con-in input{flex:1;min-width:0;background:transparent;border:0;color:var(--night-ink);font:400 16px/1.3 var(--mono);outline:none;caret-color:var(--night-nila)}
+.con-in input::placeholder{color:#8d8a82}
+.con-in:focus-within{border-color:var(--night-nila);box-shadow:0 0 0 3px rgba(169,181,255,.18)}
+.con-status{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;padding:10px 18px 14px;font:400 12px/1.2 var(--mono);color:var(--night-mut)}
+.con-status .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#7fd69a;margin-right:7px;vertical-align:1px}
+.con-status.busy .dot{background:var(--night-nila)}
+.ctx{display:inline-flex;align-items:center;gap:8px}
+.ctx b{display:inline-block;width:72px;height:6px;border-radius:3px;background:#2a2d3a;overflow:hidden}
+.ctx b i{display:block;height:100%;width:12%;background:var(--night-nila);transition:width .4s ease}
+.con-status .esc{margin-left:auto}
+@media (max-width:640px){.con-status .esc{display:none}.c-kv{grid-template-columns:minmax(0,1fr)}.c-kv span{margin-bottom:6px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="loader" aria-hidden="true">
+  <div class="loader-in">
+    <svg viewBox="0 0 24 24"><use href="#g-ratha"/></svg>
+    <div class="loader-bar"><i></i></div>
+    <p class="loader-txt"><span>Loading context…</span><span class="loader-pct">0%</span></p>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#main" aria-label="Why Pradyuman, back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-ratha"/></svg>Why Pradyuman</a>
+    <div class="nav-r">
+      <nav aria-label="Sections"><ul>
+        <li><a href="#ride">The ride</a></li>
+        <li><a href="#hood">Under the hood</a></li>
+        <li><a href="#powers">Superpowers</a></li>
+        <li><a href="#availability">Availability</a></li>
+      </ul></nav>
+      <button class="kbtn" type="button" data-console=""><kbd>/</kbd>console</button>
+    </div>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<section class="hero" aria-labelledby="hero-h">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow rv" style="--d:0">For IIT Roorkee’s Student Technical Council</p>
+      <h1 class="display" id="hero-h"><span class="rv" style="--d:80">Every model needs a harness.</span> <span class="l2 rv" style="--d:220">Every harness needs a charioteer.</span></h1>
+      <div class="hero-who rv" style="--d:420">
+        <div class="plate"><div class="duo"><img src="assets/headshot-square.jpg" width="480" height="480" decoding="async" fetchpriority="high" alt="Pradyuman Singh Shekhawat, in glasses and a brown jacket, outdoors with a mountainside behind him."></div></div>
+        <p class="hero-sub"><strong>Pradyuman Singh Shekhawat</strong><span class="sr-only"> · </span>Inter-IIT Tech Meet 15.0 · No-Prep · Harness Engineering</p>
+      </div>
+      <p class="hero-p rv" style="--d:500">He has already done the job this domain is named after. At Databricks he ran his internship as an agent loop, built a daily-planner agent his team adopted, and gave a demo that reached VP level. In public: a multi-agent system ranked 11th of 46 submissions on generalisation at CLEF 2026.</p>
+      <div class="hero-cta rv" style="--d:600">
+        <button class="pill" type="button" data-console="/why-pradyuman"><span class="run" aria-hidden="true"><svg viewBox="0 0 10 10"><path d="M1 0l8 5-8 5z" fill="currentColor"/></svg></span>Run /why-pradyuman</button>
+        <p class="hint">or press <kbd>/</kbd> anywhere</p>
+      </div>
+    </div>
+
+    <figure class="proof rv" style="--d:300" aria-labelledby="proof-t">
+      <p class="proof-k">Terminal-Bench 2.0 · tasks solved, %</p>
+      <h2 class="proof-t" id="proof-t">Same model, different harness</h2>
+      <div class="db" role="img" aria-label="Dumbbell chart of Terminal-Bench 2.0 scores. GPT-5: 33.9% in Mini-SWE-Agent, 49.6% in Codex CLI, 15.7 points apart. Claude Opus 4.5: 52.1% in Claude Code, 57.8% in Terminus 2, 5.7 points apart. Gemini 2.5 Pro: 19.6% in Gemini CLI, 32.6% in Terminus 2, 13.0 points apart.">
+                <div class="db-row" style="--lo:33.9;--hi:49.6;--i:0" aria-hidden="true">
+          <div class="db-head"><span class="db-model">GPT-5</span><span class="db-delta">+15.7 pts</span></div>
+          <div class="db-track"><span class="db-line"></span><span class="db-dot lo"></span><span class="db-dot hi"></span>
+            <span class="db-lab lo e">Mini-SWE-Agent <b>33.9</b></span><span class="db-lab hi e">Codex CLI <b>49.6</b></span></div>
+        </div>
+        <div class="db-row" style="--lo:52.1;--hi:57.8;--i:1" aria-hidden="true">
+          <div class="db-head"><span class="db-model">Claude Opus 4.5</span><span class="db-delta">+5.7 pts</span></div>
+          <div class="db-track"><span class="db-line"></span><span class="db-dot lo"></span><span class="db-dot hi"></span>
+            <span class="db-lab lo e">Claude Code <b>52.1</b></span><span class="db-lab hi e">Terminus 2 <b>57.8</b></span></div>
+        </div>
+        <div class="db-row" style="--lo:19.6;--hi:32.6;--i:2" aria-hidden="true">
+          <div class="db-head"><span class="db-model">Gemini 2.5 Pro</span><span class="db-delta">+13.0 pts</span></div>
+          <div class="db-track"><span class="db-line"></span><span class="db-dot lo"></span><span class="db-dot hi"></span>
+            <span class="db-lab lo s">Gemini CLI <b>19.6</b></span><span class="db-lab hi e">Terminus 2 <b>32.6</b></span></div>
+        </div>
+        <div class="db-axis" aria-hidden="true"><span style="--v:0">0</span><span style="--v:10">10</span><span style="--v:20">20</span><span style="--v:30">30</span><span style="--v:40">40</span><span style="--v:50">50</span><span style="--v:60">60%</span></div>
+      </div>
+      <p class="proof-note">The harness moves the score. That’s the job.</p>
+      <p class="source">Source: Terminal-Bench 2.0 paper, Table 2, <a href="https://arxiv.org/html/2601.11868v1">arxiv.org/html/2601.11868v1</a>. 95% intervals are about ±2–3 points.</p>
+    </figure>
+  </div>
+</section>
+
+<section class="verse" aria-labelledby="verse-h">
+  <div class="wrap verse-grid">
+    <div class="verse-intro">
+      <p class="eyebrow">Why a chariot</p>
+      <h2 class="h2" id="verse-h">“Harness” is horse tack.</h2>
+      <p class="lead">It is the gear that turns a powerful horse into a chariot that goes where you point it. The Kaṭha Upaniṣad drew the same diagram for the mind, and it reads like an agent architecture.</p>
+      <p class="lead">The metaphor is his own: he played the lead in a classical Sanskrit play and volunteers with the Sanskrit Club.</p>
+    </div>
+    <blockquote class="sloka">
+      <p class="deva" lang="sa"><span><span class="pada">आत्मानं रथिनं विद्धि</span> <span class="pada">शरीरं रथमेव तु ।</span></span><span><span class="pada">बुद्धिं तु सारथिं विद्धि</span> <span class="pada">मनः प्रग्रहमेव च ॥</span></span></p>
+      <p class="iast" lang="sa-Latn"><span><span class="pada">ātmānaṁ rathinaṁ viddhi</span> <span class="pada">śarīraṁ ratham eva tu</span></span><span><span class="pada">buddhiṁ tu sārathiṁ viddhi</span> <span class="pada">manaḥ pragraham eva ca</span></span></p>
+      <p class="trans">Know the self as the rider, and the body as the chariot. Know the intellect as the charioteer, and the mind as the reins.</p>
+      <cite>Kaṭha Upaniṣad 1.3.3</cite>
+      <div class="next">
+        <p class="iast" lang="sa-Latn"><span class="pada">indriyāṇi hayān āhur</span> <span class="pada">viṣayāṁs teṣu gocarān</span></p>
+        <p class="trans">The senses, they say, are the horses, and the things they reach for are the roads they run on.</p>
+        <cite>Kaṭha Upaniṣad 1.3.4</cite>
+      </div>
+    </blockquote>
+    <h3 class="map-h">Read it as an engineer, and every part has a job.</h3>
+    <dl class="map">
+      <div><dt><span class="n">The goal</span>Rathin<span>the rider</span></dt><dd>the user, with a goal</dd></div>
+      <div><dt><span class="n">Station 1</span>Ashva<span>the horses</span></dt><dd>the models</dd></div>
+      <div><dt><span class="n">Station 2</span>Rashmi<span>the reins</span></dt><dd>context and memory</dd></div>
+      <div><dt><span class="n">Station 3</span>Sārathi<span>the charioteer</span></dt><dd>orchestration</dd></div>
+      <div><dt><span class="n">Station 4</span>Ratha<span>the chariot</span></dt><dd>the harness itself</dd></div>
+      <div><dt><span class="n">Station 5</span>Mārga<span>the road</span></dt><dd>the task, and in December, the Meet</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="ride" id="ride" aria-labelledby="ride-h">
+  <div class="ride-body">
+    <div class="ride-stage" data-active="">
+      <svg class="chariot" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="ch-t ch-d">
+<title id="ch-t">The chariot of the Kaṭha Upaniṣad, drawn as a harness</title>
+<desc id="ch-d">A line-art chariot: two horses (the models), reins (context and memory), a seated charioteer (orchestration), a rider (the user), the chariot box and its spoked wheel (the harness), and the road (the task). As you scroll, the part under discussion is highlighted and the wheel turns.</desc>
+<defs>
+  <pattern id="hk" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(38)"><path d="M0 0V5" stroke="#1b1a17" stroke-width=".7" opacity=".5"/></pattern>
+  <pattern id="hn" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(38)"><path d="M0 0V5" stroke="#2b3a8f" stroke-width=".85" opacity=".7"/></pattern>
+  <pattern id="hk2" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(38)"><path d="M0 0V3" stroke="#1b1a17" stroke-width=".4" opacity=".5"/></pattern>
+  <pattern id="hn2" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(38)"><path d="M0 0V3" stroke="#2b3a8f" stroke-width=".48" opacity=".72"/></pattern>
+  <pattern id="st" width="11" height="9" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".9" fill="#1b1a17" opacity=".32"/><circle cx="7.5" cy="6.5" r=".7" fill="#1b1a17" opacity=".22"/></pattern>
+  </defs>
+<g id="cam">
+  <g class="part p-marga">
+    <rect class="stip" x="-3000" y="613" width="7200" height="160"/>
+    <path class="road" d="M-3000 634H4200" stroke-dasharray="3 15"/>
+    <path class="road" d="M-3000 660H4200" stroke-dasharray="12 26"/>
+    <path class="road" d="M-3000 696H4200" stroke-dasharray="30 46"/>
+    <path pathLength="1" class="ln bold" d="M-3000 612H4200"/>
+  </g>
+  <g class="part p-ashva"><g transform="translate(612 222) scale(1.8)" opacity=".45"><g class="horse">
+    <path pathLength="1" class="ln f" d="M60 120C52 134 44 146 37 154L41 178L49 179L47 157C55 148 63 138 70 127Z"/>
+    <path class="pf" d="M40 84C64 66 112 64 156 66C172 56 190 34 206 14L210 0L217 11C230 20 248 38 258 56C261 62 258 68 251 68C244 68 238 66 233 62C228 62 224 60 221 58C214 72 208 92 205 108C204 118 200 125 196 128L216 150L212 170L218 178L208 182L202 174L204 156L186 138L186 172L188 196L194 207L178 209L176 198L174 171L170 140C150 144 116 144 94 138C100 150 99 164 98 172L96 196L102 207L86 209L86 198L84 174C80 166 76 162 74 158C64 150 54 136 50 122C46 108 38 96 40 84Z"/>
+    <path pathLength="1" class="ln hf" d="M40 84C64 66 112 64 156 66C172 56 190 34 206 14L210 0L217 11C230 20 248 38 258 56C261 62 258 68 251 68C244 68 238 66 233 62C228 62 224 60 221 58C214 72 208 92 205 108C204 118 200 125 196 128L216 150L212 170L218 178L208 182L202 174L204 156L186 138L186 172L188 196L194 207L178 209L176 198L174 171L170 140C150 144 116 144 94 138C100 150 99 164 98 172L96 196L102 207L86 209L86 198L84 174C80 166 76 162 74 158C64 150 54 136 50 122C46 108 38 96 40 84Z"/>
+    <path pathLength="1" class="ln" d="M42 86C24 92 14 112 10 138M44 92C30 102 24 120 22 146M41 90C31 106 30 128 33 152"/>
+    <path pathLength="1" class="ln thin" d="M164 61L171 47M172 56L180 41M180 50L188 35M188 43L196 28M196 35L203 22"/>
+    <path pathLength="1" class="ln thin" d="M172 74C182 94 188 112 186 132M66 92C82 102 92 118 94 136M236 66L227 40L212 16M227 40L250 46"/>
+    <circle class="ink" cx="232" cy="30" r="2.3"/>
+  </g></g></g>
+  <g class="part p-ratha">
+    <path pathLength="1" class="ln bold" d="M604 448C700 446 830 404 933 356"/>
+    <path pathLength="1" class="ln thin" d="M604 455C704 453 836 411 937 363"/>
+    <path pathLength="1" class="ln" d="M236 440V128"/>
+    <path pathLength="1" class="ln hf" d="M236 132C262 138 286 146 312 152C286 160 262 166 236 172Z"/>
+    <circle pathLength="1" class="ln f" cx="236" cy="122" r="5"/>
+  </g>
+  <g class="part p-rathin">
+    <path pathLength="1" class="ln f" d="M396 258C389 288 390 320 393 350L419 350C423 320 422 286 413 258Z"/>
+    <path pathLength="1" class="ln" d="M413 268C429 284 437 306 441 332"/>
+    <circle pathLength="1" class="ln f" cx="404" cy="245" r="14"/>
+    <path pathLength="1" class="ln hf" d="M390 243C389 228 398 221 406 221C417 221 421 230 419 243C410 237 398 237 390 243Z"/>
+  </g>
+  <g class="part p-sarathi">
+    <path pathLength="1" class="ln f" d="M560 310C555 324 557 338 561 350L596 350C593 332 587 318 576 309Z"/>
+    <path pathLength="1" class="ln" d="M575 313L590 333L612 348M570 320L584 341L609 354"/>
+    <circle pathLength="1" class="ln f" cx="568" cy="296" r="14"/>
+    <path pathLength="1" class="ln hf" d="M554 294C553 279 562 272 570 272C581 272 585 281 583 294C574 288 562 288 554 294Z"/>
+  </g>
+  <g class="part p-ratha">
+    <path pathLength="1" class="ln f" d="M222 440L222 366C222 354 230 348 242 348L516 348C556 348 588 366 602 396C610 414 608 434 594 440Z"/>
+    <path pathLength="1" class="ln thin" d="M240 364L520 364C548 364 572 378 586 398"/>
+    <path pathLength="1" class="ln thin" d="M262 366V420M300 366V420M338 366V420M376 366V420M414 366V420M452 366V420M490 366V420M528 368V420M562 380V420"/>
+    <path pathLength="1" class="ln thin hf" d="M222 420H606C607 430 603 437 594 440H222Z"/>
+    <path pathLength="1" class="ln f" d="M206 440H612V452H206Z"/>
+  </g>
+  <g class="part p-ashva"><g transform="translate(652 234) scale(1.8)"><g class="horse">
+    <path pathLength="1" class="ln f" d="M60 120C52 134 44 146 37 154L41 178L49 179L47 157C55 148 63 138 70 127Z"/>
+    <path class="pf" d="M40 84C64 66 112 64 156 66C172 56 190 34 206 14L210 0L217 11C230 20 248 38 258 56C261 62 258 68 251 68C244 68 238 66 233 62C228 62 224 60 221 58C214 72 208 92 205 108C204 118 200 125 196 128L216 150L212 170L218 178L208 182L202 174L204 156L186 138L186 172L188 196L194 207L178 209L176 198L174 171L170 140C150 144 116 144 94 138C100 150 99 164 98 172L96 196L102 207L86 209L86 198L84 174C80 166 76 162 74 158C64 150 54 136 50 122C46 108 38 96 40 84Z"/>
+    <path pathLength="1" class="ln hf" d="M40 84C64 66 112 64 156 66C172 56 190 34 206 14L210 0L217 11C230 20 248 38 258 56C261 62 258 68 251 68C244 68 238 66 233 62C228 62 224 60 221 58C214 72 208 92 205 108C204 118 200 125 196 128L216 150L212 170L218 178L208 182L202 174L204 156L186 138L186 172L188 196L194 207L178 209L176 198L174 171L170 140C150 144 116 144 94 138C100 150 99 164 98 172L96 196L102 207L86 209L86 198L84 174C80 166 76 162 74 158C64 150 54 136 50 122C46 108 38 96 40 84Z"/>
+    <path pathLength="1" class="ln" d="M42 86C24 92 14 112 10 138M44 92C30 102 24 120 22 146M41 90C31 106 30 128 33 152"/>
+    <path pathLength="1" class="ln thin" d="M164 61L171 47M172 56L180 41M180 50L188 35M188 43L196 28M196 35L203 22"/>
+    <path pathLength="1" class="ln thin" d="M172 74C182 94 188 112 186 132M66 92C82 102 92 118 94 136M236 66L227 40L212 16M227 40L250 46"/>
+    <circle class="ink" cx="232" cy="30" r="2.3"/>
+  </g></g></g>
+  <g class="part p-ratha">
+    <path pathLength="1" class="ln bold" d="M906 364C916 340 950 336 962 356"/>
+    <path pathLength="1" class="ln thin" d="M920 348V368M948 342V362"/>
+  </g>
+  <g class="part p-rashmi">
+    <path pathLength="1" class="ln" d="M612 350C760 378 930 352 1098 349"/>
+    <path pathLength="1" class="ln" d="M612 354C770 386 920 350 1058 337"/>
+  </g>
+  <g class="part p-ratha"><g id="wheel"><circle class="rimband" cx="360" cy="470" r="135"/><circle pathLength="1" class="ln bold" cx="360" cy="470" r="142"/><circle pathLength="1" class="ln" cx="360" cy="470" r="128"/><circle pathLength="1" class="ln thin" cx="360" cy="470" r="113"/><circle pathLength="1" class="ln thin f" cx="360" cy="335" r="2.3"/><circle pathLength="1" class="ln thin f" cx="383.4" cy="337.1" r="2.3"/><circle pathLength="1" class="ln thin f" cx="406.2" cy="343.1" r="2.3"/><circle pathLength="1" class="ln thin f" cx="427.5" cy="353.1" r="2.3"/><circle pathLength="1" class="ln thin f" cx="446.8" cy="366.6" r="2.3"/><circle pathLength="1" class="ln thin f" cx="463.4" cy="383.2" r="2.3"/><circle pathLength="1" class="ln thin f" cx="476.9" cy="402.5" r="2.3"/><circle pathLength="1" class="ln thin f" cx="486.9" cy="423.8" r="2.3"/><circle pathLength="1" class="ln thin f" cx="492.9" cy="446.6" r="2.3"/><circle pathLength="1" class="ln thin f" cx="495" cy="470" r="2.3"/><circle pathLength="1" class="ln thin f" cx="492.9" cy="493.4" r="2.3"/><circle pathLength="1" class="ln thin f" cx="486.9" cy="516.2" r="2.3"/><circle pathLength="1" class="ln thin f" cx="476.9" cy="537.5" r="2.3"/><circle pathLength="1" class="ln thin f" cx="463.4" cy="556.8" r="2.3"/><circle pathLength="1" class="ln thin f" cx="446.8" cy="573.4" r="2.3"/><circle pathLength="1" class="ln thin f" cx="427.5" cy="586.9" r="2.3"/><circle pathLength="1" class="ln thin f" cx="406.2" cy="596.9" r="2.3"/><circle pathLength="1" class="ln thin f" cx="383.4" cy="602.9" r="2.3"/><circle pathLength="1" class="ln thin f" cx="360" cy="605" r="2.3"/><circle pathLength="1" class="ln thin f" cx="336.6" cy="602.9" r="2.3"/><circle pathLength="1" class="ln thin f" cx="313.8" cy="596.9" r="2.3"/><circle pathLength="1" class="ln thin f" cx="292.5" cy="586.9" r="2.3"/><circle pathLength="1" class="ln thin f" cx="273.2" cy="573.4" r="2.3"/><circle pathLength="1" class="ln thin f" cx="256.6" cy="556.8" r="2.3"/><circle pathLength="1" class="ln thin f" cx="243.1" cy="537.5" r="2.3"/><circle pathLength="1" class="ln thin f" cx="233.1" cy="516.2" r="2.3"/><circle pathLength="1" class="ln thin f" cx="227.1" cy="493.4" r="2.3"/><circle pathLength="1" class="ln thin f" cx="225" cy="470" r="2.3"/><circle pathLength="1" class="ln thin f" cx="227.1" cy="446.6" r="2.3"/><circle pathLength="1" class="ln thin f" cx="233.1" cy="423.8" r="2.3"/><circle pathLength="1" class="ln thin f" cx="243.1" cy="402.5" r="2.3"/><circle pathLength="1" class="ln thin f" cx="256.6" cy="383.2" r="2.3"/><circle pathLength="1" class="ln thin f" cx="273.2" cy="366.6" r="2.3"/><circle pathLength="1" class="ln thin f" cx="292.5" cy="353.1" r="2.3"/><circle pathLength="1" class="ln thin f" cx="313.8" cy="343.1" r="2.3"/><circle pathLength="1" class="ln thin f" cx="336.6" cy="337.1" r="2.3"/><path pathLength="1" class="ln hf" d="M354.8 422L353.5 357L366.5 357L365.2 422Z"/><path pathLength="1" class="ln hf" d="M390.3 432.4L435.3 385.5L444.5 394.7L397.6 439.7Z"/><path pathLength="1" class="ln hf" d="M408 464.8L473 463.5L473 476.5L408 475.2Z"/><path pathLength="1" class="ln hf" d="M397.6 500.3L444.5 545.3L435.3 554.5L390.3 507.6Z"/><path pathLength="1" class="ln hf" d="M365.2 518L366.5 583L353.5 583L354.8 518Z"/><path pathLength="1" class="ln hf" d="M329.7 507.6L284.7 554.5L275.5 545.3L322.4 500.3Z"/><path pathLength="1" class="ln hf" d="M312 475.2L247 476.5L247 463.5L312 464.8Z"/><path pathLength="1" class="ln hf" d="M322.4 439.7L275.5 394.7L284.7 385.5L329.7 432.4Z"/><path pathLength="1" class="ln" d="M378.4 425.7L403.2 365.6"/><path pathLength="1" class="ln" d="M404.3 451.6L464.4 426.8"/><path pathLength="1" class="ln" d="M404.3 488.4L464.4 513.2"/><path pathLength="1" class="ln" d="M378.4 514.3L403.2 574.4"/><path pathLength="1" class="ln" d="M341.6 514.3L316.8 574.4"/><path pathLength="1" class="ln" d="M315.7 488.4L255.6 513.2"/><path pathLength="1" class="ln" d="M315.7 451.6L255.6 426.8"/><path pathLength="1" class="ln" d="M341.6 425.7L316.8 365.6"/><circle pathLength="1" class="ln f" cx="360" cy="388" r="9"/><circle class="ink" cx="360" cy="388" r="2.6"/><circle pathLength="1" class="ln f" cx="418" cy="412" r="9"/><circle class="ink" cx="418" cy="412" r="2.6"/><circle pathLength="1" class="ln f" cx="442" cy="470" r="9"/><circle class="ink" cx="442" cy="470" r="2.6"/><circle pathLength="1" class="ln f" cx="418" cy="528" r="9"/><circle class="ink" cx="418" cy="528" r="2.6"/><circle pathLength="1" class="ln f" cx="360" cy="552" r="9"/><circle class="ink" cx="360" cy="552" r="2.6"/><circle pathLength="1" class="ln f" cx="302" cy="528" r="9"/><circle class="ink" cx="302" cy="528" r="2.6"/><circle pathLength="1" class="ln f" cx="278" cy="470" r="9"/><circle class="ink" cx="278" cy="470" r="2.6"/><circle pathLength="1" class="ln f" cx="302" cy="412" r="9"/><circle class="ink" cx="302" cy="412" r="2.6"/><circle pathLength="1" class="ln f thin" cx="360" cy="470" r="48"/><path pathLength="1" class="ln thin" d="M360 440Q353.7 430.5 360 423Q366.3 430.5 360 440"/><path pathLength="1" class="ln thin" d="M371.5 442.3Q369.3 431.1 378 426.6Q380.9 435.9 371.5 442.3"/><path pathLength="1" class="ln thin" d="M381.2 448.8Q383.5 437.6 393.2 436.8Q392.4 446.5 381.2 448.8"/><path pathLength="1" class="ln thin" d="M387.7 458.5Q394.1 449.1 403.4 452Q398.9 460.7 387.7 458.5"/><path pathLength="1" class="ln thin" d="M390 470Q399.5 463.7 407 470Q399.5 476.3 390 470"/><path pathLength="1" class="ln thin" d="M387.7 481.5Q398.9 479.3 403.4 488Q394.1 490.9 387.7 481.5"/><path pathLength="1" class="ln thin" d="M381.2 491.2Q392.4 493.5 393.2 503.2Q383.5 502.4 381.2 491.2"/><path pathLength="1" class="ln thin" d="M371.5 497.7Q380.9 504.1 378 513.4Q369.3 508.9 371.5 497.7"/><path pathLength="1" class="ln thin" d="M360 500Q366.3 509.5 360 517Q353.7 509.5 360 500"/><path pathLength="1" class="ln thin" d="M348.5 497.7Q350.7 508.9 342 513.4Q339.1 504.1 348.5 497.7"/><path pathLength="1" class="ln thin" d="M338.8 491.2Q336.5 502.4 326.8 503.2Q327.6 493.5 338.8 491.2"/><path pathLength="1" class="ln thin" d="M332.3 481.5Q325.9 490.9 316.6 488Q321.1 479.3 332.3 481.5"/><path pathLength="1" class="ln thin" d="M330 470Q320.5 476.3 313 470Q320.5 463.7 330 470"/><path pathLength="1" class="ln thin" d="M332.3 458.5Q321.1 460.7 316.6 452Q325.9 449.1 332.3 458.5"/><path pathLength="1" class="ln thin" d="M338.8 448.8Q327.6 446.5 326.8 436.8Q336.5 437.6 338.8 448.8"/><path pathLength="1" class="ln thin" d="M348.5 442.3Q339.1 435.9 342 426.6Q350.7 431.1 348.5 442.3"/><circle pathLength="1" class="ln f" cx="360" cy="470" r="30"/><circle pathLength="1" class="ln hf" cx="360" cy="470" r="15"/><circle class="ink" cx="360" cy="470" r="5"/></g></g>
+</g>
+</svg>
+
+      <div class="tags" aria-hidden="true">
+        <div class="tag dn" data-k="ashva" style="--lh:84px"><i></i><span><b>Ashva</b>horses = the models</span></div>
+        <div class="tag" data-k="rashmi" style="--lh:40px"><i></i><span><b>Rashmi</b>reins = context, memory</span></div>
+        <div class="tag" data-k="sarathi" style="--lh:44px"><i></i><span><b>Sārathi</b>charioteer = orchestration</span></div>
+        <div class="tag dn" data-k="ratha" style="--lh:52px"><i></i><span><b>Ratha</b>chariot = the harness</span></div>
+        <div class="tag dn" data-k="marga" style="--lh:16px"><i></i><span><b>Mārga</b>road = the task</span></div>
+        <div class="tag flip" data-k="rathin" style="--lh:88px"><i></i><span><b>Rathin</b>rider = the user</span></div>
+      </div>
+      <ol class="stepper" aria-label="Stations of the ride">
+        <li><button type="button" data-go="0" aria-current="false"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-ashva"/></svg><span>Ashva</span></button></li>
+        <li><button type="button" data-go="1" aria-current="false"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-rashmi"/></svg><span>Rashmi</span></button></li>
+        <li><button type="button" data-go="2" aria-current="false"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-sarathi"/></svg><span>Sārathi</span></button></li>
+        <li><button type="button" data-go="3" aria-current="false"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-ratha"/></svg><span>Ratha</span></button></li>
+        <li><button type="button" data-go="4" aria-current="false"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-marga"/></svg><span>Mārga</span></button></li>
+      </ol>
+    </div>
+
+    <div class="ride-steps">
+      <div class="wrap">
+        <div class="ride-intro">
+          <p class="eyebrow">The ride</p>
+          <h2 class="h2" id="ride-h">Five stations, one chariot.</h2>
+          <p class="lead">Scroll to drive. At each station: one part of the harness, and what he has already built for it.</p>
+        </div>
+
+        <article class="station" id="ashva" aria-labelledby="st1">
+          <div class="card">
+            <div class="st-top"><span>Station 1 of 5</span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-ashva"/></svg></div>
+            <h3 class="st-name" id="st1" tabindex="-1">Ashva <span class="deva" lang="sa">अश्व</span></h3>
+            <p class="st-role">The horses are the models</p>
+            <h4 class="st-h">Pick the horse by cost per solved task, not price per token.</h4>
+            <p class="st-p">At Databricks he wrote an efficiency-vs-cost report on every Claude model, every OpenAI model then on the market, Grok and Cursor’s agent. His whole team read it, and it went out on the relevant org-wide Slack channel to everyone at Databricks.</p>
+            <figure class="viz">
+              <figcaption class="viz-t">Per-token price lies</figcaption>
+              <svg class="slope" viewBox="0 0 340 178" role="img" aria-labelledby="sl-t">
+                <title id="sl-t">Slope chart, both models scaled to Opus 5.5 equals 1. Per-token list price: Sonnet 5.5 is 0.5 times Opus 5.5 ($2 vs $4 per million input tokens). Full leaderboard run cost: Sonnet 5.5 is about 1.6 times Opus 5.5 ($7.3k vs $4.7k), with a lower score, 63.9% vs 65.8%.</title>
+                <g font-size="10.5" fill="#6e6a62"><text x="104" y="14" text-anchor="middle">price per token</text><text x="236" y="14" text-anchor="middle">cost of the full run</text></g>
+                <path d="M104 24V152M236 24V152" stroke="#dcd8cf"/>
+                <path d="M104 80H236" stroke="#1b1a17" stroke-width="2"/>
+                <path d="M104 115L236 41.5" stroke="#2b3a8f" stroke-width="2.6"/>
+                <circle cx="104" cy="80" r="4" fill="#1b1a17"/><circle cx="236" cy="80" r="4" fill="#1b1a17"/>
+                <circle cx="104" cy="115" r="4.5" fill="#2b3a8f"/><circle cx="236" cy="41.5" r="4.5" fill="#2b3a8f"/>
+                <g font-size="11"><text x="94" y="77" text-anchor="end" fill="#1b1a17">Opus 5.5</text><text x="94" y="90" text-anchor="end" fill="#55524b">$4 /MTok</text>
+                <text x="94" y="112" text-anchor="end" fill="#2b3a8f" font-weight="600">Sonnet 5.5</text><text x="94" y="125" text-anchor="end" fill="#2b3a8f">$2 /MTok</text>
+                <text x="246" y="77" fill="#1b1a17">$4.7k</text><text x="246" y="90" fill="#55524b">score 65.8%</text>
+                <text x="246" y="39" fill="#2b3a8f" font-weight="600">$7.3k, ≈1.6×</text><text x="246" y="52" fill="#2b3a8f">score 63.9%</text></g>
+                <text x="170" y="172" text-anchor="middle" font-size="9.5" fill="#6e6a62">both scaled to Opus 5.5 = 1×</text>
+              </svg>
+              <p class="viz-c">Sonnet 5.5 lists at half Opus 5.5’s per-token price, yet its full run cost about 1.6× more, for a lower score, because it used about 2.4× the tokens (19.4B vs 8.0B).</p>
+              <p class="source">Terminal-Bench 4.1 leaderboard, <a href="https://www.tbench.ai/leaderboard">tbench.ai</a>, read 26 Nov 2026; list prices from Anthropic’s <a href="https://www.anthropic.com/news/claude-sonnet-5-5">Sonnet 5.5</a> and <a href="https://www.anthropic.com/news/claude-opus-5-5">Opus 5.5</a> pages. Ratios are our arithmetic.</p>
+            </figure>
+          </div>
+        </article>
+
+        <article class="station" id="rashmi" aria-labelledby="st2">
+          <div class="card">
+            <div class="st-top"><span>Station 2 of 5</span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-rashmi"/></svg></div>
+            <h3 class="st-name" id="st2" tabindex="-1">Rashmi <span class="deva" lang="sa">रश्मि</span></h3>
+            <p class="st-role">The reins are context and memory</p>
+            <h4 class="st-h">Filesystem as memory: agents open only the branch a task needs.</h4>
+            <p class="st-p">All his agents and subagents read and wrote one hierarchical tree of markdown files, so a task opens only the branch it needs (progressive disclosure). On Databricks’ company-wide AI usage dashboard, his usage ran 2–3× below the intern cohort. That is a peer comparison, not a controlled test.</p>
+            <figure class="viz">
+              <svg class="tree" viewBox="0 0 340 88" role="img" aria-labelledby="tr-t">
+                <title id="tr-t">Schematic of a markdown folder tree: a root folder with three branches; one task opens a single branch down to the one file it needs, and the other branches stay closed.</title>
+                <g fill="none" stroke="#c9c4b9" stroke-width="1.1"><path d="M24 44C60 44 60 14 96 14M24 44H96M24 44C60 44 60 74 96 74"/><path d="M112 14C140 14 146 6 168 6M112 14C140 14 146 22 168 22M112 74C140 74 146 66 168 66M112 74C140 74 146 82 168 82M112 44C140 44 146 60 168 60"/></g>
+                <path d="M24 44H96M112 44H168M184 44H244" fill="none" stroke="#2b3a8f" stroke-width="1.8"/>
+                <g fill="#fdfcf9" stroke="#1b1a17" stroke-width="1.2"><rect x="8" y="38" width="16" height="12" rx="2"/><rect x="96" y="8" width="16" height="12" rx="2"/><rect x="96" y="68" width="16" height="12" rx="2"/></g>
+                <g fill="#fdfcf9" stroke="#2b3a8f" stroke-width="1.5"><rect x="96" y="38" width="16" height="12" rx="2"/><rect x="168" y="38" width="16" height="12" rx="2"/></g>
+                <g fill="#c9c4b9"><circle cx="172" cy="6" r="3"/><circle cx="172" cy="22" r="3"/><circle cx="172" cy="60" r="3"/><circle cx="172" cy="66" r="3"/><circle cx="172" cy="82" r="3"/></g>
+                <circle cx="248" cy="44" r="4.5" fill="#2b3a8f"/>
+                <text x="258" y="48" font-size="10.5" fill="#2b3a8f" font-weight="600">opened</text>
+              </svg>
+              <p class="viz-c">Schematic: one task, one branch, one file read. The rest of the tree stays closed.</p>
+            </figure>
+            <figure class="viz">
+              <figcaption class="viz-t">Context: Databricks published the same pattern as MemCurrent in Oct 2026</figcaption>
+              <div class="bars" role="img" aria-label="MemCurrent, Databricks figures. Input tokens per question: about 103 thousand for full-context replay versus about 8.4 thousand with memory, roughly 12 times fewer at about equal accuracy. Pass rate on Databricks' internal benchmark: 22.3% with no memory, 68.4% with MemCurrent.">
+                <p class="k" aria-hidden="true">Input tokens per question</p>
+                <span aria-hidden="true">Full-context replay</span><i aria-hidden="true" style="--w:100"></i><b aria-hidden="true">~103K</b>
+                <span aria-hidden="true">Memory + index</span><i class="hi" aria-hidden="true" style="--w:8.2"></i><b aria-hidden="true">~8.4K</b>
+                <p class="k" aria-hidden="true">Pass rate, Databricks’ internal benchmark</p>
+                <span aria-hidden="true">No memory</span><i aria-hidden="true" style="--w:22.3"></i><b aria-hidden="true">22.3%</b>
+                <span aria-hidden="true">MemCurrent</span><i class="hi" aria-hidden="true" style="--w:68.4"></i><b aria-hidden="true">68.4%</b>
+              </div>
+              <p class="source">Databricks, <a href="https://www.databricks.com/blog/memcurrent-designing-persistent-memory-production-agents">“MemCurrent”</a>, Oct 2026. These are Databricks’ figures, not his.</p>
+            </figure>
+          </div>
+        </article>
+
+        <article class="station" id="sarathi" aria-labelledby="st3">
+          <div class="sub">
+          <div class="card">
+            <div class="st-top"><span>Station 3 of 5 · at Databricks</span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-sarathi"/></svg></div>
+            <h3 class="st-name" id="st3" tabindex="-1">Sārathi <span class="deva" lang="sa">सारथि</span></h3>
+            <p class="st-role">The charioteer is orchestration</p>
+            <h4 class="st-h">He drives a production harness, and builds agents his team adopted.</h4>
+            <p class="st-p">At Databricks he did his engineering through Isaac, the internal harness Databricks’ CTO has publicly described as a wrapper on Claude Code and Codex, and worked on its skills and context management. Subagents, MCP servers and skills were his daily toolkit.</p>
+            <figure class="viz">
+              <figcaption class="viz-t">Daily planner: a triage agent over connectors (MCP)</figcaption>
+              <svg class="planner" viewBox="0 0 340 126" role="img" aria-labelledby="pl-t">
+                <title id="pl-t">Six sources, Slack, GitHub, Docs, Sheets, Calendar and Meet, flow through MCP connectors into one triage agent, which produces a single ranked attention queue.</title>
+                <g fill="none" stroke="#c9c4b9" stroke-width="1.1"><path d="M80 12C122 12 118 63 156 63M80 32C122 32 118 63 156 63M80 52C122 52 118 63 156 63M80 72C122 72 118 63 156 63M80 92C122 92 118 63 156 63M80 112C122 112 118 63 156 63"/></g>
+                <g fill="#fdfcf9" stroke="#1b1a17" stroke-width="1"><rect x="2" y="4" width="78" height="16" rx="8"/><rect x="2" y="24" width="78" height="16" rx="8"/><rect x="2" y="44" width="78" height="16" rx="8"/><rect x="2" y="64" width="78" height="16" rx="8"/><rect x="2" y="84" width="78" height="16" rx="8"/><rect x="2" y="104" width="78" height="16" rx="8"/></g>
+                <g font-size="10" fill="#1b1a17" text-anchor="middle"><text x="41" y="15.5">Slack</text><text x="41" y="35.5">GitHub</text><text x="41" y="55.5">Docs</text><text x="41" y="75.5">Sheets</text><text x="41" y="95.5">Calendar</text><text x="41" y="115.5">Meet</text></g>
+                <text x="118" y="124" font-size="9" fill="#6e6a62" text-anchor="middle">MCP</text>
+                <rect x="156" y="48" width="86" height="30" rx="7" fill="#2b3a8f"/>
+                <text x="199" y="67" font-size="10.5" fill="#fff" text-anchor="middle" font-weight="600">triage agent</text>
+                <path d="M242 63H256M251 58.5l5.5 4.5-5.5 4.5" fill="none" stroke="#2b3a8f" stroke-width="1.5"/>
+                <text x="300" y="34" font-size="9" fill="#6e6a62" text-anchor="middle">one queue</text>
+                <g font-size="10" fill="#2b3a8f" font-weight="600"><text x="262" y="52">1</text><text x="262" y="68">2</text><text x="262" y="84">3</text></g>
+                <rect x="274" y="45" width="62" height="7" rx="2" fill="#2b3a8f"/><rect x="274" y="61" width="46" height="7" rx="2" fill="#6b76b8"/><rect x="274" y="77" width="30" height="7" rx="2" fill="#a8afd8"/>
+              </svg>
+              <p class="viz-c">Six inboxes in, one ranked attention queue out: what needs his attention, and in what order.</p>
+            </figure>
+            <div class="viz">
+              <p class="viz-t">How his setup spread</p>
+              <ol class="spread">
+                <li><b>His personal setup</b></li>
+                <li><b>Adopted by many on his 7-person team</b></li>
+                <li><b>Pitched for org-wide adoption</b> in his final intern presentation</li>
+                <li class="k"><b>Demo acknowledged up to Senior Director and VP level</b></li>
+              </ol>
+              <p class="viz-c">His team’s feedback was rich, and it shaped each iteration.</p>
+            </div>
+            <p class="st-p vm"><b>Value-maxxing.</b> He helped shift AI usage from token-maxxing to value-maxxing by tiering users on tokens used against output delivered. Measure cost per outcome, not tokens burned.</p>
+          </div>
+          </div>
+          <div class="sub">
+          <div class="card">
+            <div class="st-top"><span>Station 3 of 5 · his daily loop</span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-sarathi"/></svg></div>
+            <h4 class="st-h big">He ran his internship as one agent loop.</h4>
+            <figure class="viz loopfig">
+              <div class="loop">
+                <svg class="loop-ring" viewBox="0 0 100 86" aria-hidden="true">
+                  <defs><marker id="lp-ar" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M1 1L8 5L1 9" fill="none" stroke="#2b3a8f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+                  <ellipse cx="50" cy="43" rx="36" ry="32.7" fill="none" stroke="#c9c4b9" stroke-width=".35" stroke-dasharray="1 1.4"/>
+                  <g fill="none" stroke="#2b3a8f" stroke-width=".9" stroke-linecap="round"><path d="M66.34 13.86A36 32.7 0 0 1 75.46 19.88" marker-end="url(#lp-ar)"/><path d="M85.56 48.12A36 32.7 0 0 1 82.08 57.85" marker-end="url(#lp-ar)"/><path d="M55.63 75.3A36 32.7 0 0 1 44.37 75.3" marker-end="url(#lp-ar)"/><path d="M17.92 57.85A36 32.7 0 0 1 14.44 48.12" marker-end="url(#lp-ar)"/><path d="M24.54 19.88A36 32.7 0 0 1 33.66 13.86" marker-end="url(#lp-ar)"/></g>
+                </svg>
+                <p class="loop-c"><span>One loop,</span> every day</p>
+                <ol class="loop-n" aria-label="One loop, every day"><li style="--x:50%;--y:11.98%"><b>Plan</b><span>Daily planner</span><span>six inboxes, one queue</span></li><li style="--x:84.24%;--y:38.25%"><b>Do</b><span>Isaac + subagents</span><span>skills, MCP, context</span></li><li style="--x:71.16%;--y:80.76%"><b>Record</b><span>Work journal</span><span>day, week, month pages</span></li><li style="--x:28.84%;--y:80.76%"><b>Reflect</b><span>Self-critique skill</span><span>mistakes into pointers</span></li><li style="--x:15.76%;--y:38.25%"><b>Remember</b><span>Markdown memory</span><span>shared by every agent</span></li></ol>
+              </div>
+              <figcaption class="viz-c">The planner set the day, Isaac and his subagents did the work, the journal recorded it, the critic turned it into lessons, and the memory carried them into tomorrow.</figcaption>
+            </figure>
+            <p class="st-p loop-d"><b>The journal</b> wrote up each day’s work on a set of Confluence pages, leaving detailed daily, weekly and monthly documentation: memory consolidation from episodes to summaries. <b>The critic</b> compared his work with the team’s, named his mistakes and limitations, and gave him strict pointers: a reflection loop pointed at the engineer, not the code.</p>
+          </div>
+          </div>
+          <div class="sub">
+          <div class="card">
+            <div class="st-top"><span>Station 3 of 5 · in public</span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-sarathi"/></svg></div>
+            <h4 class="st-h big">And a multi-agent system that scored in public.</h4>
+            <figure class="viz">
+              <figcaption class="viz-t">HIPE-2026, built with a teammate: two specialists and an Arbiter</figcaption>
+              <svg class="agents" viewBox="0 0 340 96" role="img" aria-labelledby="ag-t">
+                <title id="ag-t">Run 2: a Historian agent and a Geographer agent each pass their reading to an Arbiter, which weighs both and gives the verdict. Three LoRA adapters on Qwen2.5-7B.</title>
+                <g fill="none" stroke="#1b1a17" stroke-width="1.3"><rect x="1" y="6" width="104" height="30" rx="7"/><rect x="1" y="58" width="104" height="30" rx="7"/><path d="M105 21C140 21 150 47 186 47M105 73C140 73 150 47 186 47"/><path d="M278 47H312" stroke="#2b3a8f" stroke-width="1.6"/><path d="M306 42l7 5-7 5" stroke="#2b3a8f" stroke-width="1.6"/></g>
+                <rect x="186" y="32" width="92" height="30" rx="7" fill="#2b3a8f"/>
+                <g font-size="11.5" fill="#1b1a17" text-anchor="middle"><text x="53" y="25">Historian</text><text x="53" y="77">Geographer</text><text x="232" y="51" fill="#fff" font-weight="600">Arbiter</text></g>
+                <text x="232" y="84" text-anchor="middle" font-size="9.5" fill="#6e6a62">3 LoRA adapters, Qwen2.5-7B</text>
+              </svg>
+              <div class="rank" role="img" aria-label="Ranked 11th of 46 submissions on generalisation"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="me"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <p class="rank-l"><b>11th of 46 submissions</b> on generalisation at CLEF 2026. A second, grounded run (GPT-OSS-120B with live Wikidata and strict JSON validation) placed 13th of 46 on accuracy.</p>
+              <p class="source"><a href="https://hipe-eval.github.io/HIPE-2026/results">hipe-eval.github.io/HIPE-2026/results</a>. Isaac named by Databricks’ CTO on <a href="https://latent.space/p/databricks/">Latent Space</a>.</p>
+            </figure>
+          </div>
+          </div>
+        </article>
+
+        <article class="station" id="ratha" aria-labelledby="st4">
+          <div class="card">
+            <div class="st-top"><span>Station 4 of 5</span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-ratha"/></svg></div>
+            <h3 class="st-name" id="st4" tabindex="-1">Ratha <span class="deva" lang="sa">रथ</span></h3>
+            <p class="st-role">The chariot is the harness he designs</p>
+            <h4 class="st-h">SMRITI: one trustworthy memory for a whole team of agents.</h4>
+            <p class="st-p">Grown from his team-KB prototype at Databricks, which a few teammates used. Tap a stage.</p>
+            <div class="sm-wrap">
+              <div class="sm" role="group" aria-label="SMRITI: six stages around a ledger"><svg class="sm-ring" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="37" fill="none" stroke="#c9c4b9" stroke-width=".5"/><path d="M50 13A37 37 0 0 1 82 68.5" fill="none" stroke="#2b3a8f" stroke-width="1.8"/><path d="M50 87A37 37 0 0 1 18 68.5" fill="none" stroke="#1b1a17" stroke-width="1.1"/><path d="M18 31.5A37 37 0 0 1 44.9 13.4" fill="none" stroke="#2b3a8f" stroke-width=".9" stroke-dasharray="2 1.6"/><path d="M45.1 13.4l-3.2 -2.2M45.1 13.4l-3.2 2.2" fill="none" stroke="#2b3a8f" stroke-width=".9" stroke-linecap="round"/></svg><button type="button" class="sm-node w" style="left:50%;top:13%" aria-pressed="true" aria-label="S: Shred and scrub" data-p="Write path, once per change" data-t="Shred and scrub" data-d="Each note becomes atomic knowledge cards, and secrets are removed before anything leaves the laptop.">S<small aria-hidden="true">Shred &amp; scrub</small></button><button type="button" class="sm-node w" style="left:82%;top:31.5%" aria-pressed="false" aria-label="M: Merge" data-p="Write path, once per change" data-t="Merge" data-d="Hashing and embeddings collapse duplicates, but only independent authors count as corroboration.">M<small aria-hidden="true">Merge</small></button><button type="button" class="sm-node w" style="left:82%;top:68.5%" aria-pressed="false" aria-label="R: Reconcile" data-p="Write path, once per change" data-t="Reconcile" data-d="Contradictions settle in a fixed order: narrow the scope, run the command, prefer the newer fact, compare trust, otherwise flag it contested.">R<small aria-hidden="true">Reconcile</small></button><button type="button" class="sm-node" style="left:50%;top:87%" aria-pressed="false" aria-label="I: Index" data-p="Read path, small and cached" data-t="Index" data-d="The ledger renders a tiny cached router, summary pages and a team skill.">I<small aria-hidden="true">Index</small></button><button type="button" class="sm-node" style="left:18%;top:68.5%" aria-pressed="false" aria-label="T: Traverse" data-p="Read path, small and cached" data-t="Traverse" data-d="The agent routes, searches once, and lazily reads at most three cards.">T<small aria-hidden="true">Traverse</small></button><button type="button" class="sm-node" style="left:18%;top:31.5%" aria-pressed="false" aria-label="I: Improve" data-p="Feedback loop" data-t="Improve" data-d="Learnings return as reviewed pull requests.">I<small aria-hidden="true">Improve</small></button><button type="button" class="sm-core" aria-pressed="false" aria-label="The ledger" data-p="Underneath every stage" data-t="The ledger" data-d="Every change is a small delta in an append-only, bi-temporal ledger, so nothing is rewritten or silently lost.">Ledger<small>append-only, bi-temporal</small></button></div>
+              <p class="sm-out" id="sm-out" aria-live="polite"><em>Write path · once per change</em><b>Shred and scrub.</b> Each note becomes atomic knowledge cards, and secrets are removed before anything leaves the laptop.</p>
+            </div>
+            <p class="sm-tag"><strong>Shruti in, Smriti out.</strong><span>What one engineer heard becomes what the team remembers.</span></p>
+            <p class="source">A design, not a benchmark: any savings are estimates. It stands on <a href="https://arxiv.org/abs/2510.04618">ACE</a>, <a href="https://github.com/getzep/graphiti">Graphiti</a> and MemCurrent.</p>
+          </div>
+        </article>
+
+        <article class="station" id="marga" aria-labelledby="st5">
+          <div class="card">
+            <div class="st-top"><span>Station 5 of 5</span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-marga"/></svg></div>
+            <h3 class="st-name" id="st5" tabindex="-1">Mārga <span class="deva" lang="sa">मार्ग</span></h3>
+            <p class="st-role">The road is the Meet, 11–14 Dec, IIT Guwahati</p>
+            <h4 class="st-h">Measure a bare baseline early, then win on the delta.</h4>
+            <p class="st-p">The sentence to earn: “Same model, our harness: X% to Y% at Z% of the cost per solved task.” <a href="https://www.langchain.com/blog/improving-deep-agents-with-harness-engineering">LangChain</a> moved one model from 52.8% to 66.5% on Terminal-Bench 2.0 this way.</p>
+            <div class="tl-bar" aria-hidden="true"><i style="--m:45"></i><i class="k" style="--m:60"></i><i style="--m:105"></i><i style="--m:90"></i><i style="--m:90"></i><i style="--m:45"></i><i style="--m:135"></i><i class="k" style="--m:60"></i><i class="k" style="--m:90"></i></div>
+            <div class="tl-scale" aria-hidden="true"><span>0:00</span><span class="mid">a 12-hour build, scaled to the real clock</span><span>12:00</span></div>
+            <ol class="tl">
+              <li><time datetime="PT0M">0:00</time><span><b>Read and define.</b> One-line metric; 10–20 auto-graded evals</span></li>
+              <li class="k"><time datetime="PT45M">0:45</time><span><b>Baseline.</b> Bare loop, JSONL traces, three runs</span></li>
+              <li><time datetime="PT1H45M">1:45</time><span><b>Tools.</b> Absolute paths, terse errors, spill to files</span></li>
+              <li><time datetime="PT3H30M">3:30</time><span><b>Verification.</b> Checks tool, completion gate, loop detector</span></li>
+              <li><time datetime="PT5H">5:00</time><span><b>Context.</b> Short AGENTS.md, compaction at ~60%</span></li>
+              <li><time datetime="PT6H30M">6:30</time><span><b>Safety.</b> Workspace-only writes, step and dollar budgets</span></li>
+              <li><time datetime="PT7H15M">7:15</time><span><b>Trace-driven fixes.</b> One fix per failure mode</span></li>
+              <li class="k"><time datetime="PT9H30M">9:30</time><span><b>Ablations.</b> Remove one part at a time</span></li>
+              <li class="k"><time datetime="PT10H30M">10:30</time><span><b>Demo.</b> Results table, live trace, recorded fallback</span></li>
+            </ol>
+            <ul class="rules" aria-label="Rule discipline">
+              <li class="k">Never name the IIT: 50% penalty</li><li>Disclose every paid API</li><li>One script reproduces every number</li><li>Finish 20 s early</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec hood" id="hood" aria-labelledby="hood-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Under the hood</p>
+      <h2 class="h2" id="hood-h">A harness is a systems program with an LLM in the loop.</h2>
+      <p class="lead">He has built, or co-built, most of the layers it rests on. When an agent breaks, he knows which layer to open.</p>
+    </div>
+    <div class="hood-cols" aria-hidden="true"><span></span><span>He built</span><span>What it was</span><span>The harness problem it prepares him for</span></div>
+    <ul class="hood-list">
+      <li><svg viewBox="0 0 28 28" aria-hidden="true"><use href="#h-velox"/></svg>
+        <h3>Velox<span>a C compiler from scratch</span></h3>
+        <p class="what"><span class="lbl">What it was</span>Lexer, recursive-descent parser, IR, x86-64 codegen, GoogleTest suite</p>
+        <p class="why"><span class="lbl">Prepares him for</span>Tool calls are a grammar. Parsers and validators are how agents stay honest; tests are back-pressure.</p></li>
+      <li><svg viewBox="0 0 28 28" aria-hidden="true"><use href="#h-keyper"/></svg>
+        <h3>Keyper<span>a Raft key-value store</span></h3>
+        <p class="what"><span class="lbl">What it was</span>Leader election, majority replication, CRC32 sharding over 3 clusters and 9 nodes, zero-downtime shard migration</p>
+        <p class="why"><span class="lbl">Prepares him for</span>Many agents writing one memory is a consistency problem.</p></li>
+      <li><svg viewBox="0 0 28 28" aria-hidden="true"><use href="#h-files"/></svg>
+        <h3>File server<span>multi-threaded</span><em class="team">Team project, 4 people</em></h3>
+        <p class="what"><span class="lbl">What it was</span>100 concurrent clients, per-file reader-writer locks, salted SHA-256 auth, role-based access</p>
+        <p class="why"><span class="lbl">Prepares him for</span>Parallel subagents on shared files; permissions and sandboxing.</p></li>
+      <li><svg viewBox="0 0 28 28" aria-hidden="true"><use href="#h-trace"/></svg>
+        <h3>Request-path observability<span>Databricks, Network Foundations</span></h3>
+        <p class="what"><span class="lbl">What it was</span>First-failing-hop attribution, an end-to-end correlation ID, log sampling consistent across services that never drops a failure</p>
+        <p class="why"><span class="lbl">Prepares him for</span>Tracing and debugging agent runs: an agent run is the same kind of multi-hop chain.</p></li>
+      <li><svg viewBox="0 0 28 28" aria-hidden="true"><use href="#h-cpu"/></svg>
+        <h3>Superscalar CPU<span>in Verilog</span><em class="team">Team project, 5 people</em></h3>
+        <p class="what"><span class="lbl">What it was</span>Dual-issue, 5-stage pipeline on a custom 16-bit ISA</p>
+        <p class="why"><span class="lbl">Prepares him for</span>Throughput thinking: what can run in parallel, and what must wait.</p></li>
+    </ul>
+    <p class="hood-foot">The transcript backs it: a CGPA of 9.51 after six semesters (SGPA 10.0 in the first), with A or A+ in Operating Systems, Computer Networks, Compiler Design, DBMS, Algorithms, Machine Learning and NLP Applications.</p>
+  </div>
+</section>
+
+<section class="sec powers" id="powers" aria-labelledby="pw-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">No-prep superpowers</p>
+      <h2 class="h2" id="pw-h">No-Prep is won in the first hour and the last ten minutes.</h2>
+      <p class="lead">Nine traits an on-the-spot build rewards, each with its receipt.</p>
+    </div>
+    <div class="receipts">
+      <div class="rc-w"><article class="rc" style="--r:.6deg">
+        <p class="rc-top"><span>Receipt 01</span><span>IIT Roorkee</span></p>
+        <figure class="rc-fig"><div class="duo"><img src="assets/podium.jpg" width="760" height="570" loading="lazy" decoding="async" alt="Pradyuman at a podium, microphone in one hand, reading from a folder in the other, a green board behind him."></div><figcaption>On the mic</figcaption></figure>
+        <h3>Wins the room</h3>
+        <p class="rc-p">First place in an elocution competition run by IIT Roorkee’s Debating Society, in his first year.</p>
+        <ul class="rc-items"><li><span>Elocution</span><span>1st place</span></li><li><span>Freshers’ MUN</span><span>High Commendation</span></li></ul>
+        <p class="rc-day">Every No-Prep build ends as a talk in front of judges.</p>
+      </article></div>
+      <div class="rc-w"><article class="rc" style="--r:-.7deg">
+        <p class="rc-top"><span>Receipt 02</span><span>CGC 2025</span></p>
+        <h3>Retrieval under a clock</h3>
+        <p class="rc-p">Five medals in five different quiz formats, in one championship.</p>
+        <ul class="rc-items"><li><span>Gold</span><span>General</span></li><li><span>Silver</span><span>India</span></li><li><span>Silver</span><span>MELA</span></li><li><span>Bronze</span><span>TLC</span></li><li><span>Bronze</span><span>SBT</span></li></ul>
+        <p class="rc-tot"><span>Total</span><span>5 medals</span></p>
+        <p class="rc-day">An agent’s memory lookup, done by a human, against the buzzer.</p>
+        <span class="stamp">Verified</span>
+      </article></div>
+      <div class="rc-w"><article class="rc" style="--r:.5deg">
+        <p class="rc-top"><span>Receipt 03</span><span>Pragyotsav 2024</span></p>
+        <h3>Owns a stage</h3>
+        <p class="rc-p">Lead role in a classical Sanskrit play.</p>
+        <ul class="rc-items"><li><span>Lead role</span><span>Sanskrit play</span></li><li><span>Guest lectures</span><span>hosted many</span></li><li><span>Event hosting</span><span>Sanskrit Club</span></li><li><span>Vedic chanting</span><span>Sanskrit Club</span></li></ul>
+        <p class="rc-day">Overtime costs 5% to 25%. He has learned timing in front of an audience.</p>
+      </article></div>
+      <div class="rc-w"><article class="rc" style="--r:-.3deg">
+        <p class="rc-top"><span>Receipt 04</span><span>Every week</span></p>
+        <figure class="rc-fig"><div class="duo"><img src="assets/lecture.jpg" width="1169" height="877" loading="lazy" decoding="async" alt="Pradyuman at the front of a full lecture hall, pointing at a projected slide titled “2. You are a Computer Scientist”, about the Universal Turing Machine and the Church–Turing hypothesis."></div><figcaption>Taking a full lecture hall through Turing machines</figcaption></figure>
+        <h3>Explains for a living</h3>
+        <ul class="rc-items"><li><span>DSA</span><span>Teaching Assistant</span></li><li><span>ECE-102</span><span>past mentor</span></li><li><span>Quantum computing</span><span>lecturer</span></li><li><span>IBM Qiskit</span><span>workshop co-organiser</span></li></ul>
+        <p class="rc-day">Judges get a five-minute explanation that lands.</p>
+      </article></div>
+      <div class="rc-w"><article class="rc" style="--r:.8deg">
+        <p class="rc-top"><span>Receipt 05</span><span>IIT Ropar</span></p>
+        <h3>Black-box detective</h3>
+        <p class="rc-p">AlgoUnlock handed out only compiled binaries. He rebuilt the algorithms from input and output.</p>
+        <p class="rc-day">Debugging an LLM agent is the same game.</p>
+      </article></div>
+      <div class="rc-w"><article class="rc" style="--r:-.5deg">
+        <p class="rc-top"><span>Receipt 06</span><span>Public profiles</span></p>
+        <h3>Fast, correct code</h3>
+        <ul class="rc-items"><li><span>Codeforces</span><span>Specialist, 1538</span></li><li><span>CodeChef</span><span>3★, 1605</span></li><li><span>Starters 172 (Div. 4)</span><span>global rank 221</span></li><li><span>CODCOM, IIT Ropar</span><span>offline round 2</span></li></ul>
+        <p class="rc-day">Speed with correctness is the whole No-Prep brief.</p>
+        <span class="stamp">Verified</span>
+      </article></div>
+      <div class="rc-w"><article class="rc" style="--r:.4deg">
+        <p class="rc-top"><span>Receipt 07</span><span>Advitiya’25</span></p>
+        <h3>Thinks like an attacker</h3>
+        <ul class="rc-items"><li><span>CTF</span><span>cryptography</span></li><li><span>CTF</span><span>reverse engineering</span></li><li><span>CTF</span><span>web exploitation</span></li></ul>
+        <p class="rc-day">Prompt injection and tool permissions are a harness’s attack surface.</p>
+      </article></div>
+      <div class="rc-w"><article class="rc" style="--r:-.6deg">
+        <p class="rc-top"><span>Receipt 08</span><span>Everywhere</span></p>
+        <h3>Measures everything</h3>
+        <ul class="rc-items"><li><span>HIPE-2026</span><span>9 scored strategies</span></li><li><span>Databricks</span><span>model cost report</span></li><li><span>Black-Scholes</span><span>0.08 ms</span></li><li><span>Binomial tree</span><span>up to 69× slower</span></li></ul>
+        <p class="rc-day">Judges reward numbers.</p>
+      </article></div>
+      <div class="rc-w"><article class="rc" style="--r:.5deg">
+        <p class="rc-top"><span>Receipt 09</span><span>On court</span></p>
+        <h3>Plays as a team, under a clock</h3>
+        <p class="rc-p">Basketball taught him to play as a team under a clock.</p>
+        <p class="rc-day">No-Prep is a two-person team racing a clock.</p>
+      </article></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec ideas" id="next" aria-labelledby="nx-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">What he’d build next</p>
+      <h2 class="h2" id="nx-h">Three ideas he would bring, each grown from work he has done.</h2>
+      <p class="lead">These are proposals, not shipped products. Each one extends something on this page.</p>
+    </div>
+    <div class="ideas-g">
+      <article class="idea">
+        <p class="idea-k">Idea, not shipped</p>
+        <svg class="idea-art" viewBox="0 0 300 120" aria-hidden="true">
+          <path d="M18 6V100" stroke="#1b1a17" stroke-width="1.2"/>
+          <g stroke-linecap="round" stroke-width="6" fill="none"><path d="M26 14H118" stroke="#1b1a17"/><path d="M56 32H168" stroke="#1b1a17"/><path d="M94 50H192" stroke="#2b3a8f"/><path d="M132 68H230" stroke="#c9c4b9" stroke-dasharray="1 9"/><path d="M162 86H262" stroke="#c9c4b9" stroke-dasharray="1 9"/></g>
+          <g fill="#1b1a17"><circle cx="18" cy="14" r="2.6"/><circle cx="18" cy="32" r="2.6"/><circle cx="18" cy="50" r="2.6" fill="#2b3a8f"/><circle cx="18" cy="68" r="2.6" fill="#c9c4b9"/><circle cx="18" cy="86" r="2.6" fill="#c9c4b9"/></g>
+          <circle cx="204" cy="50" r="8" fill="none" stroke="#2b3a8f" stroke-width="1.6"/><path d="M200 46l8 8M208 46l-8 8" stroke="#2b3a8f" stroke-width="1.6"/>
+          <text x="218" y="54" font-size="10.5" fill="#2b3a8f" font-weight="600">fails here</text>
+          <text x="26" y="114" font-size="9.5" fill="#6e6a62">one correlation ID per run</text>
+        </svg>
+        <h3>A flight recorder for agents</h3>
+        <p>His request-path observability, applied to agent runs. Every tool call gets a correlation ID, the failing step is attributed automatically, and sampling keeps every failed trajectory.</p>
+        <p class="idea-from"><span>Grows from</span>Request-path observability at Databricks: failure-phase attribution, correlation IDs, consistent sampling that never drops a failure.</p>
+      </article>
+      <article class="idea">
+        <p class="idea-k">Idea, not shipped</p>
+        <svg class="idea-art" viewBox="0 0 300 120" aria-hidden="true">
+          <path d="M30 8V100H292" fill="none" stroke="#1b1a17" stroke-width="1.2"/>
+          <text x="36" y="14" font-size="9.5" fill="#6e6a62">expected success</text>
+          <text x="292" y="115" font-size="9.5" fill="#6e6a62" text-anchor="end">cost per task</text>
+          <path d="M30 46H292" stroke="#2b3a8f" stroke-width="1.2" stroke-dasharray="4 4"/>
+          <text x="36" y="41" font-size="9.5" fill="#2b3a8f">the bar</text>
+          <circle cx="76" cy="74" r="6" fill="#fdfcf9" stroke="#1b1a17" stroke-width="1.5"/><text x="76" y="94" font-size="9.5" fill="#6e6a62" text-anchor="middle">misses</text>
+          <circle cx="214" cy="62" r="6" fill="#fdfcf9" stroke="#1b1a17" stroke-width="1.5"/>
+          <circle cx="252" cy="24" r="6" fill="#fdfcf9" stroke="#1b1a17" stroke-width="1.5"/>
+          <circle cx="146" cy="32" r="7.5" fill="#2b3a8f"/><text x="158" y="29" font-size="10.5" fill="#2b3a8f" font-weight="600">pick</text>
+        </svg>
+        <h3>A value router</h3>
+        <p>Send each task to the cheapest model whose expected success clears the bar, and judge it on cost per solved task.</p>
+        <p class="idea-from"><span>Grows from</span>His efficiency-vs-cost model report and his value-maxxing tiers.</p>
+      </article>
+      <article class="idea">
+        <p class="idea-k">Idea, not shipped</p>
+        <svg class="idea-art" viewBox="0 0 300 120" aria-hidden="true">
+          <g stroke="#c9c4b9" stroke-width="1.1" stroke-dasharray="3 3" fill="none"><path d="M52 30L126 52M52 90L126 68M248 30L174 52M248 90L174 68"/></g>
+          <circle cx="150" cy="60" r="27" fill="#fdfcf9" stroke="#2b3a8f" stroke-width="1.6"/>
+          <g fill="#2b3a8f"><circle cx="150" cy="33" r="3.4"/><circle cx="173.4" cy="46.5" r="3.4"/><circle cx="173.4" cy="73.5" r="3.4"/><circle cx="150" cy="87" r="3.4"/><circle cx="126.6" cy="73.5" r="3.4"/><circle cx="126.6" cy="46.5" r="3.4"/></g>
+          <text x="150" y="64" font-size="11" fill="#2b3a8f" text-anchor="middle" font-weight="600">org</text>
+          <g fill="#fdfcf9" stroke="#1b1a17" stroke-width="1.2"><circle cx="38" cy="26" r="15"/><circle cx="38" cy="94" r="15"/><circle cx="262" cy="26" r="15"/><circle cx="262" cy="94" r="15"/></g>
+          <g font-size="8.5" fill="#1b1a17" text-anchor="middle"><text x="38" y="29">team</text><text x="38" y="97">team</text><text x="262" y="29">team</text><text x="262" y="97">team</text></g>
+        </svg>
+        <h3>SMRITI for the whole org</h3>
+        <p>His team-memory design, scaled from one team to many. More authors means more to merge and reconcile, which is what SMRITI’s middle stages are for.</p>
+        <p class="idea-from"><span>Grows from</span>SMRITI, and the team knowledge-base prototype a few teammates used.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec avail" id="availability" aria-labelledby="av-h">
+  <div class="wrap avail-grid">
+    <div>
+      <p class="eyebrow">Availability and range</p>
+      <h2 class="h2" id="av-h">December belongs to Inter-IIT.</h2>
+      <p class="lead">He holds a pre-placement offer from Databricks, so he is not sitting campus placements. He can stay from the travel window through checkout.</p>
+      <figure class="cal" aria-labelledby="cal-c">
+        <div class="cal-g" aria-hidden="true"><div class="cal-d" style="grid-row:1"><small>Tu</small>1</div><div class="cal-d" style="grid-row:1"><small>We</small>2</div><div class="cal-d" style="grid-row:1"><small>Th</small>3</div><div class="cal-d" style="grid-row:1"><small>Fr</small>4</div><div class="cal-d" style="grid-row:1"><small>Sa</small>5</div><div class="cal-d" style="grid-row:1"><small>Su</small>6</div><div class="cal-d" style="grid-row:1"><small>Mo</small>7</div><div class="cal-d" style="grid-row:1"><small>Tu</small>8</div><div class="cal-d" style="grid-row:1"><small>We</small>9</div><div class="cal-d" style="grid-row:1"><small>Th</small>10</div><div class="cal-d" style="grid-row:1"><small>Fr</small>11</div><div class="cal-d" style="grid-row:1"><small>Sa</small>12</div><div class="cal-d" style="grid-row:1"><small>Su</small>13</div><div class="cal-d" style="grid-row:1"><small>Mo</small>14</div><div class="cal-d" style="grid-row:1"><small>Tu</small>15</div><div class="cal-b free" style="grid-row:2;grid-column:1/16">Free all month: no placements (PPO)</div><div class="cal-b trav" style="grid-row:3;grid-column:8/11">Travel</div><div class="cal-b meet" style="grid-row:3;grid-column:11/15">The Meet</div><div class="cal-b out" style="grid-row:3;grid-column:15/16"></div><div class="cal-n" style="grid-row:4;grid-column:4/11">substitution notice</div><div class="cal-n" style="grid-row:4;grid-column:12/16">checkout</div></div>
+        <figcaption class="source" id="cal-c">December 2026. Travel window 8–10 Dec, the Meet 11–14 Dec at IIT Guwahati, checkout 15 Dec. A No-Prep substitution must be notified by 10 Dec.</figcaption>
+      </figure>
+    </div>
+    <div>
+      <h3 class="h3">His ask is Harness Engineering. Cover is a bonus.</h3>
+      <p class="avail-p">The rulebook (§3.5, rule 14) lets a registered No-Prep member stand in for another member of the same contingent, if the Contingent Leader tells the organisers by 10 Dec. He is available as a registered stand-in for Optimization/CP or Math if the contingent needs one.</p>
+      <dl class="doms">
+        <div class="ask"><span class="seat" aria-hidden="true"></span><dt>Harness Engineering<span>His ask</span></dt><dd>Databricks harness work, HIPE-2026, SMRITI</dd></div>
+        <div><span class="seat" aria-hidden="true"></span><dt>Optimization / CP<span>Stand-in if needed</span></dt><dd>Codeforces Specialist 1538, CodeChef 3★ 1605, CODCOM offline round, AlgoUnlock</dd></div>
+        <div><span class="seat" aria-hidden="true"></span><dt>Math<span>Stand-in if needed</span></dt><dd>JEE Advanced AIR 1819, KVPY AIR 1521, A or A+ in Probability, Numerical Methods and Mathematics I–II</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="seat" aria-labelledby="cta-h">
+  <svg class="cta-wheel" viewBox="0 0 400 400" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="200" cy="200" r="190" stroke-width="1.8"/><circle cx="200" cy="200" r="172"/><circle cx="200" cy="200" r="152" stroke-width=".8"/><circle cx="200" cy="19" r="2.6"/><circle cx="223.6" cy="20.5" r="2.6"/><circle cx="246.8" cy="25.2" r="2.6"/><circle cx="269.3" cy="32.8" r="2.6"/><circle cx="290.5" cy="43.2" r="2.6"/><circle cx="310.2" cy="56.4" r="2.6"/><circle cx="328" cy="72" r="2.6"/><circle cx="343.6" cy="89.8" r="2.6"/><circle cx="356.8" cy="109.5" r="2.6"/><circle cx="367.2" cy="130.7" r="2.6"/><circle cx="374.8" cy="153.2" r="2.6"/><circle cx="379.5" cy="176.4" r="2.6"/><circle cx="381" cy="200" r="2.6"/><circle cx="379.5" cy="223.6" r="2.6"/><circle cx="374.8" cy="246.8" r="2.6"/><circle cx="367.2" cy="269.3" r="2.6"/><circle cx="356.8" cy="290.5" r="2.6"/><circle cx="343.6" cy="310.2" r="2.6"/><circle cx="328" cy="328" r="2.6"/><circle cx="310.2" cy="343.6" r="2.6"/><circle cx="290.5" cy="356.8" r="2.6"/><circle cx="269.3" cy="367.2" r="2.6"/><circle cx="246.8" cy="374.8" r="2.6"/><circle cx="223.6" cy="379.5" r="2.6"/><circle cx="200" cy="381" r="2.6"/><circle cx="176.4" cy="379.5" r="2.6"/><circle cx="153.2" cy="374.8" r="2.6"/><circle cx="130.7" cy="367.2" r="2.6"/><circle cx="109.5" cy="356.8" r="2.6"/><circle cx="89.8" cy="343.6" r="2.6"/><circle cx="72" cy="328" r="2.6"/><circle cx="56.4" cy="310.2" r="2.6"/><circle cx="43.2" cy="290.5" r="2.6"/><circle cx="32.8" cy="269.3" r="2.6"/><circle cx="25.2" cy="246.8" r="2.6"/><circle cx="20.5" cy="223.6" r="2.6"/><circle cx="19" cy="200" r="2.6"/><circle cx="20.5" cy="176.4" r="2.6"/><circle cx="25.2" cy="153.2" r="2.6"/><circle cx="32.8" cy="130.7" r="2.6"/><circle cx="43.2" cy="109.5" r="2.6"/><circle cx="56.4" cy="89.8" r="2.6"/><circle cx="72" cy="72" r="2.6"/><circle cx="89.8" cy="56.4" r="2.6"/><circle cx="109.5" cy="43.2" r="2.6"/><circle cx="130.7" cy="32.8" r="2.6"/><circle cx="153.2" cy="25.2" r="2.6"/><circle cx="176.4" cy="20.5" r="2.6"/><path d="M194 142L192 48L208 48L206 142Z"/><circle cx="200" cy="94" r="12" fill="var(--paper)"/><circle cx="200" cy="94" r="3.4" fill="currentColor"/><path d="M222.2 146.4L258.2 59.6"/><path d="M236.8 154.7L301.8 86.9L313.1 98.2L245.3 163.2Z"/><circle cx="275" cy="125" r="12" fill="var(--paper)"/><circle cx="275" cy="125" r="3.4" fill="currentColor"/><path d="M253.6 177.8L340.4 141.8"/><path d="M258 194L352 192L352 208L258 206Z"/><circle cx="306" cy="200" r="12" fill="var(--paper)"/><circle cx="306" cy="200" r="3.4" fill="currentColor"/><path d="M253.6 222.2L340.4 258.2"/><path d="M245.3 236.8L313.1 301.8L301.8 313.1L236.8 245.3Z"/><circle cx="275" cy="275" r="12" fill="var(--paper)"/><circle cx="275" cy="275" r="3.4" fill="currentColor"/><path d="M222.2 253.6L258.2 340.4"/><path d="M206 258L208 352L192 352L194 258Z"/><circle cx="200" cy="306" r="12" fill="var(--paper)"/><circle cx="200" cy="306" r="3.4" fill="currentColor"/><path d="M177.8 253.6L141.8 340.4"/><path d="M163.2 245.3L98.2 313.1L86.9 301.8L154.7 236.8Z"/><circle cx="125" cy="275" r="12" fill="var(--paper)"/><circle cx="125" cy="275" r="3.4" fill="currentColor"/><path d="M146.4 222.2L59.6 258.2"/><path d="M142 206L48 208L48 192L142 194Z"/><circle cx="94" cy="200" r="12" fill="var(--paper)"/><circle cx="94" cy="200" r="3.4" fill="currentColor"/><path d="M146.4 177.8L59.6 141.8"/><path d="M154.7 163.2L86.9 98.2L98.2 86.9L163.2 154.7Z"/><circle cx="125" cy="125" r="12" fill="var(--paper)"/><circle cx="125" cy="125" r="3.4" fill="currentColor"/><path d="M177.8 146.4L141.8 59.6"/><path d="M200 162Q192.5 152.6 200 142Q207.5 152.6 200 162"/><path d="M214.5 164.9Q211.2 153.3 222.2 146.4Q225.1 159.1 214.5 164.9"/><path d="M226.9 173.1Q228.2 161.2 241 159Q238.8 171.8 226.9 173.1"/><path d="M235.1 185.5Q240.9 174.9 253.6 177.8Q246.7 188.8 235.1 185.5"/><path d="M238 200Q247.4 192.5 258 200Q247.4 207.5 238 200"/><path d="M235.1 214.5Q246.7 211.2 253.6 222.2Q240.9 225.1 235.1 214.5"/><path d="M226.9 226.9Q238.8 228.2 241 241Q228.2 238.8 226.9 226.9"/><path d="M214.5 235.1Q225.1 240.9 222.2 253.6Q211.2 246.7 214.5 235.1"/><path d="M200 238Q207.5 247.4 200 258Q192.5 247.4 200 238"/><path d="M185.5 235.1Q188.8 246.7 177.8 253.6Q174.9 240.9 185.5 235.1"/><path d="M173.1 226.9Q171.8 238.8 159 241Q161.2 228.2 173.1 226.9"/><path d="M164.9 214.5Q159.1 225.1 146.4 222.2Q153.3 211.2 164.9 214.5"/><path d="M162 200Q152.6 207.5 142 200Q152.6 192.5 162 200"/><path d="M164.9 185.5Q153.3 188.8 146.4 177.8Q159.1 174.9 164.9 185.5"/><path d="M173.1 173.1Q161.2 171.8 159 159Q171.8 161.2 173.1 173.1"/><path d="M185.5 164.9Q174.9 159.1 177.8 146.4Q188.8 153.3 185.5 164.9"/><circle cx="200" cy="200" r="38"/><circle cx="200" cy="200" r="18"/><circle cx="200" cy="200" r="6" fill="currentColor"/></g></svg>
+  <div class="wrap">
+    <h2 class="cta-h" id="cta-h">Give him the seat.</h2>
+    <div class="cta-grid">
+    <figure class="cta-ph"><div class="plate"><div class="duo"><img src="assets/headshot.jpg" width="640" height="800" loading="lazy" decoding="async" alt="Portrait of Pradyuman Singh Shekhawat outdoors, wearing glasses, a brown jacket and a dark scarf, a mountainside behind him."></div></div><figcaption>Pradyuman Singh Shekhawat<span>IIT Roorkee</span></figcaption></figure>
+    <div class="audition">
+      <p class="eyebrow">Or test him first</p>
+      <blockquote>
+        <p>“Give me a 3-hour harness task as an audition. I’ll hand back a working loop, an eval table and a cost per solved task.”</p>
+        <footer>Pradyuman</footer>
+      </blockquote>
+      <p class="why">That is the skill-based selection IITR’s own <a href="https://watchout.iitr.ac.in/2026/05/inter-iit-techmeet-14">14.0 post-mortem</a> asked for.</p>
+    </div>
+    </div>
+    <div class="cta-links">
+      <a class="pill" href="mailto:pradyuman_ss@cs.iitr.ac.in">Email Pradyuman</a>
+      <a class="opill" href="https://www.linkedin.com/in/pradyuman-shekhawat/">LinkedIn</a>
+      <a class="opill" href="https://github.com/ikshv4ku">GitHub</a>
+      <a class="opill" href="https://github.com/ikshv4ku/HIPE-2026-Team-Hansel-Gretel">HIPE-2026 repo</a>
+    </div>
+    <p class="cta-mail">pradyuman_ss@cs.iitr.ac.in</p>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p><strong>Built with Claude Code as harness, of course.</strong><br>27 Nov 2026. Every public figure on this page links to its source.</p>
+    <details>
+      <summary>Sources</summary>
+      <ul>
+        <li><a href="https://arxiv.org/html/2601.11868v1">Terminal-Bench 2.0 paper</a></li>
+        <li><a href="https://www.tbench.ai/leaderboard">Terminal-Bench leaderboard</a></li>
+        <li><a href="https://www.langchain.com/blog/improving-deep-agents-with-harness-engineering">LangChain: improving deep agents with harness engineering</a></li>
+        <li><a href="https://latent.space/p/databricks/">Latent Space: Databricks episode (Isaac named)</a></li>
+        <li><a href="https://www.databricks.com/blog/introducing-omnigent-meta-harness-combine-control-and-share-your-agents">Databricks: introducing Omnigent</a></li>
+        <li><a href="https://www.databricks.com/blog/managing-ai-coding-costs-scale">Databricks: managing AI coding costs at scale</a></li>
+        <li><a href="https://databricks.com/blog/benchmarking-coding-agents-databricks-multi-million-line-codebase">Databricks: benchmarking coding agents</a></li>
+        <li><a href="https://databricks.com/blog/smart-routing-unity-ai-gateway-match-frontier-quality-30-lower-cost-task">Databricks: Smart Routing</a></li>
+        <li><a href="https://www.databricks.com/blog/how-we-eliminated-1-million-year-wasted-ai-agent-spend-one-hour">Databricks: $1M a year of wasted agent spend</a></li>
+        <li><a href="https://www.databricks.com/blog/memcurrent-designing-persistent-memory-production-agents">Databricks: MemCurrent</a></li>
+        <li><a href="https://hipe-eval.github.io/HIPE-2026/results">HIPE-2026 official results</a></li>
+        <li><a href="https://github.com/ikshv4ku/HIPE-2026-Team-Hansel-Gretel">HIPE-2026 Team Hansel &amp; Gretel on GitHub</a></li>
+        <li><a href="https://arxiv.org/abs/2510.04618">ACE: Agentic Context Engineering</a></li>
+        <li><a href="https://github.com/getzep/graphiti">Graphiti</a></li>
+        <li><a href="https://drive.google.com/file/d/148MDVdrg9Lkh9CN1ZsmuvSi6GIH83PIm/view">Inter-IIT Tech Meet 15.0 rulebook</a></li>
+        <li><a href="https://watchout.iitr.ac.in/2026/05/inter-iit-techmeet-14">Watch Out!: Inter-IIT Tech Meet 14.0 post-mortem</a></li>
+      </ul>
+    </details>
+  </div>
+</footer>
+
+<button class="fab" type="button" data-console="" aria-label="Open the console (shortcut: slash)"><kbd>/</kbd>console</button>
+
+<dialog class="con" id="con" aria-labelledby="con-title">
+  <div class="con-bar">
+    <p class="con-title" id="con-title"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-ratha"/></svg>why-pradyuman <span>harness console</span></p>
+    <button class="con-x" type="button" aria-label="Close console">esc</button>
+  </div>
+  <div class="con-out" id="con-out"></div>
+  <div class="sr-only" id="con-sr" aria-live="polite"></div>
+  <div class="con-chips" role="group" aria-label="Commands">
+    <button type="button" data-cmd="/why-pradyuman">/why-pradyuman</button><button type="button" data-cmd="/databricks">/databricks</button><button type="button" data-cmd="/memory">/memory</button><button type="button" data-cmd="/planner">/planner</button><button type="button" data-cmd="/value">/value</button><button type="button" data-cmd="/journal">/journal</button><button type="button" data-cmd="/critic">/critic</button><button type="button" data-cmd="/hipe">/hipe</button><button type="button" data-cmd="/smriti">/smriti</button><button type="button" data-cmd="/systems">/systems</button><button type="button" data-cmd="/superpowers">/superpowers</button><button type="button" data-cmd="/availability">/availability</button><button type="button" data-cmd="/rulebook">/rulebook</button><button type="button" data-cmd="/help">/help</button><button type="button" data-cmd="/clear">/clear</button>
+  </div>
+  <form class="con-in" id="con-form" autocomplete="off">
+    <span aria-hidden="true">›</span>
+    <label class="sr-only" for="con-input">Command</label>
+    <input id="con-input" type="text" spellcheck="false" autocapitalize="off" autocorrect="off" enterkeyhint="send" placeholder="Type a command, e.g. /hipe">
+  </form>
+  <div class="con-status" id="con-status" aria-hidden="true">
+    <span><span class="dot"></span><span id="st-state">ready</span></span>
+    <span id="st-tok">↑ 0 tokens</span>
+    <span class="ctx"><b><i id="st-bar"></i></b><span id="st-ctx">context: 12% used</span></span>
+    <span class="esc">esc to close · tab completes</span>
+  </div>
+</dialog>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="g-ashva" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21.5c.5-3 .3-5.2-.8-7.4C3.8 11.3 4.6 7.6 7.4 5.5L8.6 2.5l1.7 2.4c3.5-.2 6.9 1.9 8.6 5.1l1.6 3.1c.4.9-.1 1.8-1.1 1.9-.8.1-1.4-.3-1.9-.9l-1.6-1.8c-.9 1.2-2.4 1.9-3.9 2-.1 2.6.4 5 1.4 7.2"/><path d="M9.2 7.4c-1.4 1.5-1.9 3.4-1.4 5.3"/></g><circle cx="12.6" cy="8.2" r=".95" fill="currentColor"/></symbol>
+    <symbol id="g-rashmi" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="4.5" cy="12" r="2.2"/><path d="M6.6 11.2C10 8 14.6 12 20.5 6.5"/><path d="M6.6 12.8C10 16 14.6 12 20.5 17.5"/><circle cx="20.6" cy="6.4" r=".9"/><circle cx="20.6" cy="17.6" r=".9"/></g></symbol>
+    <symbol id="g-sarathi" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="5" r="2.3"/><path d="M8.4 7.6c-.6 3-.4 5.9.6 8.4M8.6 9.8l4.6 2.4 3.4-1.6M13.2 12.2l7.3 2.3M3 16h14.5"/><path d="M4.5 16l1 5.5h9.5l1.5-5.5"/></g></symbol>
+    <symbol id="g-ratha" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.3"/><path d="M12 3v6.7M12 14.3V21M3 12h6.7M14.3 12H21M5.6 5.6l4.8 4.8M13.6 13.6l4.8 4.8M18.4 5.6l-4.8 4.8M10.4 13.6l-4.8 4.8"/></g></symbol>
+    <symbol id="g-marga" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2.5 6h19"/><path d="M10.5 6L5 21.5M13.5 6l5.5 15.5"/><path d="M12 8.5v1.6M12 13v2.2M12 18.2v2.8"/></g></symbol>
+    <symbol id="h-velox" viewBox="0 0 28 28"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4.5C6.5 4.5 6.5 6.5 6.5 9s-.6 4-2.5 5c1.9 1 2.5 2.5 2.5 5s0 4.5 2.5 4.5M19 4.5c2.5 0 2.5 2 2.5 4.5s.6 4 2.5 5c-1.9 1-2.5 2.5-2.5 5s0 4.5-2.5 4.5M15.8 9.5l-3.6 9"/></g></symbol>
+    <symbol id="h-keyper" viewBox="0 0 28 28"><g fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="14" cy="6" r="3"/><circle cx="6" cy="21" r="3"/><circle cx="22" cy="21" r="3"/><path d="M12.4 8.6 7.6 18.4M15.6 8.6l4.8 9.8M9 21h10"/></g><circle cx="14" cy="6" r="1.2" fill="currentColor"/></symbol>
+    <symbol id="h-files" viewBox="0 0 28 28"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M9 3.5h9l4 4v13H9z"/><path d="M18 3.5v4h4"/><path d="M6 7v17.5h12"/><path d="M12.5 12.5h6M12.5 16h6"/></g></symbol>
+    <symbol id="h-trace" viewBox="0 0 28 28"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 4v20"/><path d="M7 7h9M10 11.5h11M13 16h5M16 20.5h8"/></g><circle cx="24" cy="20.5" r="2" fill="currentColor"/></symbol>
+    <symbol id="h-cpu" viewBox="0 0 28 28"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="7.5" y="7.5" width="13" height="13" rx="1.5"/><rect x="11.5" y="11.5" width="5" height="5"/><path d="M11 3.5v4M14 3.5v4M17 3.5v4M11 20.5v4M14 20.5v4M17 20.5v4M3.5 11h4M3.5 14h4M3.5 17h4M20.5 11h4M20.5 14h4M20.5 17h4"/></g></symbol>
+  </defs>
+</svg>
+
+<script>
+(() => {
+  'use strict';
+  const doc = document.documentElement;
+  const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let reduce = mq.matches;
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+  const lerp = (a, b, t) => a + (b - a) * t;
+  const smooth = t => t * t * (3 - 2 * t);
+
+  /* ---------- loader: hairline bar, under 1.5 s, skippable ---------- */
+  const loader = $('.loader');
+  let isReady = false;
+  const setReady = () => {
+    if (isReady) return;
+    isReady = true;
+    doc.classList.add('ready');
+    if (loader) {
+      loader.classList.add('out');
+      setTimeout(() => loader.remove(), reduce ? 0 : 400);
+    }
+  };
+  if (!loader || reduce) {
+    setReady();
+  } else {
+    const bar = $('.loader-bar i', loader);
+    const pct = $('.loader-pct', loader);
+    const t0 = performance.now();
+    ['pointerdown', 'keydown', 'wheel', 'touchstart'].forEach(ev =>
+      window.addEventListener(ev, setReady, { once: true, passive: true }));
+    const tick = now => {
+      if (isReady) return;
+      const t = now - t0;
+      let p;
+      if (t < 560) p = 88 * (1 - Math.pow(1 - t / 560, 3));
+      else if (t < 820) p = 88;
+      else p = 88 + 12 * Math.min(1, (t - 820) / 220);
+      p = Math.round(p);
+      bar.style.transform = 'scaleX(' + (p / 100) + ')';
+      pct.textContent = p + '%';
+      if (t >= 1080) { setReady(); return; }
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  /* ---------- the ride: scroll-scrubbed camera over the chariot ---------- */
+  const stage = $('.ride-stage');
+  const svg = stage && $('.chariot', stage);
+  const cam = svg && $('#cam', svg);
+  const wheel = svg && $('#wheel', svg);
+  const roads = svg ? $$('.road', svg) : [];
+  const tags = stage ? $$('.tag', stage) : [];
+  const stations = $$('.station');
+  const cards = $$('.ride .card');
+  const stepper = $('.stepper');
+  const stepBtns = stepper ? $$('button', stepper) : [];
+  const ORDER = ['ashva', 'rashmi', 'sarathi', 'ratha', 'marga'];
+  const KEYS = {
+    intro: [664, 404, 0],
+    ashva: [884, 430, 1.3],
+    rashmi: [872, 372, 1.14],
+    sarathi: [540, 318, 1.7],
+    ratha: [404, 430, 1.18],
+    marga: [664, 420, 0]
+  };
+  const ANCH = {
+    rathin: [404, 232], sarathi: [568, 282], rashmi: [848, 362],
+    ashva: [922, 414], ratha: [452, 575], marga: [760, 640]
+  };
+  let L = null;
+
+  const measure = () => {
+    if (!stage) return;
+    const sy = window.scrollY;
+    const overlay = window.matchMedia('(min-width: 960px)').matches;
+    const vh = window.innerHeight;
+    // sticky cards: keep a tall card's bottom on screen, and give it room to rest
+    cards.forEach(c => {
+      if (!overlay) { c.style.top = ''; c.parentElement.style.minHeight = ''; return; }
+      const h = c.offsetHeight;
+      c.style.top = Math.round(Math.min(Math.max(20, vh * 0.06), vh - h - 20)) + 'px';
+      c.parentElement.style.minHeight = Math.round(Math.max(vh * (c.parentElement.classList.contains('sub') ? 1.15 : 1.4), h + vh * 0.5)) + 'px';
+    });
+    const sr = svg.getBoundingClientRect();
+    const s = Math.min(sr.width / 1200, sr.height / 700);
+    const bodyNow = stage.parentElement.getBoundingClientRect();
+    const n = {
+      top: bodyNow.top + sy, bottom: bodyNow.bottom + sy, vh, overlay,
+      tops: stations.map(el => el.getBoundingClientRect().top + sy),
+      bots: stations.map(el => el.getBoundingClientRect().bottom + sy),
+      sw: sr.width, sh: sr.height, s,
+      ox: (sr.width - 1200 * s) / 2, oy: (sr.height - 700 * s) / 2,
+      zm: overlay ? 1 : 1.12, mid: overlay ? 0.5 : 0.73, m: vh * (overlay ? 0.32 : 0.18)
+    };
+    if (overlay) {
+      const card = $('.station .card');
+      const right = card ? card.getBoundingClientRect().right : sr.width * 0.4;
+      const cx = right + (sr.width - right) / 2;
+      n.tx = (cx - n.ox) / s;
+      n.ty = (sr.height * 0.52 - n.oy) / s;
+      n.zfit = Math.min(0.86, (sr.width - right - 48) / (960 * s));
+    } else {
+      n.tx = 600; n.ty = 336;
+      n.zfit = Math.min(1, (sr.width * 0.96) / (960 * s)) / n.zm;
+    }
+    tags.forEach(t => { const sp = t.querySelector('span'); t._w = sp ? sp.offsetWidth : 140; });
+    L = n;
+  };
+
+  let active = null;
+  let ticking = false;
+  const frame = () => {
+    ticking = false;
+    if (!stage) return;
+    if (!L) measure();
+    const sy = window.scrollY, vh = L.vh;
+    if (sy + vh < L.top - 400 || sy > L.bottom + 400) return;
+    const mid = sy + vh * L.mid;
+    const draw = reduce ? 1 : clamp((sy + vh - L.top) / (vh * 0.9), 0, 1);
+    svg.style.setProperty('--draw', draw.toFixed(3));
+
+    const n = stations.length, m = L.m;
+    let near = -1;
+    for (let i = 0; i < n; i++) if (mid >= L.tops[i] && mid < L.bots[i]) near = i;
+    if (mid >= L.bots[n - 1]) near = n - 1;
+    const K = i => KEYS[i < 0 ? 'intro' : ORDER[i]];
+    const mix = (a, b, t) => [lerp(a[0], b[0], t), lerp(a[1], b[1], t), lerp(a[2] || L.zfit, b[2] || L.zfit, t)];
+    let key;
+    if (reduce) key = K(near);
+    else if (mid < L.tops[0] - m) key = KEYS.intro;
+    else if (mid < L.tops[0] + m) key = mix(KEYS.intro, K(0), smooth((mid - L.tops[0] + m) / (2 * m)));
+    else {
+      key = K(n - 1);
+      for (let i = 0; i < n; i++) {
+        if (mid <= L.bots[i] - m) { key = K(i); break; }
+        if (i < n - 1 && mid < L.bots[i] + m) { key = mix(K(i), K(i + 1), smooth((mid - L.bots[i] + m) / (2 * m))); break; }
+      }
+    }
+    const z = (key[2] || L.zfit) * L.zm;
+    cam.setAttribute('transform', 'translate(' + L.tx.toFixed(1) + ' ' + L.ty.toFixed(1) + ') scale(' + z.toFixed(4) + ') translate(' + (-key[0]).toFixed(1) + ' ' + (-key[1]).toFixed(1) + ')');
+
+    if (!reduce) {
+      const ang = ((sy - L.top) * 0.15) % 360;
+      wheel.setAttribute('transform', 'rotate(' + ang.toFixed(2) + ' 360 470)');
+      roads.forEach((r, j) => { r.style.strokeDashoffset = ((sy - L.top) * (0.3 + j * 0.22)).toFixed(1); });
+    }
+
+    const name = near >= 0 ? ORDER[near] : '';
+    if (name !== active) {
+      active = name;
+      stage.dataset.active = name;
+      stepBtns.forEach((b, j) => b.setAttribute('aria-current', j === near ? 'step' : 'false'));
+    }
+    if (stepper) {
+      const p = clamp((mid - L.tops[0]) / (L.bots[n - 1] - L.tops[0]), 0, 1);
+      stepper.style.setProperty('--p', p.toFixed(3));
+    }
+    tags.forEach(tag => {
+      const a = ANCH[tag.dataset.k];
+      const vx = L.tx + z * (a[0] - key[0]);
+      const vy = L.ty + z * (a[1] - key[1]);
+      const px = L.ox + vx * L.s, py = L.oy + vy * L.s;
+      const wantFlip = tag.dataset.k === 'rathin' ? px - tag._w - 12 > 0 : px + tag._w + 16 > L.sw;
+      tag.classList.toggle('flip', wantFlip);
+      tag.style.transform = 'translate(' + px.toFixed(1) + 'px,' + py.toFixed(1) + 'px)';
+    });
+  };
+  const request = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
+
+  if (stage) {
+    measure();
+    frame();
+    window.addEventListener('scroll', request, { passive: true });
+    window.addEventListener('resize', () => { measure(); request(); });
+    if ('ResizeObserver' in window) new ResizeObserver(() => { measure(); request(); }).observe(document.body);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { measure(); request(); });
+    window.addEventListener('load', () => { measure(); request(); });
+    stepBtns.forEach((b, i) => b.addEventListener('click', () => {
+      if (!L) measure();
+      const y = L.tops[i] + L.m + 24 - L.vh * L.mid;
+      window.scrollTo({ top: y, behavior: reduce ? 'auto' : 'smooth' });
+      const h = stations[i] && stations[i].querySelector('.st-name');
+      if (h) setTimeout(() => h.focus({ preventScroll: true }), reduce ? 0 : 650);
+    }));
+  }
+  const onReduce = e => { reduce = e.matches; if (svg) svg.style.removeProperty('--draw'); request(); };
+  if (mq.addEventListener) mq.addEventListener('change', onReduce); else if (mq.addListener) mq.addListener(onReduce);
+
+  /* ---------- SMRITI ring ---------- */
+  const smNodes = $$('.sm-node, .sm-core');
+  const smOut = $('#sm-out');
+  const smSelect = btn => {
+    smNodes.forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+    if (!smOut) return;
+    smOut.textContent = '';
+    const em = document.createElement('em'); em.textContent = btn.dataset.p;
+    const b = document.createElement('b'); b.textContent = btn.dataset.t + '.';
+    smOut.append(em, b, ' ' + btn.dataset.d);
+  };
+  smNodes.forEach((btn, i) => {
+    btn.addEventListener('click', () => smSelect(btn));
+    btn.addEventListener('keydown', e => {
+      let d = 0;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') d = 1;
+      else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') d = -1;
+      else return;
+      e.preventDefault();
+      const nx = smNodes[(i + d + smNodes.length) % smNodes.length];
+      nx.focus();
+      smSelect(nx);
+    });
+  });
+
+  /* ---------- the console ---------- */
+  const C = {
+    '/why-pradyuman': [
+      ['h', 'The case in one breath'],
+      ['p', 'Pick Pradyuman for Harness Engineering because he has already done the job this domain is named after.'],
+      ['li', 'Databricks, May–Aug 2026: did his engineering through Isaac, the internal harness Databricks’ CTO has publicly described as a wrapper on Claude Code and Codex, and worked on its skills and context management.'],
+      ['li', 'Ran his internship as one daily agent loop: a daily-planner agent his team adopted, plus a work-journal agent and a self-critique skill he built for himself, all sharing one markdown memory. His final-presentation demo was acknowledged up to VP level.'],
+      ['li', 'Filesystem-as-memory for his agents. On Databricks’ company-wide AI usage dashboard, his usage ran 2–3× below the intern cohort (a peer comparison, not a controlled test).'],
+      ['li', 'Public proof, built with a teammate: a HIPE-2026 multi-agent system ranked 11th of 46 submissions on generalisation (CLEF 2026), written up in a 14-page working-notes paper.'],
+      ['li', 'Under the agents: a C compiler, a Raft key-value store, request-path observability.'],
+      ['li', 'The no-prep temperament: first place in an elocution competition, five quiz medals in one championship, the lead in a Sanskrit play, a DSA TA.'],
+      ['li', 'Fully available: a Databricks PPO means he is not sitting placements in December.'],
+      ['p', 'Next: /smriti for his design, or /rulebook for the rules he has cold.']
+    ],
+    '/databricks': [
+      ['h', 'Databricks, May–Aug 2026, Network Foundations'],
+      ['p', 'Databricks open-sourced Omnigent, its “meta-harness” over Claude Code, Codex and others, on 13 Jun 2026, mid-internship. Its CTO, Matei Zaharia, publicly named Isaac, the dev-infra wrapper on Claude Code and Codex that Pradyuman did his engineering through.'],
+      ['li', 'Worked on Isaac’s skills and context management.'],
+      ['li', 'Filesystem-as-memory: a hierarchical tree of markdown files that all his agents and subagents read and wrote. On Databricks’ company-wide AI usage dashboard, his usage ran 2–3× below the intern cohort. More in /memory.'],
+      ['li', 'A daily-planner agent: a triage agent over connectors (MCP) that turns six inboxes into one ranked attention queue. More in /planner.'],
+      ['li', 'Value-maxxing: helped shift AI usage from token-maxxing to value-maxxing by tiering users on tokens used against output delivered. More in /value.'],
+      ['li', 'An efficiency-vs-cost report on every Claude model, every OpenAI model then on the market, Grok and Cursor’s agent. His whole team read it, and it went out on the relevant org-wide Slack channel to everyone at Databricks.'],
+      ['li', 'A team knowledge-base prototype that a few teammates used: the seed of SMRITI.'],
+      ['li', 'A work-journal agent and a self-critique skill for his own work. More in /journal and /critic.'],
+      ['p', 'Together they ran as one closed loop, every day: plan (the planner), do (Isaac and subagents), record (the journal), reflect (the critic), remember (the shared markdown memory).'],
+      ['p', 'How his changes spread: his personal setup, then adopted by many on his 7-person team, then pitched for org-wide adoption in his final intern presentation. The demo and presentation drew positive acknowledgement up to Senior Director and VP level.'],
+      ['p', 'Yardsticks Databricks has published:'],
+      ['li', 'Tuning the harness and caching cut tokens and cost by almost 50%.'],
+      ['li', 'The same model through different harnesses changed cost per task by over 2×.'],
+      ['li', 'Smart Routing saved about 35% on internal coding work.'],
+      ['p', 'His day job was observability: tracing for a reverse-tunnel request path, with first-failing-hop attribution, an end-to-end correlation ID, and log sampling that is consistent across services and never drops a failure. Databricks found seven buggy agent tools, costing about $1.2M a year, with exactly this kind of tracing.'],
+      ['p', 'He describes Isaac only in the words Databricks has used publicly.'],
+      ['src', 'Databricks blog: Omnigent; managing AI coding costs; benchmarking coding agents; Smart Routing; $1M of wasted agent spend. Isaac: [latent.space/p/databricks](https://latent.space/p/databricks/)']
+    ],
+    '/memory': [
+      ['h', 'Rashmi: the reins are context'],
+      ['p', 'Filesystem as memory: one hierarchical tree of markdown files that all his agents and subagents read and wrote, so an agent opens only the branch a task needs (progressive disclosure).'],
+      ['p', 'On Databricks’ company-wide AI usage dashboard, which covers every engineer and intern, his usage ran 2–3× below the intern cohort. That is a peer comparison, not a controlled test.'],
+      ['p', 'Why plain markdown files?'],
+      ['li', 'Exact strings, like flags and metric names, favour grep.'],
+      ['li', 'Files are diffable and portable.'],
+      ['li', 'Paraphrase is the honest gap, so the team design, SMRITI, goes hybrid.'],
+      ['p', 'Databricks published the same pattern as MemCurrent in Oct 2026: markdown memory files under an index. Its figures: pass rate 22.3% to 68.4%, and about 12× fewer input tokens than replaying full context.'],
+      ['src', '[databricks.com/blog/memcurrent-designing-persistent-memory-production-agents](https://www.databricks.com/blog/memcurrent-designing-persistent-memory-production-agents)']
+    ],
+    '/planner': [
+      ['h', 'Daily planner: six inboxes, one queue'],
+      ['p', 'A triage agent he built at Databricks. It reads Slack, GitHub and Google Workspace (Docs, Sheets, Calendar, Meet) through connectors (MCP) and turns six inboxes into one ranked attention queue: what needs his attention, and in what order.'],
+      ['li', 'It started as his personal setup.'],
+      ['li', 'Many on his 7-person team adopted it.'],
+      ['li', 'He pitched it for org-wide adoption in his final intern presentation; the demo drew positive acknowledgement up to Senior Director and VP level.'],
+      ['li', 'His team’s feedback was rich, and it shaped each iteration.']
+    ],
+    '/value': [
+      ['h', 'From token-maxxing to value-maxxing'],
+      ['p', 'At Databricks he helped shift AI usage from token-maxxing to value-maxxing, by tiering users on token usage against output delivered.'],
+      ['p', 'The rule underneath: measure cost per outcome, not tokens burned. It is the same unit as his model report, and the one he would put on a results slide: cost per solved task.']
+    ],
+    '/journal': [
+      ['h', 'Work journal: episodes into summaries'],
+      ['p', 'An agent he built at Databricks that wrote up all of each day’s work on a set of Confluence pages.'],
+      ['p', 'By the end of the internship he had detailed daily, weekly and monthly documentation: memory consolidation from episodes to summaries, as days roll into weeks and weeks into months.'],
+      ['src', 'In his daily loop, this is the Record step.']
+    ],
+    '/critic': [
+      ['h', 'Self-critique: a reflection loop pointed at the engineer'],
+      ['p', 'A skill he built that compared his own work with the team’s, identified his mistakes and limitations, and gave him strict pointers on what to improve.'],
+      ['p', 'Most reflection loops critique the code. This one critiques the engineer.'],
+      ['src', 'In his daily loop, this is the Reflect step.']
+    ],
+    '/hipe': [
+      ['h', 'HIPE-2026, a CLEF 2026 shared task'],
+      ['p', 'Built with a teammate. The task: decide from historical newspaper articles whether a person was at a place, a relation-extraction problem across languages and eras.'],
+      ['li', 'Nine measured strategies, from frozen encoders to LoRA multi-task to generative fine-tuning, each scored on the official macro-recall metric. Global macro recall on the team’s evaluation split rose from 0.42 to 0.73.'],
+      ['li', 'Run 2, multi-agent: two specialist agents, a Historian and a Geographer, plus an Arbiter who weighs both; three LoRA adapters on Qwen2.5-7B. Ranked 11th of 46 submissions on generalisation.'],
+      ['li', 'Run 3, grounded: GPT-OSS-120B with live Wikidata lookups, a cache, few-shot chain-of-thought and strict JSON validation of every answer. Ranked 13th of 46 submissions on accuracy.'],
+      ['li', 'Evaluation built in: an LLM-as-judge script beside the official metric, and a 14-page working-notes paper.'],
+      ['p', 'Code and paper: [github.com/ikshv4ku/HIPE-2026-Team-Hansel-Gretel](https://github.com/ikshv4ku/HIPE-2026-Team-Hansel-Gretel)'],
+      ['src', '[hipe-eval.github.io/HIPE-2026/results](https://hipe-eval.github.io/HIPE-2026/results)']
+    ],
+    '/smriti': [
+      ['h', 'SMRITI: Shruti in, Smriti out'],
+      ['p', 'Each engineer’s notes are what one person heard; the team memory is what the team remembers. The six stages spell the name.'],
+      ['kv', 'S  Shred & scrub|notes become atomic cards; secrets never leave the laptop'],
+      ['kv', 'M  Merge|hashing and embeddings collapse duplicates; only independent authors count as corroboration'],
+      ['kv', 'R  Reconcile|narrow the scope, run the command, prefer the newer fact, compare trust, else flag it contested'],
+      ['kv', 'I  Index|the ledger renders a tiny cached router, summary pages and a team skill'],
+      ['kv', 'T  Traverse|route, search once, lazily read at most three cards'],
+      ['kv', 'I  Improve|learnings return as reviewed pull requests'],
+      ['p', 'Underneath: an append-only, bi-temporal ledger, so nothing is rewritten or silently lost.'],
+      ['p', 'Three ideas carry it: compile, don’t concatenate; supersede, don’t delete; shape the context for the cache.'],
+      ['src', 'A design, not a benchmark: any savings are estimates. It stands on ACE, Graphiti and MemCurrent.']
+    ],
+    '/systems': [
+      ['h', 'What sits under the agent'],
+      ['li', 'Velox, a C compiler: lexer, recursive-descent parser, IR, x86-64 codegen, GoogleTest. Tool calls are a grammar.'],
+      ['li', 'Keyper, a Raft key-value store: leader election, majority replication, CRC32 sharding over 3 clusters and 9 nodes. Many agents writing one memory is a consistency problem.'],
+      ['li', 'Multi-threaded file server (team project, 4 people): 100 concurrent clients, per-file reader-writer locks, salted SHA-256 auth. Parallel subagents on shared files.'],
+      ['li', 'Request-path observability at Databricks: failure-phase attribution, correlation IDs, consistent sampling. Tracing agent runs.'],
+      ['li', 'Superscalar CPU in Verilog (team project, 5 people): dual-issue, 5-stage pipeline, custom 16-bit ISA. What can run in parallel, and what must wait.'],
+      ['p', 'CGPA 9.51 after six semesters, with A or A+ in OS, Computer Networks, Compiler Design, DBMS, Algorithms, ML and NLP Applications.']
+    ],
+    '/superpowers': [
+      ['h', 'The no-prep temperament, with receipts'],
+      ['li', 'Retrieval under a clock: five medals at CGC 2025. Gold in General; Silver in India and MELA; Bronze in TLC and SBT.'],
+      ['li', 'Wins the room: first place in an elocution competition by IIT Roorkee’s Debating Society (first year); High Commendation at the Freshers’ MUN.'],
+      ['li', 'Owns a stage: lead role in a classical Sanskrit play at Pragyotsav 2024; hosted many guest lectures for the Sanskrit Club.'],
+      ['li', 'Explains for a living: DSA Teaching Assistant, quantum-computing lecturer, IBM Qiskit workshop co-organiser.'],
+      ['li', 'Black-box detective: rebuilt AlgoUnlock’s algorithms from compiled binaries, by input and output alone.'],
+      ['li', 'Fast, correct code: Codeforces Specialist (1538), CodeChef 3★ (1605), global rank 221 in CodeChef Starters 172 (Div. 4).'],
+      ['li', 'Thinks like an attacker: CTF at Advitiya’25, in cryptography, reverse engineering and web exploitation.'],
+      ['li', 'Measures everything: Black-Scholes timed at 0.08 ms against a binomial tree up to 69× slower.'],
+      ['li', 'Plays as a team under a clock: basketball.']
+    ],
+    '/availability': [
+      ['h', 'Available all of December'],
+      ['li', 'Databricks PPO: he is not sitting campus placements.'],
+      ['li', 'He can stay from the travel window (8–10 Dec) to checkout on 15 Dec. The Meet runs 11–14 Dec at IIT Guwahati.'],
+      ['p', 'His ask is Harness Engineering. Under the No-Prep substitution rule (rulebook §3.5, rule 14) he is available as a registered stand-in for Optimization/CP or Math, if the contingent needs one:'],
+      ['kv', 'Optimization/CP|Codeforces Specialist 1538, CodeChef 3★ 1605, CODCOM offline round, AlgoUnlock'],
+      ['kv', 'Math|JEE Advanced AIR 1819, KVPY AIR 1521, A or A+ in Probability, Numerical Methods, Mathematics I–II'],
+      ['src', 'A stand-in must be notified to the organisers by the Contingent Leader by 10 Dec.']
+    ],
+    '/rulebook': [
+      ['h', 'Five rulebook facts, cold'],
+      ['n', '1. The Meet runs 11–14 Dec 2026 at IIT Guwahati. No Prep is worth up to 150 points (§3.3).'],
+      ['n', '2. Contingent cap “No Prep 2 × 3”: very likely two people per domain, so no room for a passenger (§3.4).'],
+      ['n', '3. Revealing your IIT’s name costs 50% of that stage (§3.11).'],
+      ['n', '4. Overtime costs 5% under 10 s, rising to 25% plus 15% per extra minute (§3.11).'],
+      ['n', '5. Paid APIs must be disclosed, and results must be replicable (§3.8, §3.11).'],
+      ['src', 'Also: 2 contentions per IIT, untimed Q&A, substitution notice by 10 Dec.']
+    ],
+    '/help': [
+      ['h', 'Commands'],
+      ['kv', '/why-pradyuman|the case in one breath'],
+      ['kv', '/databricks|a summer inside a production harness'],
+      ['kv', '/memory|filesystem as memory, and the 2–3×'],
+      ['kv', '/planner|six inboxes, one ranked queue'],
+      ['kv', '/value|cost per outcome, not tokens burned'],
+      ['kv', '/journal|days into weeks into months'],
+      ['kv', '/critic|reflection pointed at the engineer'],
+      ['kv', '/hipe|the multi-agent system, 11th of 46'],
+      ['kv', '/smriti|his team-memory design, six stages'],
+      ['kv', '/systems|what sits under the agent'],
+      ['kv', '/superpowers|the no-prep temperament'],
+      ['kv', '/availability|dates, PPO, stand-in cover'],
+      ['kv', '/rulebook|five rulebook facts'],
+      ['kv', '/clear|clear the screen; memory persists'],
+      ['kv', '/help|this list'],
+      ['src', 'Press / anywhere on the page to open this console. Esc closes it. Tab completes a command.']
+    ]
+  };
+  const NAMES = Object.keys(C).concat(['/clear']);
+  const COUNT = NAMES.length;
+  const GREET = [
+    ['ok', 'Harness ready. Model: the candidate. Memory: one shared markdown file.'],
+    ['p', 'Ask about Pradyuman. Start with /why-pradyuman, or type /help for all ' + (Object.keys(C).length + 1) + ' commands.']
+  ];
+
+  const con = $('#con');
+  const out = $('#con-out');
+  const inp = $('#con-input');
+  const form = $('#con-form');
+  const sr = $('#con-sr');
+  const status = $('#con-status');
+  const stState = $('#st-state'), stTok = $('#st-tok'), stCtx = $('#st-ctx'), stBar = $('#st-bar');
+  let opener = null, tokens = 0, ctx = 12, greeted = false, stream = null;
+  const hist = [];
+  let hIdx = 0;
+
+  const fmtNum = n => Math.round(n).toLocaleString('en-IN');
+  const setStatus = () => {
+    stTok.textContent = '↑ ' + fmtNum(tokens) + ' tokens';
+    stCtx.textContent = 'context: ' + Math.round(ctx) + '% used';
+    stBar.style.width = ctx.toFixed(1) + '%';
+  };
+  const plainOf = (t, s) => {
+    let x = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1');
+    if (t === 'kv') x = x.replace('|', '  ');
+    return x;
+  };
+  const render = it => {
+    const el = it.el;
+    el.textContent = '';
+    if (it.t === 'kv') {
+      const parts = it.s.split('|');
+      const b = document.createElement('b'); b.textContent = parts[0];
+      const sp = document.createElement('span'); sp.textContent = parts[1] || '';
+      el.append(b, sp);
+      return;
+    }
+    const re = /\[([^\]]+)\]\(([^)]+)\)/g;
+    let last = 0, m;
+    while ((m = re.exec(it.s))) {
+      if (m.index > last) el.append(it.s.slice(last, m.index));
+      const a = document.createElement('a');
+      a.href = m[2]; a.textContent = m[1]; a.target = '_blank'; a.rel = 'noopener';
+      el.append(a);
+      last = m.index + m[0].length;
+    }
+    if (last < it.s.length) el.append(it.s.slice(last));
+  };
+  const finishStream = () => { if (stream) stream(); };
+  const print = (lines, instant) => {
+    finishStream();
+    const blk = document.createElement('div');
+    blk.className = 'blk';
+    out.appendChild(blk);
+    const items = lines.map(([t, s]) => {
+      const el = document.createElement(t === 'kv' ? 'div' : 'p');
+      el.className = 'c-' + t;
+      blk.appendChild(el);
+      return { el, t, s, txt: plainOf(t, s) };
+    });
+    const total = items.reduce((n, it) => n + it.txt.length, 0);
+    const done = () => {
+      stream = null;
+      items.forEach(render);
+      status.classList.remove('busy');
+      stState.textContent = 'ready';
+      ctx = Math.min(58, ctx + total / 2600);
+      setStatus();
+      sr.textContent = items.map(it => it.txt).join(' ');
+      out.scrollTop = out.scrollHeight;
+    };
+    if (instant || reduce) {
+      tokens += total / 4;
+      done();
+      return;
+    }
+    status.classList.add('busy');
+    stState.textContent = 'thinking…';
+    let i = 0, pos = 0, raf = 0;
+    const caret = document.createElement('span');
+    caret.className = 'caret';
+    stream = () => { cancelAnimationFrame(raf); caret.remove(); tokens += (total - items.slice(0, i).reduce((n, it) => n + it.txt.length, 0) - pos) / 4; done(); };
+    const step = () => {
+      let budget = 9;
+      while (budget > 0 && i < items.length) {
+        const it = items[i];
+        const take = Math.min(budget, it.txt.length - pos);
+        pos += take; budget -= take; tokens += take / 4;
+        it.el.textContent = it.txt.slice(0, pos);
+        it.el.appendChild(caret);
+        if (pos >= it.txt.length) { render(it); i++; pos = 0; }
+      }
+      setStatus();
+      out.scrollTop = out.scrollHeight;
+      if (i < items.length) raf = requestAnimationFrame(step);
+      else { caret.remove(); done(); }
+    };
+    raf = requestAnimationFrame(step);
+  };
+  const echo = v => {
+    const blk = document.createElement('div');
+    blk.className = 'blk';
+    const p = document.createElement('p');
+    p.className = 'c-cmd';
+    p.textContent = v;
+    blk.appendChild(p);
+    out.appendChild(blk);
+    blk.style.marginBottom = '6px';
+  };
+  const run = raw => {
+    const v = (raw || '').trim();
+    if (!v) return;
+    hist.push(v); hIdx = hist.length;
+    let key = v.toLowerCase().split(/\s+/)[0];
+    if (key.charAt(0) !== '/') key = '/' + key;
+    finishStream();
+    echo(v);
+    if (key === '/clear') {
+      out.textContent = '';
+      ctx = 12;
+      setStatus();
+      print([['ok', 'Context cleared. The memory lives in the file, not in the window.']], true);
+      return;
+    }
+    if (C[key]) print(C[key]);
+    else print([['err', 'No such command: ' + v + '. Type /help to see all ' + COUNT + '.']], true);
+  };
+  const complete = () => {
+    const v = inp.value.trim().toLowerCase();
+    if (!v.startsWith('/')) return false;
+    const hits = NAMES.filter(n => n.startsWith(v));
+    if (hits.length === 1 && hits[0] !== v) { inp.value = hits[0]; return true; }
+    return false;
+  };
+  const openCon = cmd => {
+    if (!con) return;
+    if (!con.open) {
+      opener = document.activeElement;
+      const keepY = window.scrollY;
+      if (typeof con.showModal === 'function') con.showModal(); else con.setAttribute('open', '');
+      if (window.scrollY !== keepY) window.scrollTo(0, keepY);
+      doc.classList.add('con-open');
+      if (reduce) con.classList.add('is-open');
+      else requestAnimationFrame(() => requestAnimationFrame(() => con.classList.add('is-open')));
+    }
+    if (!greeted) { greeted = true; print(GREET, true); }
+    if (cmd) run(cmd);
+    inp.focus({ preventScroll: true });
+  };
+  const closeCon = () => {
+    if (!con || !con.open) return;
+    finishStream();
+    con.classList.remove('is-open');
+    const done = () => {
+      if (con.open) { if (typeof con.close === 'function') con.close(); else con.removeAttribute('open'); }
+      doc.classList.remove('con-open');
+      if (opener && typeof opener.focus === 'function') opener.focus({ preventScroll: true });
+    };
+    if (reduce) done(); else setTimeout(done, 330);
+  };
+  if (con) {
+    setStatus();
+    $$('[data-console]').forEach(b => b.addEventListener('click', () => openCon(b.dataset.console)));
+    $$('[data-cmd]', con).forEach(b => b.addEventListener('click', () => run(b.dataset.cmd)));
+    $('.con-x', con).addEventListener('click', closeCon);
+    form.addEventListener('submit', e => { e.preventDefault(); const v = inp.value; inp.value = ''; run(v); });
+    con.addEventListener('cancel', e => { e.preventDefault(); closeCon(); });
+    con.addEventListener('click', e => {
+      if (e.target !== con) return;
+      const r = con.getBoundingClientRect();
+      if (e.clientY < r.top || e.clientY > r.bottom || e.clientX < r.left || e.clientX > r.right) closeCon();
+    });
+    out.addEventListener('click', e => { if (stream && e.target.tagName !== 'A') finishStream(); });
+    con.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { e.preventDefault(); closeCon(); return; }
+      if (e.target === inp && (e.key === 'ArrowUp' || e.key === 'ArrowDown') && hist.length) {
+        e.preventDefault();
+        hIdx = clamp(hIdx + (e.key === 'ArrowUp' ? -1 : 1), 0, hist.length);
+        inp.value = hist[hIdx] || '';
+        return;
+      }
+      if (e.key !== 'Tab') return;
+      if (e.target === inp && !e.shiftKey && complete()) { e.preventDefault(); return; }
+      const f = $$('button, input, a[href]', con).filter(el => !el.disabled && el.getClientRects().length);
+      if (!f.length) return;
+      const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
+    window.addEventListener('keydown', e => {
+      if (e.key !== '/' || e.ctrlKey || e.metaKey || e.altKey) return;
+      const t = e.target;
+      const tag = (t && t.tagName || '').toLowerCase();
+      if (tag === 'input' || tag === 'textarea' || tag === 'select' || (t && t.isContentEditable)) return;
+      if (con.open) return;
+      e.preventDefault();
+      openCon();
+      inp.value = '/';
+    });
+  }
+})();
+
+</script>
+</body>
+</html>
