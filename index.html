@@ -84,11 +84,11 @@ kbd{font:500 12px/1 var(--mono);border:1px solid var(--rule-2);border-bottom-wid
 /* hero */
 .hero{padding:clamp(20px,4.5vw,64px) 0 clamp(80px,9vw,132px)}
 .hero-grid{display:grid;gap:56px}
-@media (min-width:1100px){.hero-grid{grid-template-columns:minmax(0,1.14fr) minmax(0,.86fr);gap:clamp(48px,5vw,80px);align-items:center}}
-.display{font-size:clamp(42px,5.25vw,80px);line-height:1;font-weight:500;letter-spacing:-.026em}
+@media (min-width:1100px){.hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:clamp(48px,6vw,96px);align-items:center}}
+.display{font-size:clamp(44px,5.6vw,84px);line-height:1;font-weight:500;letter-spacing:-.026em}
 .display span{display:block}
 .display .l2{color:var(--nila)}
-.hero-sub{margin-top:0;font:500 12.5px/1.5 var(--mono);color:var(--ink-2);letter-spacing:.01em}
+.hero-sub{margin-top:26px;font:500 12.5px/1.5 var(--mono);color:var(--ink-2);letter-spacing:.01em}
 .hero-sub strong{display:block;font:600 21px/1.3 var(--serif);color:var(--ink);letter-spacing:-.005em;margin-bottom:2px}
 .hero-sub .sep{opacity:.8}
 .hero-p{margin-top:16px;max-width:47ch;font-size:clamp(18px,1.4vw,20px);line-height:1.55;color:var(--ink-2)}
@@ -101,6 +101,22 @@ kbd{font:500 12px/1 var(--mono);border:1px solid var(--rule-2);border-bottom-wid
 .js .rv{opacity:0;transform:translateY(14px)}
 .ready .rv{opacity:1;transform:none;transition:opacity .7s ease,transform 1s cubic-bezier(.2,.75,.15,1);transition-delay:calc(var(--d,0)*1ms)}
 
+.stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;margin-top:26px;border-top:1px solid var(--ink)}
+.stats li{padding:12px 14px 0 0;border-right:1px solid var(--rule);margin-right:14px}
+.stats li:last-child{border-right:0;margin-right:0}
+.stats b .x{font-family:var(--sans);font-weight:500;display:inline;margin:0;font-size:1em;color:inherit}
+.stats b{display:block;font:600 clamp(19px,1.6vw,24px)/1.1 var(--serif);color:var(--nila);letter-spacing:-.01em}
+.stats span{display:block;margin-top:5px;font-size:13px;line-height:1.35;color:var(--ink-2)}
+.stats em{font:400 11px/1.3 var(--mono);font-style:normal;color:var(--ink-3)}
+.hero-ph{margin:0}
+.hero-ph .plate{padding:6px;border-radius:16px}
+.hero-ph .duo{border-radius:11px}
+.hero-ph .duo img{aspect-ratio:4/5;object-fit:cover}
+.hero-ph figcaption{display:flex;justify-content:space-between;margin-top:10px;font:500 11px/1.3 var(--mono);color:var(--ink-3);letter-spacing:.04em;text-transform:uppercase}
+@media (max-width:1099px){.hero-grid{grid-template-columns:1fr}.hero-ph{order:-1;width:min(300px,72vw)}.stats{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:14px}.stats li:nth-child(3){border-right:0;margin-right:0}}
+@media (max-width:560px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stats li:nth-child(3){border-right:1px solid var(--rule);margin-right:14px}.stats li:nth-child(even){border-right:0;margin-right:0}.hero-ph{width:46vw}.hero-ph figcaption{display:none}}
+.why-grid{display:grid;gap:40px;align-items:center}
+@media (min-width:1100px){.why-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:80px}.why .sec-head{margin-bottom:0}}
 /* proof chart */
 .proof{background:var(--card);border:1px solid var(--rule);border-radius:18px;padding:clamp(22px,2.6vw,34px)}
 .proof-k{font:500 11.5px/1.4 var(--mono);color:var(--ink-2);letter-spacing:.02em}
@@ -604,21 +620,38 @@ html.con-open .fab{opacity:0;pointer-events:none}
 
 <section class="hero" aria-labelledby="hero-h">
   <div class="wrap hero-grid">
-    <div>
+    <div class="hero-txt">
       <p class="eyebrow rv" style="--d:0">For IIT Roorkee’s Student Technical Council</p>
-      <h1 class="display" id="hero-h"><span class="rv" style="--d:80">Every model needs a harness.</span> <span class="l2 rv" style="--d:220">Every harness needs a charioteer.</span></h1>
-      <div class="hero-who rv" style="--d:420">
-        <div class="plate"><div class="duo"><img src="assets/headshot-square.jpg" width="480" height="480" decoding="async" fetchpriority="high" alt="Pradyuman Singh Shekhawat in glasses and a brown jacket, outdoors, a mountainside in the background."></div></div>
-        <p class="hero-sub"><strong>Pradyuman Singh Shekhawat</strong><span class="sr-only"> · </span>Inter-IIT Tech Meet 15.0 · No-Prep · Harness Engineering</p>
-      </div>
-      <p class="hero-p rv" style="--d:500">I’ve already done the job this domain is named after. At Databricks I ran my internship as an agent loop, built a daily-planner agent my team adopted, and gave a demo that reached VP level. In public: a multi-agent system ranked 11th of 46 submissions on generalisation at CLEF 2026.</p>
-      <div class="hero-cta rv" style="--d:600">
+      <h1 class="display" id="hero-h"><span class="rv" style="--d:80">I build the harness.</span> <span class="l2 rv" style="--d:220">Give me the reins.</span></h1>
+      <p class="hero-sub rv" style="--d:380"><strong>Pradyuman Singh Shekhawat</strong><span class="sr-only"> · </span>Inter-IIT Tech Meet 15.0 · No-Prep · Harness Engineering</p>
+      <p class="hero-p rv" style="--d:460">I’ve already done the job this domain is named after. At Databricks I ran my internship as an agent loop and built a daily-planner agent my team adopted. In public, a teammate and I built a multi-agent system that ranked 11th of 46 submissions at CLEF 2026.</p>
+      <ul class="stats rv" style="--d:540" aria-label="Proof, in five numbers">
+        <li><b>Databricks</b><span>SWE intern, now with a PPO</span></li>
+        <li><b>VP level</b><span>where my intern demo reached</span></li>
+        <li><b>2–3<span class="x">×</span></b><span>below the intern cohort on AI usage <em>(peer comparison)</em></span></li>
+        <li><b>11th / 46</b><span>submissions at CLEF 2026 (HIPE)</span></li>
+        <li><b>9.51</b><span>CGPA after six semesters</span></li>
+      </ul>
+      <div class="hero-cta rv" style="--d:620">
         <button class="pill" type="button" data-console="/why-pradyuman"><span class="run" aria-hidden="true"><svg viewBox="0 0 10 10"><path d="M1 0l8 5-8 5z" fill="currentColor"/></svg></span>Run /why-pradyuman</button>
         <p class="hint">or press <kbd>/</kbd> anywhere</p>
       </div>
     </div>
+    <figure class="hero-ph rv" style="--d:200">
+      <div class="plate"><div class="duo"><img src="assets/headshot.jpg" width="640" height="800" decoding="async" fetchpriority="high" alt="Pradyuman Singh Shekhawat in glasses, a brown jacket and a dark scarf, outdoors with a mountainside in the background."></div></div>
+      <figcaption><span>The charioteer</span><span>IIT Roorkee</span></figcaption>
+    </figure>
+  </div>
+</section>
 
-    <figure class="proof rv" style="--d:300" aria-labelledby="proof-t">
+<section class="sec why" id="why" aria-labelledby="why-h">
+  <div class="wrap why-grid">
+    <div class="sec-head">
+      <p class="eyebrow">Why harness engineering matters</p>
+      <h2 class="h2" id="why-h">Same model, different harness, very different results.</h2>
+      <p class="lead">That gap is the job. On Terminal-Bench 2.0, swapping only the harness moved one model by almost 16 points.</p>
+    </div>
+    <figure class="proof" aria-labelledby="proof-t">
       <p class="proof-k">Terminal-Bench 2.0 · tasks solved, %</p>
       <h2 class="proof-t" id="proof-t">Same model, different harness</h2>
       <div class="db" role="img" aria-label="Dumbbell chart of Terminal-Bench 2.0 scores. GPT-5: 33.9% in Mini-SWE-Agent, 49.6% in Codex CLI, 15.7 points apart. Claude Opus 4.5: 52.1% in Claude Code, 57.8% in Terminus 2, 5.7 points apart. Gemini 2.5 Pro: 19.6% in Gemini CLI, 32.6% in Terminus 2, 13.0 points apart.">
