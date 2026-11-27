@@ -106,7 +106,7 @@ kbd{font:500 12px/1 var(--mono);border:1px solid var(--rule-2);border-bottom-wid
 .stats li:last-child{border-right:0;margin-right:0}
 .stats b .x{font-family:var(--sans);font-weight:500;display:inline;margin:0;font-size:1em;color:inherit}
 .stats b{display:block;font:600 clamp(19px,1.6vw,24px)/1.1 var(--serif);color:var(--nila);letter-spacing:-.01em}
-.stats span{display:block;margin-top:5px;font-size:13px;line-height:1.35;color:var(--ink-2)}
+.stats li>span{display:block;margin-top:5px;font-size:13px;line-height:1.35;color:var(--ink-2)}
 .stats em{font:400 11px/1.3 var(--mono);font-style:normal;color:var(--ink-3)}
 .hero-ph{margin:0}
 .hero-ph .plate{padding:6px;border-radius:16px}
@@ -144,9 +144,6 @@ kbd{font:500 12px/1 var(--mono);border:1px solid var(--rule-2);border-bottom-wid
 .js .db-line{transform:scaleX(0)}
 .js .db-dot.hi,.js .db-lab.hi{opacity:0}
 .js .db-dot.hi{transform:scale(.2)}
-.ready .db-line{transform:none;transition:transform 1.05s cubic-bezier(.25,.7,.1,1) calc(450ms + var(--i)*170ms)}
-.ready .db-dot.hi,.ready .db-lab.hi{opacity:1;transition:opacity .35s ease calc(1250ms + var(--i)*170ms),transform .5s cubic-bezier(.3,1.5,.5,1) calc(1250ms + var(--i)*170ms)}
-.ready .db-dot.hi{transform:none}
 .proof-note{margin-top:22px;display:flex;gap:12px;align-items:center;font:500 13.5px/1.45 var(--mono);color:var(--nila)}
 .proof-note::before{content:"";flex:none;width:22px;height:1px;background:currentColor}
 
@@ -473,6 +470,99 @@ html.tk-open .fab{opacity:0;pointer-events:none}
 .tkd-src a{color:var(--nila)}
 .tkd-src span{display:block;font:400 12px/1.5 var(--mono);color:var(--ink-3);margin-top:4px}
 .tkd-nav{display:flex;justify-content:space-between;gap:10px;padding:12px 24px 18px;border-top:1px solid var(--rule)}
+/* round 8: graphics */
+.progress{position:fixed;left:0;right:0;top:0;height:3px;z-index:60;pointer-events:none}
+.progress i{display:block;height:100%;background:var(--nila);transform-origin:left;transform:scaleX(0)}
+@media (prefers-reduced-motion:reduce){.progress{display:none}}
+.dbx{display:inline-block;width:22px;height:22px;margin:0 8px 0 0;vertical-align:-3px;border-radius:0}
+.dbx.sm{width:16px;height:16px;margin:0 6px 0 8px;vertical-align:-3px}
+.st-dbx{display:inline-flex;align-items:center}
+.stats b{white-space:nowrap;font-variant-numeric:tabular-nums}
+@media (min-width:1100px){.stats{grid-template-columns:1.3fr 1fr 1.05fr 1fr .8fr}}
+/* scroll reveal */
+.js .rvs{opacity:0;transform:translateY(22px)}
+.js .rvs.in{opacity:1;transform:none;transition:opacity .7s ease,transform .9s cubic-bezier(.2,.7,.15,1);transition-delay:calc(var(--rd,0)*90ms)}
+@media (prefers-reduced-motion:reduce){.js .rvs{opacity:1;transform:none;transition:none}}
+/* dumbbell animates on scroll-in */
+.proof.in .db-line{transform:none;transition:transform 1.05s cubic-bezier(.25,.7,.1,1) calc(250ms + var(--i)*170ms)}
+.proof.in .db-dot.hi,.proof.in .db-lab.hi{opacity:1;transition:opacity .35s ease calc(1050ms + var(--i)*170ms),transform .5s cubic-bezier(.3,1.5,.5,1) calc(1050ms + var(--i)*170ms)}
+.proof.in .db-dot.hi{transform:none}
+@media (prefers-reduced-motion:reduce){.js .db-line,.js .db-dot.hi{transform:none}.js .db-dot.hi,.js .db-lab.hi{opacity:1}}
+/* medals */
+.medals{display:flex;gap:6px;margin-top:14px;justify-content:space-between}
+.medal{flex:1;text-align:center;font:500 10.5px/1.2 var(--mono);color:var(--ink-2)}
+.medal svg{width:100%;max-width:44px;height:auto;margin:0 auto 4px;display:block;overflow:visible}
+.medal .rib{fill:var(--nila);opacity:.85}
+.medal .disc{stroke-width:1.6}
+.medal .ring{fill:none;stroke-width:.9;stroke-dasharray:2 1.6}
+.medal text{font:600 15px/1 var(--serif)}
+.medal.gold .disc{fill:#ecdcaa;stroke:#9a7a22}.medal.gold .ring{stroke:#9a7a22}.medal.gold text{fill:#7a5f14}
+.medal.silver .disc{fill:#e3e5e9;stroke:#7d838c}.medal.silver .ring{stroke:#7d838c}.medal.silver text{fill:#5c626b}
+.medal.bronze .disc{fill:#ecd2bd;stroke:#9a5a2e}.medal.bronze .ring{stroke:#9a5a2e}.medal.bronze text{fill:#7d4520}
+.js .medals .medal{opacity:0;transform:translateY(-26px) rotate(-8deg)}
+.medals.in .medal{opacity:1;transform:none;transition:opacity .4s ease,transform .7s cubic-bezier(.3,1.55,.5,1);transition-delay:calc(var(--i)*120ms + 150ms)}
+@media (prefers-reduced-motion:reduce){.js .medals .medal{opacity:1;transform:none;transition:none}}
+/* adoption path draws itself */
+.spread.draw{position:relative}
+.spread.draw li::after{display:none}
+.spread.draw::before{content:"";position:absolute;left:7px;top:.75em;bottom:.9em;width:1.5px;background:var(--nila);transform-origin:top}
+.js .spread.draw::before{transform:scaleY(0)}
+.js .spread.draw li::before{background:var(--card);border-color:var(--rule-2)}
+.spread.draw.in::before{transform:none;transition:transform 1.6s cubic-bezier(.4,0,.2,1) .2s}
+.spread.draw.in li::before{border-color:var(--nila);transition:border-color .3s ease,background .3s ease;transition-delay:calc(var(--i)*420ms + 200ms)}
+.spread.draw.in li.k::before{background:var(--nila)}
+@media (prefers-reduced-motion:reduce){.js .spread.draw::before{transform:none}.js .spread.draw li::before{border-color:var(--nila);transition:none}.js .spread.draw li.k::before{background:var(--nila)}}
+/* SGPA */
+.hood-foot{display:grid;gap:28px;margin-top:32px;align-items:end}
+@media (min-width:900px){.hood-foot{grid-template-columns:minmax(0,1fr) minmax(0,460px);gap:56px}}
+.hood-foot>p{font-size:15.5px;color:var(--ink-2);max-width:60ch}
+.sgpa{margin:0}
+.sg-plot{position:relative;height:190px;margin-top:12px;border-bottom:1px solid var(--ink)}
+.sg-plot ol{position:absolute;inset:0 62px 0 0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;align-items:end}
+.sg-plot li{position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center}
+.sg-plot li i{display:block;width:100%;max-width:46px;height:calc(var(--v)*1%*.78);background:var(--nila-soft);border-radius:3px 3px 0 0;transform-origin:bottom}
+.sg-plot li:first-child i{background:var(--nila)}
+.sg-plot li b{font:600 11px/1 var(--mono);color:var(--ink);margin-bottom:5px}
+.sg-plot li span{position:absolute;top:100%;margin-top:6px;font:500 11px/1.2 var(--mono);color:var(--ink-2);text-align:center;white-space:nowrap}
+.sg-plot li small{display:block;color:var(--ink-3);font-size:10px}
+.sg-cg{position:absolute;left:0;right:0;bottom:calc(var(--v)*1%*.78);border-top:1.5px dashed var(--ink);pointer-events:none}
+.sg-cg span{position:absolute;right:0;bottom:-7px;width:58px;text-align:right;font:600 11px/1 var(--mono);color:var(--ink);background:var(--paper);padding:2px 4px}
+.sgpa .source{margin-top:44px}
+.js .sg-plot li i{transform:scaleY(0)}
+.sgpa.in .sg-plot li i{transform:none;transition:transform .9s cubic-bezier(.2,.75,.2,1);transition-delay:calc(var(--i)*110ms)}
+.js .sg-plot li b{opacity:0}
+.sgpa.in .sg-plot li b{opacity:1;transition:opacity .4s ease;transition-delay:calc(var(--i)*110ms + 600ms)}
+@media (prefers-reduced-motion:reduce){.js .sg-plot li i{transform:none;transition:none}.js .sg-plot li b{opacity:1;transition:none}}
+/* HIPE */
+.hipe-grid{display:grid;gap:48px;align-items:start}
+@media (min-width:1000px){.hipe-grid{grid-template-columns:minmax(0,1fr) 300px;gap:64px}}
+.hp-chart{margin:0}
+.hp-svg{margin-top:14px;width:100%;min-height:300px}
+.hp-svg svg{display:block;width:100%;height:auto;overflow:visible;font-family:var(--mono)}
+.hp-notes{margin-top:18px;display:grid;gap:8px;font-size:15px;line-height:1.5;color:var(--ink-2)}
+.hp-notes li{padding-left:16px;position:relative}
+.hp-notes li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--nila)}
+.hp-notes b{color:var(--ink);font-weight:600}
+.hp-line{fill:none;stroke:var(--nila);stroke-width:2.4;stroke-linejoin:round;stroke-linecap:round}
+.js .hp-line{stroke-dasharray:1 1;stroke-dashoffset:1}
+.hp-chart.in .hp-line{stroke-dashoffset:0;transition:stroke-dashoffset 1.8s cubic-bezier(.4,0,.2,1) .15s}
+.js .hp-area{opacity:0}
+.hp-chart.in .hp-area{opacity:1;transition:opacity 1s ease 1.2s}
+.js .hp-pt{opacity:0}
+.hp-chart.in .hp-pt{opacity:1;transition:opacity .3s ease;transition-delay:calc(var(--i)*150ms + 200ms)}
+.js .hp-ann{opacity:0}
+.hp-chart.in .hp-ann{opacity:1;transition:opacity .5s ease 1.9s}
+@media (prefers-reduced-motion:reduce){.js .hp-line{stroke-dashoffset:0;transition:none}.js .hp-area,.js .hp-pt,.js .hp-ann{opacity:1;transition:none}}
+.paper{display:block;text-decoration:none;color:inherit;max-width:300px;margin:0 auto}
+.paper-sheet{display:block;background:#fff;padding:0;border:1px solid var(--rule-2);transform:rotate(-2.6deg);box-shadow:0 2px 0 rgba(27,26,23,.04),12px 22px 40px -18px rgba(27,26,23,.45);transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s ease;position:relative}
+.paper-sheet::after{content:"";position:absolute;right:-1px;top:-1px;width:34px;height:34px;background:linear-gradient(225deg,var(--paper) 50%,#e7e4dc 50%);box-shadow:-2px 2px 3px rgba(27,26,23,.12)}
+.paper-sheet img{display:block;width:100%;height:auto}
+.paper:hover .paper-sheet,.paper:focus-visible .paper-sheet{transform:rotate(0) translateY(-4px);box-shadow:0 2px 0 rgba(27,26,23,.04),12px 30px 50px -18px rgba(27,26,23,.5)}
+.paper-cap{display:block;margin-top:22px;font-size:14px;line-height:1.45;color:var(--ink-2)}
+.paper-cap b{display:block;font:600 17px/1.3 var(--serif);color:var(--ink)}
+.paper:hover .paper-cap b{color:var(--nila)}
+@media (prefers-reduced-motion:reduce){.paper-sheet{transition:none}}
+@media (max-width:999px){.paper{max-width:240px}}
 /* ideas */
 .ideas-g{display:grid;gap:clamp(20px,2.4vw,32px)}
 @media (min-width:640px){.ideas-g{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -591,6 +681,7 @@ html.con-open .fab{opacity:0;pointer-events:none}
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><i></i></div>
 
 <div class="loader" aria-hidden="true">
   <div class="loader-in">
@@ -626,11 +717,11 @@ html.con-open .fab{opacity:0;pointer-events:none}
       <p class="hero-sub rv" style="--d:380"><strong>Pradyuman Singh Shekhawat</strong><span class="sr-only"> · </span>Inter-IIT Tech Meet 15.0 · No-Prep · Harness Engineering</p>
       <p class="hero-p rv" style="--d:460">I’ve already done the job this domain is named after. At Databricks I ran my internship as an agent loop and built a daily-planner agent my team adopted. In public, a teammate and I built a multi-agent system that ranked 11th of 46 submissions at CLEF 2026.</p>
       <ul class="stats rv" style="--d:540" aria-label="Proof, in five numbers">
-        <li><b>Databricks</b><span>SWE intern, now with a PPO</span></li>
+        <li><b><img class="dbx" src="assets/databricks-logo.png" width="280" height="280" alt="Databricks logo">Databricks</b><span>SWE intern, now with a PPO</span></li>
         <li><b>VP level</b><span>where my intern demo reached</span></li>
-        <li><b>2–3<span class="x">×</span></b><span>below the intern cohort on AI usage <em>(peer comparison)</em></span></li>
-        <li><b>11th / 46</b><span>submissions at CLEF 2026 (HIPE)</span></li>
-        <li><b>9.51</b><span>CGPA after six semesters</span></li>
+        <li><b><span class="cu" data-to="2">2</span>–<span class="cu" data-to="3">3</span><span class="x">×</span></b><span>below the intern cohort on AI usage <em>(peer comparison)</em></span></li>
+        <li><b><span class="cu" data-to="11">11</span>th / 46</b><span>submissions at CLEF 2026 (HIPE)</span></li>
+        <li><b><span class="cu" data-to="9.51" data-dec="2">9.51</span></b><span>CGPA after six semesters</span></li>
       </ul>
       <div class="hero-cta rv" style="--d:620">
         <button class="pill" type="button" data-console="/why-pradyuman"><span class="run" aria-hidden="true"><svg viewBox="0 0 10 10"><path d="M1 0l8 5-8 5z" fill="currentColor"/></svg></span>Run /why-pradyuman</button>
@@ -878,7 +969,7 @@ html.con-open .fab{opacity:0;pointer-events:none}
         <article class="station" id="sarathi" aria-labelledby="st3">
           <div class="sub">
           <div class="card">
-            <div class="st-top"><span>Station 3 of 5 · at Databricks</span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-sarathi"/></svg></div>
+            <div class="st-top"><span class="st-dbx">Station 3 of 5 ·<img class="dbx sm" src="assets/databricks-logo.png" width="280" height="280" alt="Databricks logo">Databricks</span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-sarathi"/></svg></div>
             <h3 class="st-name" id="st3" tabindex="-1">Sārathi <span class="deva" lang="sa">सारथि</span></h3>
             <p class="st-role">The charioteer is orchestration</p>
             <h4 class="st-h">I’ve driven a production harness, and built agents my team adopted.</h4>
@@ -902,7 +993,7 @@ html.con-open .fab{opacity:0;pointer-events:none}
             </figure>
             <div class="viz">
               <p class="viz-t">How my setup spread</p>
-              <ol class="spread">
+              <ol class="spread draw">
                 <li><b>My personal setup</b></li>
                 <li><b>Adopted by many on my 7-person team</b></li>
                 <li><b>Pitched for org-wide adoption</b> in my final intern presentation</li>
@@ -999,6 +1090,32 @@ html.con-open .fab{opacity:0;pointer-events:none}
   </div>
 </section>
 
+<section class="sec hipe" id="hipe" aria-labelledby="hp-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">In public: HIPE-2026 at CLEF</p>
+      <h2 class="h2" id="hp-h">Nine strategies, measured. Then a team of agents.</h2>
+      <p class="lead">The task: decide from historical newspapers whether a person was at a place. A teammate and I scored every strategy on the official macro-recall metric before we submitted three runs.</p>
+    </div>
+    <div class="hipe-grid">
+      <figure class="hp-chart">
+        <figcaption class="viz-t">Global macro recall on our evaluation split, strategy by strategy</figcaption>
+        <div class="hp-svg" id="hp-svg" aria-hidden="true"></div>
+        <div class="sr-only"><table><caption>Global macro recall by strategy (evaluation split)</caption><thead><tr><th>Strategy</th><th>Approach</th><th>Macro recall</th></tr></thead><tbody id="hp-table"></tbody></table></div>
+        <ul class="hp-notes">
+          <li><b>Run 2, strategy 7:</b> two specialists and an Arbiter on Qwen2.5-7B. Ranked 11th of 46 submissions on generalisation (official surprise-test score 0.6349).</li>
+          <li><b>Run 3, strategy 9:</b> GPT-OSS-120B grounded in live Wikidata, with no training, so no evaluation-split score. Ranked 13th of 46 on accuracy (official test score 0.6221).</li>
+        </ul>
+        <p class="source">From our public repo: <a href="https://github.com/ikshv4ku/HIPE-2026-Team-Hansel-Gretel">ikshv4ku/HIPE-2026-Team-Hansel-Gretel</a> (ourWork/strategy7/ANALYSIS.md; strategy 2 and 2.5 READMEs; ranks and official scores in the README). Half-steps (1.5, 2.5, 4.5) are tuned variants.</p>
+      </figure>
+      <a class="paper" href="https://github.com/ikshv4ku/HIPE-2026-Team-Hansel-Gretel">
+        <span class="paper-sheet"><img src="assets/hipe-paper.png" width="1000" height="1413" loading="lazy" decoding="async" alt="Page 1 of our HIPE-2026 working-notes paper, titled “From Frozen Encoders to Multi-Agent LLM Pipelines”, by Pradyuman Singh Shekhawat and Rohan Gupta, IIT Roorkee."></span>
+        <span class="paper-cap"><b>Our 14-page working-notes paper</b>Page 1 of 14. Read the paper and code on GitHub</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <section class="sec hood" id="hood" aria-labelledby="hood-h">
   <div class="wrap">
     <div class="sec-head">
@@ -1029,7 +1146,7 @@ html.con-open .fab{opacity:0;pointer-events:none}
         <p class="what"><span class="lbl">What it was</span>Dual-issue, 5-stage pipeline on a custom 16-bit ISA</p>
         <p class="why"><span class="lbl">Prepares me for</span>Throughput thinking: what can run in parallel, and what must wait.</p></li>
     </ul>
-    <p class="hood-foot">My transcript backs it: a CGPA of 9.51 after six semesters (SGPA 10.0 in the first), with A or A+ in Operating Systems, Computer Networks, Compiler Design, DBMS, Algorithms, Machine Learning and NLP Applications.</p>
+    <div class="hood-foot"><p>My transcript backs it: a CGPA of 9.51 after six semesters (SGPA 10.0 in the first), with A or A+ in Operating Systems, Computer Networks, Compiler Design, DBMS, Algorithms, Machine Learning and NLP Applications.</p><figure class="sgpa"><figcaption class="viz-t">SGPA, semester by semester</figcaption><div class="sg-plot" role="img" aria-label="SGPA by semester: 10.000, 9.765, 9.348, 9.400, 9.158, 9.391. Cumulative CGPA 9.512."><ol aria-hidden="true"><li style="--v:100.0;--i:0"><b>10.000</b><i></i><span>Sem 1<small>’23 Aut</small></span></li><li style="--v:84.3;--i:1"><b>9.765</b><i></i><span>Sem 2<small>’24 Spr</small></span></li><li style="--v:56.5;--i:2"><b>9.348</b><i></i><span>Sem 3<small>’24 Aut</small></span></li><li style="--v:60.0;--i:3"><b>9.400</b><i></i><span>Sem 4<small>’25 Spr</small></span></li><li style="--v:43.9;--i:4"><b>9.158</b><i></i><span>Sem 5<small>’25 Aut</small></span></li><li style="--v:59.4;--i:5"><b>9.391</b><i></i><span>Sem 6<small>’26 Spr</small></span></li></ol><p class="sg-cg" aria-hidden="true" style="--v:67.5"><span>CGPA 9.51</span></p></div><p class="source">From my gradesheet, IIT Roorkee. The axis starts at 8.5, so small differences look larger than they are.</p></figure></div>
   </div>
 </section>
 
@@ -1084,7 +1201,7 @@ html.con-open .fab{opacity:0;pointer-events:none}
         <p class="rc-top"><span>Receipt 02</span><span>CGC 2025</span></p>
         <h3>Retrieval under a clock</h3>
         <p class="rc-p">Five medals in five different quiz formats, in one championship.</p>
-        <ul class="rc-items"><li><span>Gold</span><span>General</span></li><li><span>Silver</span><span>India</span></li><li><span>Silver</span><span>MELA</span></li><li><span>Bronze</span><span>TLC</span></li><li><span>Bronze</span><span>SBT</span></li></ul>
+        <ul class="medals" aria-label="Five quiz medals at CGC 2025"><li class="medal gold" style="--i:0"><svg viewBox="0 0 48 66" aria-hidden="true"><path class="rib" d="M14 0h8l6 22h-8zM34 0h-8l-6 22h8z"/><circle class="disc" cx="24" cy="40" r="19"/><circle class="ring" cx="24" cy="40" r="14.5"/><text x="24" y="46.5" text-anchor="middle">1</text></svg><span>General</span><span class="sr-only">Gold, General quiz</span></li><li class="medal silver" style="--i:1"><svg viewBox="0 0 48 66" aria-hidden="true"><path class="rib" d="M14 0h8l6 22h-8zM34 0h-8l-6 22h8z"/><circle class="disc" cx="24" cy="40" r="19"/><circle class="ring" cx="24" cy="40" r="14.5"/><text x="24" y="46.5" text-anchor="middle">2</text></svg><span>India</span><span class="sr-only">Silver, India quiz</span></li><li class="medal silver" style="--i:2"><svg viewBox="0 0 48 66" aria-hidden="true"><path class="rib" d="M14 0h8l6 22h-8zM34 0h-8l-6 22h8z"/><circle class="disc" cx="24" cy="40" r="19"/><circle class="ring" cx="24" cy="40" r="14.5"/><text x="24" y="46.5" text-anchor="middle">2</text></svg><span>MELA</span><span class="sr-only">Silver, MELA quiz</span></li><li class="medal bronze" style="--i:3"><svg viewBox="0 0 48 66" aria-hidden="true"><path class="rib" d="M14 0h8l6 22h-8zM34 0h-8l-6 22h8z"/><circle class="disc" cx="24" cy="40" r="19"/><circle class="ring" cx="24" cy="40" r="14.5"/><text x="24" y="46.5" text-anchor="middle">3</text></svg><span>TLC</span><span class="sr-only">Bronze, TLC quiz</span></li><li class="medal bronze" style="--i:4"><svg viewBox="0 0 48 66" aria-hidden="true"><path class="rib" d="M14 0h8l6 22h-8zM34 0h-8l-6 22h8z"/><circle class="disc" cx="24" cy="40" r="19"/><circle class="ring" cx="24" cy="40" r="14.5"/><text x="24" y="46.5" text-anchor="middle">3</text></svg><span>SBT</span><span class="sr-only">Bronze, SBT quiz</span></li></ul>
         <p class="rc-tot"><span>Total</span><span>5 medals</span></p>
         <p class="rc-day">An agent’s memory lookup, done by a human, against the buzzer.</p>
         <span class="stamp">Verified</span>
@@ -1596,6 +1713,129 @@ html.con-open .fab{opacity:0;pointer-events:none}
     });
   });
 
+
+
+  /* ---------- round 8: progress bar, reveals, counters, HIPE chart ---------- */
+  const prog = $('.progress i');
+  if (prog) {
+    let pt = false;
+    const upd = () => { pt = false; const h = doc.scrollHeight - window.innerHeight; prog.style.transform = 'scaleX(' + (h > 0 ? clamp(window.scrollY / h, 0, 1) : 0).toFixed(4) + ')'; };
+    window.addEventListener('scroll', () => { if (!pt) { pt = true; requestAnimationFrame(upd); } }, { passive: true });
+    window.addEventListener('resize', upd);
+    upd();
+  }
+  // hero count-ups, after the load sequence
+  const cus = $$('.cu');
+  const runCount = () => {
+    if (reduce) return;
+    const t0 = performance.now(), D = 1300;
+    cus.forEach(c => { c.dataset.final = c.textContent; });
+    const tick = now => {
+      const k = Math.min(1, (now - t0) / D), e = 1 - Math.pow(1 - k, 3);
+      cus.forEach(c => {
+        const to = parseFloat(c.dataset.to), dec = +(c.dataset.dec || 0);
+        c.textContent = k >= 1 ? c.dataset.final : (to * e).toFixed(dec);
+      });
+      if (k < 1) requestAnimationFrame(tick);
+    };
+    cus.forEach(c => { c.textContent = (0).toFixed(+(c.dataset.dec || 0)); });
+    requestAnimationFrame(tick);
+  };
+  if (cus.length) {
+    const wait = () => { if (doc.classList.contains('ready')) setTimeout(runCount, 450); else setTimeout(wait, 60); };
+    wait();
+  }
+  // HIPE progression chart, drawn to the container's real width
+  const HP = [
+    ['Base', 'Random baseline', 0.4242], ['S1', 'Frozen XLM-R + RF/LightGBM', 0.6018], ['S1.5', 'Same, tuned', 0.6249],
+    ['S2', 'Full fine-tune', 0.4167], ['S2.5', 'LoRA fine-tune', 0.4541], ['S3', 'Monolingual LoRA routing', 0.4232],
+    ['S4', 'Multi-task LoRA, Qwen2.5-0.5B', 0.6264], ['S4.5', 'Same, soft labels', 0.6212], ['S5', 'Generative SFT, Qwen2.5-3B', 0.7289],
+    ['S6', 'Multi-agent, 3B', 0.7204], ['S7', 'Multi-agent, Qwen2.5-7B', 0.7280]
+  ];
+  const hpBox = $('#hp-svg');
+  const hpTable = $('#hp-table');
+  if (hpTable) HP.forEach(r => { const tr = document.createElement('tr'); [r[0], r[1], r[2].toFixed(4)].forEach(v => { const td = document.createElement('td'); td.textContent = v; tr.appendChild(td); }); hpTable.appendChild(tr); });
+  const NS = 'http://www.w3.org/2000/svg';
+  const sv = (tag, attrs, text) => { const n = document.createElementNS(NS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); if (text != null) n.textContent = text; return n; };
+  let hpW = 0;
+  const drawHipe = () => {
+    if (!hpBox) return;
+    const W = Math.round(hpBox.clientWidth);
+    if (!W || W === hpW) return;
+    hpW = W;
+    const narrow = W < 560, H = narrow ? 300 : 360;
+    const m = { l: narrow ? 34 : 44, r: narrow ? 10 : 18, t: narrow ? 46 : 54, b: 34 };
+    const y0 = 0.35, y1 = 0.8;
+    const X = i => m.l + (W - m.l - m.r) * (i + 0.5) / HP.length;
+    const Y = v => m.t + (H - m.t - m.b) * (1 - (v - y0) / (y1 - y0));
+    const svg = sv('svg', { viewBox: '0 0 ' + W + ' ' + H, width: W, height: H });
+    const fs = narrow ? 10 : 11;
+    // phases
+    const phases = [[1, 2, 'Frozen encoders'], [3, 7, 'Discriminative fine-tuning'], [8, 8, 'Generative'], [9, 10, 'Multi-agent']];
+    phases.forEach((ph, k) => {
+      const xa = X(ph[0]) - (X(1) - X(0)) / 2, xb = X(ph[1]) + (X(1) - X(0)) / 2;
+      svg.appendChild(sv('rect', { x: xa, y: m.t - 14, width: xb - xa, height: H - m.t - m.b + 14, fill: k % 2 ? '#efede7' : 'transparent' }));
+      if (!narrow) svg.appendChild(sv('text', { x: (xa + xb) / 2, y: m.t - 20, 'text-anchor': 'middle', 'font-size': fs - 1, fill: '#6e6a62' }, narrow && ph[2] === 'Discriminative fine-tuning' ? 'Fine-tuning' : ph[2]));
+    });
+    if (narrow) { const xa = X(3) - (X(1) - X(0)) / 2, xb = X(7) + (X(1) - X(0)) / 2; svg.appendChild(sv('text', { x: (xa + xb) / 2, y: m.t - 20, 'text-anchor': 'middle', 'font-size': fs - 1, fill: '#6e6a62' }, 'Fine-tuning')); }
+    // grid + y labels
+    [0.4, 0.5, 0.6, 0.7, 0.8].forEach(v => {
+      svg.appendChild(sv('line', { x1: m.l, x2: W - m.r, y1: Y(v), y2: Y(v), stroke: '#dcd8cf', 'stroke-width': 1 }));
+      svg.appendChild(sv('text', { x: m.l - 6, y: Y(v) + 3.5, 'text-anchor': 'end', 'font-size': fs, fill: '#6e6a62' }, v.toFixed(1)));
+    });
+    svg.appendChild(sv('line', { x1: m.l, x2: W - m.r, y1: H - m.b, y2: H - m.b, stroke: '#1b1a17', 'stroke-width': 1 }));
+    // baseline
+    svg.appendChild(sv('line', { x1: m.l, x2: W - m.r, y1: Y(0.4242), y2: Y(0.4242), stroke: '#1b1a17', 'stroke-width': 1, 'stroke-dasharray': '4 4', opacity: 0.55 }));
+    // area + line
+    const pts = HP.map((r, i) => [X(i), Y(r[2])]);
+    const d = pts.map((p, i) => (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join('');
+    svg.appendChild(sv('path', { class: 'hp-area', d: d + 'L' + pts[pts.length - 1][0].toFixed(1) + ' ' + (H - m.b) + 'L' + pts[0][0].toFixed(1) + ' ' + (H - m.b) + 'Z', fill: '#e4e7f4' }));
+    svg.appendChild(sv('path', { class: 'hp-line', d, pathLength: 1 }));
+    svg.appendChild(sv('text', { x: X(0) + 8, y: Y(0.4242) + 15, 'font-size': fs - 1, fill: '#55524b' }, narrow ? 'random 0.42' : 'random baseline 0.424'));
+    // points + x labels
+    HP.forEach((r, i) => {
+      const key = r[0] === 'S5' || r[0] === 'S7';
+      const g = sv('g', { class: 'hp-pt', style: '--i:' + i });
+      g.appendChild(sv('circle', { cx: pts[i][0], cy: pts[i][1], r: key ? 6 : 4, fill: key ? '#2b3a8f' : '#fdfcf9', stroke: key ? '#2b3a8f' : '#1b1a17', 'stroke-width': 1.6 }));
+      if (i && (!narrow || [2, 5, 8, 10].includes(i))) g.appendChild(sv('text', { x: pts[i][0], y: pts[i][1] + (r[2] < 0.5 && i ? 18 : -11), 'text-anchor': 'middle', 'font-size': fs - 1, fill: key ? '#2b3a8f' : '#55524b', 'font-weight': key ? 600 : 400 }, r[2].toFixed(narrow ? 2 : 3)));
+      svg.appendChild(g);
+      svg.appendChild(sv('text', { x: pts[i][0], y: H - m.b + 16, 'text-anchor': 'middle', 'font-size': fs, fill: key ? '#2b3a8f' : '#1b1a17', 'font-weight': key ? 600 : 400 }, narrow && r[0] === 'Base' ? 'B' : r[0]));
+    });
+    // annotations
+    const ann = sv('g', { class: 'hp-ann' });
+    const a5 = pts[8], a7 = pts[10];
+    ann.appendChild(sv('text', { x: a5[0] + 3, y: a5[1] + 24, 'text-anchor': 'start', 'font-size': fs, fill: '#2b3a8f', 'font-weight': 600 }, 'Run 1'));
+    ann.appendChild(sv('line', { x1: a7[0], x2: a7[0], y1: a7[1] - 22, y2: a7[1] - 38, stroke: '#2b3a8f', 'stroke-width': 1 }));
+    ann.appendChild(sv('text', { x: a7[0] + 4, y: a7[1] - 42, 'text-anchor': 'end', 'font-size': fs, fill: '#2b3a8f', 'font-weight': 600 }, narrow ? 'Run 2 · 11th/46' : 'Run 2 · 11th of 46 (generalisation)'));
+    svg.appendChild(ann);
+    hpBox.textContent = '';
+    hpBox.appendChild(svg);
+  };
+  drawHipe();
+  window.addEventListener('resize', () => { hpW = 0; drawHipe(); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { hpW = 0; drawHipe(); });
+  // reveal-on-scroll targets (after the toolkit has rendered)
+  const setupReveal = () => {
+  $$('.spread.draw li').forEach((li, i) => li.style.setProperty('--i', i));
+  const fade = ['.sec-head', '.hood-list > li', '.rc-w', '.idea', '.doms > div', '.pt-col', '.cta-grid', '.sloka', '.map > div', '.hipe-grid > *', '.hood-foot > *', '.cal', '.why .proof'];
+  const trig = ['.proof', '.medals', '.spread.draw', '.sgpa', '.hp-chart'];
+  const targets = new Set();
+  if (!reduce) fade.forEach(sel => $$(sel).forEach(el => {
+    if (el.closest('.hero') || el.closest('.ride')) return;
+    const sib = Array.from(el.parentElement.children).filter(c => c.matches(sel));
+    el.style.setProperty('--rd', Math.min(sib.indexOf(el), 6));
+    el.classList.add('rvs');
+    targets.add(el);
+  }));
+  trig.forEach(sel => $$(sel).forEach(el => targets.add(el)));
+  if ('IntersectionObserver' in window && !reduce) {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -6% 0px', threshold: 0.12 });
+    targets.forEach(t => io.observe(t));
+  } else {
+    targets.forEach(t => t.classList.add('in'));
+  }
+  };
+  setTimeout(setupReveal, 0);
 
   /* ---------- harness toolkit: a periodic table ---------- */
   const TK = [{"l":"Context","n":"Progressive disclosure","s":"Pd","w":"Keep a short index in context (AGENTS.md map, skill names); load full docs and files only when needed.","y":"OpenAI replaced a bloated instruction file with a ~100-line AGENTS.md that points into a docs/ tree.","t":"OpenAI: Harness engineering: leveraging Codex in an agent-first world","u":"https://openai.com/index/harness-engineering/","d":"2026-02-11","b":"w","m":"My work on Isaac’s skills and context, and my nested markdown memory tree."},{"l":"Context","n":"Context editing","s":"Ce","w":"Automatically clear stale tool results and old thinking blocks once the window passes a set threshold.","y":"Anthropic: editing alone lifted an agentic-search eval 29% and cut tokens 84% in a 100-turn run.","t":"Anthropic: Managing context on the Claude Developer Platform","u":"https://claude.com/resources/articles/context-management","d":"2025-09-29","b":"p","m":""},{"l":"Context","n":"Cache-aware compaction","s":"Cc","w":"Summarise old turns into a fresh window, timed so the summary is built while the prompt cache is warm.","y":"Claude Code now compacts 200K+ token sessions idle ~54 minutes, before the one-hour cache expires.","t":"Claude Code changelog, v2.1.299 (idle compaction)","u":"https://code.claude.com/docs/en/changelog","d":"2026-10-14","b":"p","m":""},{"l":"Context","n":"Ralph loop","s":"Rl","w":"Re-run the agent in a bash loop on one prompt file, one task per pass, with state kept in files.","y":"Every pass starts from a clean context window, so long jobs stop accumulating stale tokens.","t":"Geoffrey Huntley: Ralph Wiggum as a software engineer","u":"https://ghuntley.com/ralph/","d":"2025-07-14","b":"p","m":""},{"l":"Context","n":"Automatic harness search","s":"Hs","w":"An agent reads earlier harness code, scores and traces from a filesystem, then writes better harness code.","y":"Meta-Harness beat a state-of-the-art context manager by 7.7 points using 4x fewer context tokens.","t":"Meta-Harness: End-to-End Optimization of Model Harnesses (Lee et al.)","u":"https://arxiv.org/abs/2603.28052","d":"2026-03-30","b":"p","m":""},{"l":"Tools & MCP","n":"MCP connectors","s":"Mc","w":"Plug tools and data (Slack, GitHub, Google Workspace) into any agent through one open protocol.","y":"MCP passed 400M monthly SDK downloads; the 2026-07-28 spec went stateless and added long-running Tasks.","t":"Claude: Bringing MCP 2026-07-28 to Claude","u":"https://claude.com/blog/bringing-mcp-2026-07-28-to-claude","d":"2026-07-28","b":"w","m":"MCP servers daily in Isaac; my daily planner reads Slack, GitHub and Google Workspace through connectors."},{"l":"Tools & MCP","n":"Tool search","s":"Ts","w":"Defer loading tool schemas; the agent searches a tool index and loads only the definitions it needs.","y":"Cut tool-definition tokens ~85% and lifted Opus 4's MCP-eval accuracy from 49% to 74%.","t":"Anthropic: Introducing advanced tool use on the Claude Developer Platform","u":"https://www.anthropic.com/research/advanced-tool-use","d":"2025-11-24","b":"p","m":""},{"l":"Tools & MCP","n":"Code execution with MCP","s":"Cx","w":"Expose MCP servers as code modules; the model writes a script, so intermediate data never enters context.","y":"Anthropic's example workflow dropped from about 150K to 2K tokens, a 98.7% cut.","t":"Anthropic: Code execution with MCP: building more efficient AI agents","u":"https://www.anthropic.com/engineering/code-execution-with-mcp","d":"2025-11-04","b":"p","m":""},{"l":"Tools & MCP","n":"Tool-grounded reasoning","s":"Tg","w":"Interleave reasoning with live lookups (Wikipedia, Wikidata SPARQL) so each claim rests on retrieved facts.","y":"ReAct's Wikipedia lookups curbed chain-of-thought hallucination; it beat RL baselines by 34 points on ALFWorld.","t":"ReAct: Synergizing Reasoning and Acting in Language Models (Yao et al.)","u":"https://arxiv.org/abs/2210.03629","d":"2022-10-06","b":"w","m":"HIPE-2026: GPT-OSS-120B grounded in live Wikidata lookups."},{"l":"Tools & MCP","n":"Schema-validated output","s":"Sv","w":"Constrain or validate every model output against a JSON schema; reject and retry on any violation.","y":"OpenAI's constrained decoding scored 100% on complex schemas, where gpt-4-0613 scored under 40%.","t":"OpenAI: Introducing Structured Outputs in the API","u":"https://openai.com/index/introducing-structured-outputs-in-the-api/","d":"2024-08-06","b":"w","m":"HIPE-2026: strict JSON validation of every answer."},{"l":"Tools & MCP","n":"A2A protocol","s":"A2","w":"An open protocol that lets agents from different vendors discover each other and delegate tasks.","y":"Reached a stable v1.0 with 150+ supporting organisations and support in Azure and AWS agent platforms.","t":"Linux Foundation: A2A Protocol Surpasses 150 Organizations, Lands in Major Cloud Platforms","u":"https://www.linuxfoundation.org/press/a2a-protocol-surpasses-150-organizations-lands-in-major-cloud-platforms-and-sees-enterprise-production-use-in-first-year","d":"2026-04-09","b":"p","m":""},{"l":"Skills","n":"Agent Skills","s":"Sk","w":"Folders holding a SKILL.md (name, description) plus scripts, loaded in stages only when relevant.","y":"Now an AAIF open standard on 70+ platforms, with ~1M skills published and ~280M installs.","t":"Anthropic: Donating Agent Skills to the Agentic AI Foundation","u":"https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation","d":"2026-10-22","b":"w","m":"I worked on Isaac’s skills and used skills every day."},{"l":"Skills","n":"Skill evals and cost audits","s":"Se","w":"Score each skill or plugin against a no-skill baseline, and measure its context cost and usage.","y":"Claude Code shipped /skill-doctor and claude plugin eval in Sep 2026: skills must earn their tokens.","t":"Claude Code: What's new (Weeks 36 and 37)","u":"https://code.claude.com/docs/en/whats-new","d":"2026-09-07","b":"p","m":""},{"l":"Skills","n":"Self-critique skill","s":"Sc","w":"The agent reflects in words on feedback, stores the lessons, and applies them on the next attempt.","y":"Reflexion reached 91% pass@1 on HumanEval, against 80% reported for GPT-4.","t":"Reflexion: Language Agents with Verbal Reinforcement Learning (Shinn et al.)","u":"https://arxiv.org/abs/2303.11366","d":"2023-03-20","b":"w","m":"My self-critique skill, which compared my work with the team’s."},{"l":"Skills","n":"Reflective prompt evolution","s":"Rp","w":"An LLM reads execution traces, diagnoses failures in plain language, and evolves prompts along a Pareto front.","y":"GEPA beat GRPO reinforcement learning by 6% on average with up to 35x fewer rollouts.","t":"GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning (Agrawal et al.)","u":"https://arxiv.org/abs/2507.19457","d":"2025-07-25; rev. 2026-02-14, ICLR 2026 oral","b":"p","m":""},{"l":"Skills","n":"Skill induction","s":"Si","w":"Mine repeated successful trajectories into reusable workflows the agent loads on similar future tasks.","y":"Agent Workflow Memory raised success 24.6% on Mind2Web and 51.1% on WebArena, relative to baselines.","t":"Agent Workflow Memory (Wang et al.)","u":"https://arxiv.org/abs/2409.07429","d":"2024-09-11","b":"p","m":""},{"l":"Orchestration","n":"Context-isolating subagents","s":"Sa","w":"Hand a bounded job to a helper with a fresh context window; it returns only a short summary.","y":"Anthropic's Opus-lead, Sonnet-subagent system beat single-agent Opus by 90.2%, at ~15x chat tokens.","t":"Anthropic: How we built our multi-agent research system","u":"https://www.anthropic.com/engineering/multi-agent-research-system","d":"2025-06","b":"w","m":"I used subagents every day in Isaac."},{"l":"Orchestration","n":"Background and fork subagents","s":"Bf","w":"Subagents run while the parent keeps working; forks inherit the full conversation instead of starting blank.","y":"Claude Code made both the default in mid-2026; subagent chains can nest five levels deep.","t":"Claude Code: What's new (Weeks 24, 27 and 33)","u":"https://code.claude.com/docs/en/whats-new","d":"2026-08-10","b":"p","m":""},{"l":"Orchestration","n":"Inter-agent messaging","s":"Im","w":"Agents and sessions post findings to each other on a message board, instead of a human relaying them.","y":"Codex shipped an agent message-board MCP server on 13 Nov 2026; Claude Code sessions can message each other.","t":"OpenAI: Codex changelog (CLI 0.168.0)","u":"https://learn.chatgpt.com/docs/changelog","d":"2026-11-13","b":"p","m":""},{"l":"Orchestration","n":"Specialist arbiter ensemble","s":"Ar","w":"Several specialist agents answer in parallel; an aggregator or arbiter reads every draft and decides.","y":"Mixture-of-Agents, using only open models, scored 65.1% on AlpacaEval 2.0 against GPT-4o's 57.5%.","t":"Mixture-of-Agents Enhances Large Language Model Capabilities","u":"https://arxiv.org/abs/2406.04692","d":"2024-06-07","b":"w","m":"HIPE-2026: Historian and Geographer specialists (LoRA on Qwen2.5-7B) plus an Arbiter."},{"l":"Orchestration","n":"Meta-harness","s":"Mh","w":"One layer above Claude Code, Codex and others: a common session API, shared policies, swappable harnesses.","y":"Omnigent's authors say they often have 4 to 5 agents open at once.","t":"Databricks: Introducing Omnigent: A Meta-Harness to Combine, Control and Share Your Agents","u":"https://www.databricks.com/blog/introducing-omnigent-meta-harness-combine-control-and-share-your-agents","d":"2026-06-13","b":"w","m":"Isaac, Databricks’ internal harness on Claude Code and Codex."},{"l":"Orchestration","n":"Initializer and progress file","s":"If","w":"A first session writes a feature list, init script and progress log; each later session does one feature.","y":"Anthropic seeds 200+ features as JSON, all marked failing, giving every session an explicit definition of done.","t":"Anthropic: Effective harnesses for long-running agents","u":"https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents","d":"2025-11-26","b":"p","m":""},{"l":"Orchestration","n":"Git worktrees","s":"Gw","w":"Give each parallel agent its own git checkout and branch, so simultaneous edits never collide.","y":"Claude Code can pin subagents to worktrees and blocks edits or git commands that escape to the main checkout.","t":"Claude Code docs: Run parallel sessions with worktrees","u":"https://code.claude.com/docs/en/worktrees","d":"current docs, read 2026-11-27","b":"p","m":""},{"l":"Memory","n":"Shared filesystem memory","s":"Fm","w":"Agents read and write a folder of markdown notes; a small index loads first, details on demand.","y":"Anthropic: a memory store raised Opus 5.5's CL-Bench mean reward from 0.655 to 0.838.","t":"Anthropic: The components of agent memory","u":"https://www.anthropic.com/research/components-of-agent-memory","d":"2026-11-06","b":"w","m":"My nested markdown tree, read and written by all my agents and subagents."},{"l":"Memory","n":"Episodic-to-semantic rollups","s":"Er","w":"Keep raw session traces, and distil them into durable summary files that agents read instead.","y":"Databricks MemCurrent: distilled memory alone scored 66.1%; raw episodic traces alone scored 35.8%.","t":"Databricks: MemCurrent: Designing Persistent Memory for Production Agents","u":"https://www.databricks.com/blog/memcurrent-designing-persistent-memory-production-agents","d":"2026-10-20","b":"w","m":"My work journal: daily Confluence pages rolled up into weekly and monthly documentation."},{"l":"Memory","n":"Dreaming consolidation","s":"Dr","w":"An offline pass re-reads transcripts, corrects notes, merges duplicates and promotes key facts to the index.","y":"Over 128 dreaming sessions, Anthropic's wiki-only score rose from 13% to 48% of graded criteria.","t":"Anthropic: The components of agent memory","u":"https://www.anthropic.com/research/components-of-agent-memory","d":"2026-11-06","b":"d","m":"SMRITI’s merge and reconcile stages consolidate the team’s notes offline. A design: only the team-KB merge was prototyped."},{"l":"Memory","n":"Bi-temporal memory ledger","s":"Bt","w":"Append-only facts record when they were true and when they were learned; contradictions invalidate, never delete.","y":"Zep's temporal graph reported up to 18.5% higher LongMemEval accuracy and ~90% lower latency.","t":"Zep: A Temporal Knowledge Graph Architecture for Agent Memory (Rasmussen et al.)","u":"https://arxiv.org/abs/2501.13956","d":"2025-01-20","b":"d","m":"SMRITI’s append-only, bi-temporal ledger. A design, not built."},{"l":"Memory","n":"Purpose-not-procedure memory","s":"Pp","w":"Tell the model what memory is for and let it choose what to record, rather than imposing rigid rules.","y":"A 'record only failures' rule cut Opus 5's memory gain by 0.234 in Anthropic's tests.","t":"Anthropic: The components of agent memory","u":"https://www.anthropic.com/research/components-of-agent-memory","d":"2026-11-06","b":"p","m":""},{"l":"Verification & Evals","n":"Back-pressure via tests","s":"Bp","w":"Fast deterministic checks (tests, types, contract mocks) push back on bad output during the loop.","y":"A test-and-spec harness lifted cheap GPT-6 Luna from 3/10 to 10/10 accepted builds.","t":"Naresh Jain: Are Harnesses Worth the Cost? (martinfowler.com)","u":"https://martinfowler.com/articles/are-harnesses-worth-the-cost.html","d":"2026-10-13","b":"p","m":""},{"l":"Verification & Evals","n":"Clean-context reviewer","s":"Cr","w":"A separate agent with a fresh context reviews the work, because generators grade their own output too kindly.","y":"Cognition's Devin Review finds about two bugs per PR, roughly 58% of them severe.","t":"Cognition: Multi-Agents: What's Actually Working","u":"https://cognition.com/blog/multi-agents-working","d":"2026-04-22","b":"p","m":""},{"l":"Verification & Evals","n":"LLM-as-judge","s":"Lj","w":"A model grades open-ended outputs against a rubric, where code-based checks cannot.","y":"Scales grading of open-ended answers; Anthropic's guide pairs it with code-based and human graders.","t":"Anthropic: Demystifying evals for AI agents","u":"https://www.anthropic.com/research/demystifying-evals-for-ai-agents","d":"2026-01-09","b":"w","m":"My LLM-as-judge script for HIPE-2026."},{"l":"Verification & Evals","n":"pass^k reliability","s":"Pk","w":"Score the chance that all k independent trials succeed, which measures consistency rather than lucky wins.","y":"On tau-bench, gpt-4o solved under half the tasks, and pass^8 fell below 25% in retail.","t":"tau-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains (Yao et al.)","u":"https://arxiv.org/abs/2406.12045","d":"2024-06-17","b":"p","m":""},{"l":"Verification & Evals","n":"Trajectory evals","s":"Te","w":"Grade the path, not just the answer: compare the agent's tool calls with a reference trajectory.","y":"Google's agent-eval docs define six trajectory metrics: exact, in-order, any-order, precision, recall, single-tool.","t":"Google Cloud: Evaluate Gen AI agents","u":"https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-agents","d":"2026-11-20 (last updated)","b":"p","m":""},{"l":"Verification & Evals","n":"Self-evolving harness","s":"Eh","w":"An evolver agent edits harness files, predicts what each edit fixes, and checks against the next run.","y":"AHE took Terminal-Bench 2 from 69.7% to 77.0% in ten rounds, beating Codex CLI's 71.9%.","t":"Agentic Harness Engineering: Observability-Driven Automatic Evolution of Coding-Agent Harnesses (Lin et al.)","u":"https://arxiv.org/abs/2604.25850","d":"2026-04-29","b":"p","m":""},{"l":"Verification & Evals","n":"OTel GenAI tracing","s":"Ot","w":"Emit standard spans (create_agent, invoke_agent, execute_tool, plan) with model, tokens and conversation ID.","y":"One vendor-neutral schema makes runs queryable across harnesses; the conventions are still in Development status.","t":"OpenTelemetry: Semantic conventions for GenAI agent and framework spans","u":"https://raw.githubusercontent.com/open-telemetry/semantic-conventions-genai/main/docs/gen-ai/gen-ai-agent-spans.md","d":"living spec, read 2026-11-27","b":"p","m":"Builds on my request-path tracing (correlation IDs) at Databricks."},{"l":"Verification & Evals","n":"Trace-driven failure triage","s":"Tt","w":"Query traces to cluster recurring failures by tool and phase, then fix the root cause once.","y":"Databricks found seven MCP tool bugs costing ~$1.2M a year from gateway traces in about an hour.","t":"Databricks: How We Eliminated $1 Million/Year of Wasted AI Agent Spend in One Hour","u":"https://www.databricks.com/blog/how-we-eliminated-1-million-year-wasted-ai-agent-spend-one-hour","d":"2026-09-01","b":"w","m":"Failure-phase attribution in my day job: same method, on a network request path."},{"l":"Safety & Policy","n":"Sandbox with egress proxy","s":"Sb","w":"OS-level filesystem and network isolation; all traffic leaves through a proxy that enforces an allowlist.","y":"Anthropic's Claude Code sandbox cut permission prompts by 84% while tightening containment.","t":"Anthropic: Beyond permission prompts: making Claude Code more secure and autonomous","u":"https://www.anthropic.com/research/claude-code-sandboxing","d":"2025-10-20","b":"p","m":""},{"l":"Safety & Policy","n":"Credential broker and agent identity","s":"Cb","w":"Secrets stay outside the sandbox and are injected on approved calls; each agent gets its own auditable identity.","y":"OpenAI runs 500+ persistent background agents this way, with egress limited to an organisation allowlist.","t":"OpenAI: Securing persistent agents like OpenClaw at OpenAI","u":"https://developers.openai.com/blog/securing-persistent-agents-like-openclaw-at-openai","d":"2026-11-12","b":"p","m":""},{"l":"Safety & Policy","n":"Classifier-gated auto mode","s":"Am","w":"A classifier reviews each action before it runs, replacing approval prompts that humans rubber-stamp.","y":"Users approved 93% of prompts; the classifier wrongly blocks 0.4% of benign actions but misses 17% of overeager ones.","t":"Anthropic: How we built Claude Code auto mode: a safer way to skip permissions","u":"https://www.anthropic.com/research/claude-code-auto-mode","d":"2026-03-25","b":"p","m":""},{"l":"Safety & Policy","n":"Contextual and cost policies","s":"Cp","w":"Stateful rules that react to what a session has already done, read or spent.","y":"Omnigent applies one policy set to Claude Code, Codex and custom agents, e.g. blocking a push after untrusted reads.","t":"Databricks: Contextual Policies in Omnigent: Using session state to better govern AI agents","u":"https://www.databricks.com/blog/contextual-policies-omnigent-using-session-state-better-govern-ai-agents","d":"2026-07-07","b":"p","m":""},{"l":"Safety & Policy","n":"CaMeL-style isolation","s":"Ca","w":"Take control flow only from the trusted request; untrusted data cannot redirect it, and capabilities gate tool calls.","y":"CaMeL solved 77% of AgentDojo tasks with provable security, against 84% for an undefended agent.","t":"Defeating Prompt Injections by Design (Debenedetti et al.)","u":"https://arxiv.org/abs/2503.18813","d":"2025-03-24","b":"p","m":""},{"l":"Safety & Policy","n":"Hook gates","s":"Hg","w":"Deterministic hooks at lifecycle points inspect risky actions and block them before they execute.","y":"Google's ADK guardrail hooks block recursive deletes, database drops and unauthorised pushes; fix loops cap at five rounds.","t":"Google Cloud: Agent Factory recap: Agent harnesses, shifting left, and autonomous coding","u":"https://cloud.google.com/blog/topics/developers-practitioners/agent-factory-recap-agent-harnesses-shifting-left-and-autonomous-coding","d":"2026-09-25","b":"p","m":""},{"l":"Cost & Routing","n":"Prompt caching","s":"Pc","w":"Keep the prompt prefix byte-stable and append-only, so repeated context is served from the cache.","y":"Manus: cached input cost $0.30 against $3 per million tokens on Claude Sonnet, a 10x gap.","t":"Manus: Context Engineering for AI Agents: Lessons from Building Manus","u":"https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus","d":"2025-07-18","b":"p","m":""},{"l":"Cost & Routing","n":"Cache-aware model routing","s":"Mr","w":"A small classifier picks the model once, at session start, and keeps it so cache hits survive.","y":"Databricks Smart Routing beat any single model at 65% of Opus 5's cost per task on internal work.","t":"Databricks: Smart Routing in Unity AI Gateway","u":"https://databricks.com/blog/smart-routing-unity-ai-gateway-match-frontier-quality-30-lower-cost-task","d":"2026-08-13","b":"p","m":""},{"l":"Cost & Routing","n":"Advisor pattern","s":"Ad","w":"A cheap executor model does the work and consults a stronger advisor model only at hard decisions.","y":"Haiku with an Opus advisor scored 41.2% on BrowseComp, against 19.7% for Haiku alone.","t":"Claude: The advisor strategy: Give agents an intelligence boost","u":"https://claude.com/blog/the-advisor-strategy","d":"2026-04-09","b":"p","m":""},{"l":"Cost & Routing","n":"Reasoning sandwich","s":"Rs","w":"Spend high reasoning effort on planning and verification, and less on the build phase in between.","y":"LangChain: xhigh-high-xhigh scored 66.5% on Terminal-Bench 2.0; xhigh throughout scored 53.9%, hitting timeouts.","t":"LangChain: Improving Deep Agents with harness engineering","u":"https://www.langchain.com/blog/improving-deep-agents-with-harness-engineering","d":"2026-02-17","b":"p","m":""},{"l":"Cost & Routing","n":"Cost per solved task","s":"Cs","w":"Judge models and harnesses by dollars per successfully completed task, not by price per token.","y":"Anthropic reports Opus 5.5 cost 78% less per solved task than Opus 5 on a long-horizon coding benchmark.","t":"Claude: Building always-on agents (William Hu)","u":"https://claude.com/blog/building-always-on-agents","d":"2026-11-13","b":"w","m":"Value-maxxing: I tiered users by tokens used against output delivered."},{"l":"Cost & Routing","n":"Efficiency-frontier benchmarking","s":"Ef","w":"Benchmark model-plus-harness setups on real tasks, plotting quality against cost to find the frontier.","y":"Databricks found GLM 5.2 statistically tied Opus 4.8 at $1.28 against $1.94 per task.","t":"Databricks: Benchmarking coding agents on Databricks' multi-million-line codebase","u":"https://databricks.com/blog/benchmarking-coding-agents-databricks-multi-million-line-codebase","d":"2026-07-08","b":"w","m":"My efficiency-vs-cost report across Claude, OpenAI, Grok and Cursor’s agent."}];
