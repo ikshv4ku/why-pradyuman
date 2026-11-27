@@ -386,8 +386,6 @@ kbd{font:500 12px/1 var(--mono);border:1px solid var(--rule-2);border-bottom-wid
 .rc-fig .duo{border-radius:3px}
 .rc-fig .duo img{aspect-ratio:4/3;object-fit:cover}
 .rc-fig figcaption{margin-top:7px;font:500 11px/1.35 var(--mono);color:var(--ink-3);letter-spacing:.02em}
-.cta-grid{display:grid;gap:28px;margin-top:clamp(36px,4vw,52px);align-items:end}
-@media (min-width:900px){.cta-grid{grid-template-columns:minmax(0,720px) 220px;gap:40px}.cta-ph{order:2}}
 .cta-ph{width:min(220px,52vw)}
 .cta-ph .duo img{aspect-ratio:4/5;object-fit:cover}
 .cta-ph figcaption{margin-top:10px;font:600 15px/1.3 var(--serif)}
@@ -587,8 +585,6 @@ html.tk-open .fab{opacity:0;pointer-events:none}
 .cf.in .cf-ann,.cf.in .cf-dots{opacity:1;transition:opacity .5s ease 1.9s}
 @media (prefers-reduced-motion:reduce){.js .cf-line{stroke-dashoffset:0;transition:none}.js .cf-ann,.js .cf-dots{opacity:1;transition:none}}
 /* contact */
-.ct-grid{display:grid;gap:48px;align-items:center}
-@media (min-width:960px){.ct-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:80px}}
 .bell{width:min(220px,48vw);height:auto;margin:34px 0 0 4px;overflow:visible}
 .bell .swing{transform-origin:110px 8px}
 .bell .waves path{opacity:.0}
@@ -610,6 +606,42 @@ html.tk-open .fab{opacity:0;pointer-events:none}
 .ct-st{min-height:1.3em;margin-top:8px;font:500 12px/1.3 var(--mono);color:var(--nila)}
 .foot-n a{color:var(--ink-2)}
 .foot-n strong{font:600 16px/1.4 var(--serif);color:var(--ink)}
+/* round 10: contact everywhere */
+.nav-ct{display:inline-flex;align-items:center;font:600 14.5px/1 var(--sans);color:#fff;background:var(--nila);border-radius:999px;padding:10px 16px;text-decoration:none}
+.nav-ct:hover{background:var(--ink);color:#fff}
+.nav-r{gap:20px}
+@media (max-width:560px){.nav .kbtn{display:none}.brand{font-size:17px}}
+.hero-cta .opill.wa{padding:15px 20px;font:500 15px/1 var(--sans)}
+.opill svg,.fab svg{width:18px;height:18px;flex:none}
+.hero-ct{margin-top:14px;font:500 12.5px/1.6 var(--mono);color:var(--ink-2)}
+.hero-ct a{color:var(--ink);text-decoration-color:var(--rule-2)}
+.hero-ct a:hover{color:var(--nila)}
+.hero-ct .hint{font:400 12.5px/1.6 var(--sans)}
+.hero-ct kbd{font-size:11px;padding:1px 5px}
+.fabs{position:fixed;right:clamp(14px,2vw,28px);bottom:clamp(14px,2vw,28px);z-index:40;display:flex;gap:8px;align-items:center}
+.fabs .fab{position:static}
+.fabs .fab-wa{background:var(--nila);color:#fff;text-decoration:none;padding:9px 16px 9px 12px}
+.fabs .fab-wa:hover{background:var(--ink);color:#fff}
+html.con-open .fabs,html.tk-open .fabs{opacity:0;pointer-events:none}
+@media (max-width:640px){
+  .fabs{gap:8px;right:12px;bottom:12px}
+  html .fabs .fab{width:46px;height:46px;padding:0;justify-content:center;border-radius:50%}
+  .fabs .fab span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .fabs .fab kbd{padding:2px 7px}
+  .foot{padding-bottom:110px}
+}
+.ct-lead{margin-top:18px}
+.ct-grid{display:grid;gap:40px;margin-top:clamp(36px,4vw,56px);align-items:start}
+@media (min-width:900px){.ct-grid{grid-template-columns:240px minmax(0,1fr);gap:clamp(48px,6vw,96px)}}
+.ct-side{display:grid;gap:20px;justify-items:start}
+.ct-side .cta-ph{width:min(240px,56vw);margin:0}
+.ct-side .bell{width:132px;margin:0 0 0 30px}
+@media (max-width:899px){.ct-side{grid-template-columns:auto 1fr;align-items:end}.ct-side .bell{width:96px;margin:0}}
+.ct-list{border-top:1px solid var(--ink)}
+.cta .ct-val{font-size:clamp(28px,3.4vw,46px)}
+.cta .ct-row:first-child .ct-val{font-size:clamp(34px,4.6vw,62px);line-height:1.05}
+.cta .ct-row:nth-child(2) .ct-val{font-size:clamp(20px,3.4vw,46px);overflow-wrap:normal;white-space:nowrap}
+@media (max-width:640px){.hero-ct .hint{display:none}}
 /* ideas */
 .ideas-g{display:grid;gap:clamp(20px,2.4vw,32px)}
 @media (min-width:640px){.ideas-g{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -651,16 +683,11 @@ html.tk-open .fab{opacity:0;pointer-events:none}
 .cta-wheel{position:absolute;right:-14vw;top:50%;width:min(80vw,900px);height:auto;transform:translateY(-50%);color:var(--nila);opacity:.16;pointer-events:none}
 .cta .wrap{position:relative}
 .cta-h{font-size:clamp(56px,10.5vw,164px);line-height:.95;letter-spacing:-.035em}
-.audition{max-width:720px;border:1px solid var(--ink);border-radius:16px;padding:24px 26px 22px;background:var(--card)}
-.audition .eyebrow{margin-bottom:10px;color:var(--nila)}
-.aud-t{font:500 clamp(21px,2vw,26px)/1.3 var(--serif)}
-.audition .why{margin-top:14px;padding-top:12px;border-top:1px dashed var(--rule-2);font-size:15px;color:var(--ink-2)}
 .cta-q{margin-top:34px;font:400 clamp(18px,1.6vw,21px)/1.5 var(--serif);color:var(--ink-2);max-width:56ch}
 .cta-links{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
 .opill{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--ink);border-radius:999px;padding:15px 22px;font:500 15px/1 var(--sans);text-decoration:none;background:rgba(246,245,242,.7)}
 .opill:hover{background:var(--ink);color:var(--paper)}
 .cta-links .pill{font-family:var(--sans);font-size:15.5px;padding:15px 24px}
-.cta-mail{margin-top:16px;font:500 13px/1.4 var(--mono);color:var(--ink-2)}
 /* footer */
 .foot{border-top:1px solid var(--rule);padding:28px 0 96px;font-size:14.5px;color:var(--ink-2)}
 .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px 40px;align-items:flex-start}
@@ -748,8 +775,8 @@ html.con-open .fab{opacity:0;pointer-events:none}
         <li><a href="#toolkit">Toolkit</a></li>
         <li><a href="#powers">Superpowers</a></li>
         <li><a href="#availability">Availability</a></li>
-        <li><a href="#contact">Contact</a></li>
       </ul></nav>
+      <a class="nav-ct" href="#contact">Contact</a>
       <button class="kbtn" type="button" data-console=""><kbd>/</kbd>console</button>
     </div>
   </div>
@@ -773,8 +800,9 @@ html.con-open .fab{opacity:0;pointer-events:none}
       </ul>
       <div class="hero-cta rv" style="--d:620">
         <button class="pill" type="button" data-console="/why-pradyuman"><span class="run" aria-hidden="true"><svg viewBox="0 0 10 10"><path d="M1 0l8 5-8 5z" fill="currentColor"/></svg></span>Run /why-pradyuman</button>
-        <p class="hint">or press <kbd>/</kbd> anywhere</p>
+        <a class="opill wa" href="https://wa.me/918130507389" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.4 18.6z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9.2 8.6c.3-.6.8-.6 1.1 0l.6 1.3c.1.3 0 .6-.2.8l-.5.5c.5 1.1 1.4 2 2.5 2.5l.5-.5c.2-.2.5-.3.8-.2l1.3.6c.6.3.6.8 0 1.1-.7.5-1.6.7-2.4.4-2-.7-3.6-2.3-4.3-4.3-.3-.8-.1-1.7.6-2.2z" fill="currentColor"/></svg>WhatsApp me</a>
       </div>
+      <p class="hero-ct rv" style="--d:680"><a href="tel:+918130507389">+91 81305 07389</a> · <a href="mailto:pradyuman_ss@cs.iitr.ac.in">pradyuman_ss@cs.iitr.ac.in</a><span class="hint"> · or press <kbd>/</kbd> for the console</span></p>
     </div>
     <figure class="hero-ph rv" style="--d:200">
       <div class="plate"><div class="duo"><img src="assets/headshot.jpg" width="640" height="800" decoding="async" fetchpriority="high" alt="Pradyuman Singh Shekhawat in glasses, a brown jacket and a dark scarf, outdoors with a mountainside in the background."></div></div>
@@ -1456,32 +1484,16 @@ html.con-open .fab{opacity:0;pointer-events:none}
   </div>
 </section>
 
-<section class="cta" id="seat" aria-labelledby="cta-h">
+<section class="cta contact" id="contact" aria-labelledby="cta-h">
   <svg class="cta-wheel" viewBox="0 0 400 400" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="200" cy="200" r="190" stroke-width="1.8"/><circle cx="200" cy="200" r="172"/><circle cx="200" cy="200" r="152" stroke-width=".8"/><circle cx="200" cy="19" r="2.6"/><circle cx="223.6" cy="20.5" r="2.6"/><circle cx="246.8" cy="25.2" r="2.6"/><circle cx="269.3" cy="32.8" r="2.6"/><circle cx="290.5" cy="43.2" r="2.6"/><circle cx="310.2" cy="56.4" r="2.6"/><circle cx="328" cy="72" r="2.6"/><circle cx="343.6" cy="89.8" r="2.6"/><circle cx="356.8" cy="109.5" r="2.6"/><circle cx="367.2" cy="130.7" r="2.6"/><circle cx="374.8" cy="153.2" r="2.6"/><circle cx="379.5" cy="176.4" r="2.6"/><circle cx="381" cy="200" r="2.6"/><circle cx="379.5" cy="223.6" r="2.6"/><circle cx="374.8" cy="246.8" r="2.6"/><circle cx="367.2" cy="269.3" r="2.6"/><circle cx="356.8" cy="290.5" r="2.6"/><circle cx="343.6" cy="310.2" r="2.6"/><circle cx="328" cy="328" r="2.6"/><circle cx="310.2" cy="343.6" r="2.6"/><circle cx="290.5" cy="356.8" r="2.6"/><circle cx="269.3" cy="367.2" r="2.6"/><circle cx="246.8" cy="374.8" r="2.6"/><circle cx="223.6" cy="379.5" r="2.6"/><circle cx="200" cy="381" r="2.6"/><circle cx="176.4" cy="379.5" r="2.6"/><circle cx="153.2" cy="374.8" r="2.6"/><circle cx="130.7" cy="367.2" r="2.6"/><circle cx="109.5" cy="356.8" r="2.6"/><circle cx="89.8" cy="343.6" r="2.6"/><circle cx="72" cy="328" r="2.6"/><circle cx="56.4" cy="310.2" r="2.6"/><circle cx="43.2" cy="290.5" r="2.6"/><circle cx="32.8" cy="269.3" r="2.6"/><circle cx="25.2" cy="246.8" r="2.6"/><circle cx="20.5" cy="223.6" r="2.6"/><circle cx="19" cy="200" r="2.6"/><circle cx="20.5" cy="176.4" r="2.6"/><circle cx="25.2" cy="153.2" r="2.6"/><circle cx="32.8" cy="130.7" r="2.6"/><circle cx="43.2" cy="109.5" r="2.6"/><circle cx="56.4" cy="89.8" r="2.6"/><circle cx="72" cy="72" r="2.6"/><circle cx="89.8" cy="56.4" r="2.6"/><circle cx="109.5" cy="43.2" r="2.6"/><circle cx="130.7" cy="32.8" r="2.6"/><circle cx="153.2" cy="25.2" r="2.6"/><circle cx="176.4" cy="20.5" r="2.6"/><path d="M194 142L192 48L208 48L206 142Z"/><circle cx="200" cy="94" r="12" fill="var(--paper)"/><circle cx="200" cy="94" r="3.4" fill="currentColor"/><path d="M222.2 146.4L258.2 59.6"/><path d="M236.8 154.7L301.8 86.9L313.1 98.2L245.3 163.2Z"/><circle cx="275" cy="125" r="12" fill="var(--paper)"/><circle cx="275" cy="125" r="3.4" fill="currentColor"/><path d="M253.6 177.8L340.4 141.8"/><path d="M258 194L352 192L352 208L258 206Z"/><circle cx="306" cy="200" r="12" fill="var(--paper)"/><circle cx="306" cy="200" r="3.4" fill="currentColor"/><path d="M253.6 222.2L340.4 258.2"/><path d="M245.3 236.8L313.1 301.8L301.8 313.1L236.8 245.3Z"/><circle cx="275" cy="275" r="12" fill="var(--paper)"/><circle cx="275" cy="275" r="3.4" fill="currentColor"/><path d="M222.2 253.6L258.2 340.4"/><path d="M206 258L208 352L192 352L194 258Z"/><circle cx="200" cy="306" r="12" fill="var(--paper)"/><circle cx="200" cy="306" r="3.4" fill="currentColor"/><path d="M177.8 253.6L141.8 340.4"/><path d="M163.2 245.3L98.2 313.1L86.9 301.8L154.7 236.8Z"/><circle cx="125" cy="275" r="12" fill="var(--paper)"/><circle cx="125" cy="275" r="3.4" fill="currentColor"/><path d="M146.4 222.2L59.6 258.2"/><path d="M142 206L48 208L48 192L142 194Z"/><circle cx="94" cy="200" r="12" fill="var(--paper)"/><circle cx="94" cy="200" r="3.4" fill="currentColor"/><path d="M146.4 177.8L59.6 141.8"/><path d="M154.7 163.2L86.9 98.2L98.2 86.9L163.2 154.7Z"/><circle cx="125" cy="125" r="12" fill="var(--paper)"/><circle cx="125" cy="125" r="3.4" fill="currentColor"/><path d="M177.8 146.4L141.8 59.6"/><path d="M200 162Q192.5 152.6 200 142Q207.5 152.6 200 162"/><path d="M214.5 164.9Q211.2 153.3 222.2 146.4Q225.1 159.1 214.5 164.9"/><path d="M226.9 173.1Q228.2 161.2 241 159Q238.8 171.8 226.9 173.1"/><path d="M235.1 185.5Q240.9 174.9 253.6 177.8Q246.7 188.8 235.1 185.5"/><path d="M238 200Q247.4 192.5 258 200Q247.4 207.5 238 200"/><path d="M235.1 214.5Q246.7 211.2 253.6 222.2Q240.9 225.1 235.1 214.5"/><path d="M226.9 226.9Q238.8 228.2 241 241Q228.2 238.8 226.9 226.9"/><path d="M214.5 235.1Q225.1 240.9 222.2 253.6Q211.2 246.7 214.5 235.1"/><path d="M200 238Q207.5 247.4 200 258Q192.5 247.4 200 238"/><path d="M185.5 235.1Q188.8 246.7 177.8 253.6Q174.9 240.9 185.5 235.1"/><path d="M173.1 226.9Q171.8 238.8 159 241Q161.2 228.2 173.1 226.9"/><path d="M164.9 214.5Q159.1 225.1 146.4 222.2Q153.3 211.2 164.9 214.5"/><path d="M162 200Q152.6 207.5 142 200Q152.6 192.5 162 200"/><path d="M164.9 185.5Q153.3 188.8 146.4 177.8Q159.1 174.9 164.9 185.5"/><path d="M173.1 173.1Q161.2 171.8 159 159Q171.8 161.2 173.1 173.1"/><path d="M185.5 164.9Q174.9 159.1 177.8 146.4Q188.8 153.3 185.5 164.9"/><circle cx="200" cy="200" r="38"/><circle cx="200" cy="200" r="18"/><circle cx="200" cy="200" r="6" fill="currentColor"/></g></svg>
   <div class="wrap">
+    <p class="eyebrow">Contact</p>
     <h2 class="cta-h" id="cta-h">Give me the seat.</h2>
-    <div class="cta-grid">
-    <figure class="cta-ph"><div class="plate"><div class="duo"><img src="assets/headshot.jpg" width="640" height="800" loading="lazy" decoding="async" alt="Portrait of Pradyuman Singh Shekhawat outdoors, wearing glasses, a brown jacket and a dark scarf, with a mountainside in the background."></div></div><figcaption>Pradyuman Singh Shekhawat<span>IIT Roorkee</span></figcaption></figure>
-    <div class="audition">
-      <p class="eyebrow">Or test me first</p>
-      <p class="aud-t">Give me a 3-hour harness task as an audition. I’ll hand back a working loop, an eval table and a cost per solved task.</p>
-      <p class="why">That is the skill-based selection IITR’s own <a href="https://watchout.iitr.ac.in/2026/05/inter-iit-techmeet-14">14.0 post-mortem</a> asked for.</p>
-    </div>
-    </div>
-    <div class="cta-links">
-      <a class="pill" href="#contact">Summon me</a>
-      <a class="opill" href="https://github.com/ikshv4ku/HIPE-2026-Team-Hansel-Gretel">HIPE-2026 repo</a>
-    </div>
-  </div>
-</section>
-
-<section class="sec contact" id="contact" aria-labelledby="ct-h">
-  <div class="wrap ct-grid">
-    <div class="ct-art">
-      <p class="eyebrow">Contact</p>
-      <h2 class="h2" id="ct-h">Ring the chariot bell.</h2>
-      <p class="lead">Call, WhatsApp or write. Any of them reaches me, and I reply fast.</p>
-      <svg class="bell" viewBox="0 0 220 260" aria-hidden="true">
+    <p class="lead ct-lead">Ring the chariot bell: call, WhatsApp or write. Any of them reaches me, and I reply fast.</p>
+    <div class="ct-grid">
+      <div class="ct-side">
+        <figure class="cta-ph"><div class="plate"><div class="duo"><img src="assets/headshot.jpg" width="640" height="800" loading="lazy" decoding="async" alt="Portrait of Pradyuman Singh Shekhawat outdoors, wearing glasses, a brown jacket and a dark scarf, with a mountainside in the background."></div></div><figcaption>Pradyuman Singh Shekhawat<span>IIT Roorkee</span></figcaption></figure>
+        <svg class="bell" viewBox="0 0 220 260" aria-hidden="true">
           <defs><pattern id="bh" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(38)"><path d="M0 0V5" stroke="#2b3a8f" stroke-width=".8" opacity=".55"/></pattern></defs>
           <g class="waves" fill="none" stroke="#2b3a8f" stroke-width="1.6" stroke-linecap="round">
             <path class="w1" d="M40 120C30 136 30 156 40 172"/><path class="w2" d="M24 108C10 132 10 160 24 184"/><path class="w3" d="M8 96C-10 128-10 164 8 196"/>
@@ -1501,8 +1513,8 @@ html.con-open .fab{opacity:0;pointer-events:none}
             <circle cx="110" cy="230" r="3" fill="#1b1a17"/>
           </g>
         </svg>
-    </div>
-    <div class="ct-list">
+      </div>
+      <div class="ct-list">
       <div class="ct-row">
         <p class="ct-k">Phone and WhatsApp</p>
         <p class="ct-val" id="ct-phone">+91 81305 07389</p>
@@ -1527,8 +1539,10 @@ html.con-open .fab{opacity:0;pointer-events:none}
         <div class="ct-acts">
           <a class="opill" href="https://www.linkedin.com/in/pradyuman-shekhawat/" target="_blank" rel="noopener">LinkedIn</a>
           <a class="opill" href="https://github.com/ikshv4ku" target="_blank" rel="noopener">GitHub · ikshv4ku</a>
+          <a class="opill" href="https://github.com/ikshv4ku/HIPE-2026-Team-Hansel-Gretel" target="_blank" rel="noopener">HIPE-2026 repo</a>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </section>
@@ -1561,7 +1575,10 @@ html.con-open .fab{opacity:0;pointer-events:none}
   </div>
 </footer>
 
-<button class="fab" type="button" data-console="" aria-label="Open the console (shortcut: slash)"><kbd>/</kbd>console</button>
+<div class="fabs">
+  <a class="fab fab-wa" href="https://wa.me/918130507389" target="_blank" rel="noopener" aria-label="WhatsApp me"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.4 18.6z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9.2 8.6c.3-.6.8-.6 1.1 0l.6 1.3c.1.3 0 .6-.2.8l-.5.5c.5 1.1 1.4 2 2.5 2.5l.5-.5c.2-.2.5-.3.8-.2l1.3.6c.6.3.6.8 0 1.1-.7.5-1.6.7-2.4.4-2-.7-3.6-2.3-4.3-4.3-.3-.8-.1-1.7.6-2.2z" fill="currentColor"/></svg><span>WhatsApp</span></a>
+  <button class="fab" type="button" data-console="" aria-label="Open the console (shortcut: slash)"><kbd>/</kbd><span>console</span></button>
+</div>
 
 <dialog class="tkd" id="tkd" aria-labelledby="tkd-name">
   <div class="tkd-bar">
@@ -2006,7 +2023,7 @@ html.con-open .fab{opacity:0;pointer-events:none}
   // reveal-on-scroll targets (after the toolkit has rendered)
   const setupReveal = () => {
   $$('.spread.draw li').forEach((li, i) => li.style.setProperty('--i', i));
-  const fade = ['.sec-head', '.hood-list > li', '.rc-w', '.idea', '.doms > div', '.pt-col', '.cta-grid', '.sloka', '.map > div', '.hipe-grid > *', '.hood-foot > *', '.cal', '.why .proof'];
+  const fade = ['.sec-head', '.hood-list > li', '.rc-w', '.idea', '.doms > div', '.pt-col', '.ct-grid', '.sloka', '.map > div', '.hipe-grid > *', '.hood-foot > *', '.cal', '.why .proof'];
   const trig = ['.proof', '.medals', '.spread.draw', '.sgpa', '.hp-chart', '.cf', '.contact'];
   const targets = new Set();
   if (!reduce) fade.forEach(sel => $$(sel).forEach(el => {
