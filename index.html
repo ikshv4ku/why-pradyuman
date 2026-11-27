@@ -79,7 +79,7 @@ kbd{font:500 12px/1 var(--mono);border:1px solid var(--rule-2);border-bottom-wid
 .kbtn kbd{padding:2px 6px}
 .kbtn:hover{background:var(--ink);color:var(--paper)}
 .nav-r{display:flex;align-items:center;gap:28px}
-@media (max-width:880px){.nav ul{display:none}}
+@media (max-width:1020px){.nav ul{display:none}}
 
 /* hero */
 .hero{padding:clamp(20px,4.5vw,64px) 0 clamp(80px,9vw,132px)}
@@ -380,9 +380,87 @@ kbd{font:500 12px/1 var(--mono);border:1px solid var(--rule-2);border-bottom-wid
 .cta-ph figcaption{margin-top:10px;font:600 15px/1.3 var(--serif)}
 .cta-ph figcaption span{display:block;font:500 11px/1.4 var(--mono);color:var(--ink-3);margin-top:2px}
 @media (max-width:640px){.hero-who{gap:14px}.hero-who .plate{width:76px}}
+/* toolkit */
+.tk-top{display:grid;gap:8px 48px;align-items:end;margin-bottom:28px}
+.tk-top .sec-head{margin-bottom:0}
+@media (min-width:1100px){.tk-top{grid-template-columns:minmax(0,1fr) 340px}}
+.tk-count{font:500 13px/1.5 var(--mono);color:var(--ink-2)}
+.tk-count b{color:var(--ink);font-weight:600}
+.tk-count b.w{color:var(--nila)}
+.tk-legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:10px;font-size:14px;color:var(--ink-2)}
+.tk-legend li{display:inline-flex;align-items:center;gap:7px}
+.mk{display:inline-block;flex:none;width:12px;height:12px;border-radius:3px;border:1.5px solid var(--rule-2);background:var(--card)}
+.mk.w{background:var(--nila);border-color:var(--nila)}
+.mk.d{border:1.5px dashed var(--nila);background:var(--nila-wash)}
+.new{display:inline-block;font:600 8.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--nila);border-radius:3px;padding:3px 4px 2px}
+.tk-filters{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center;margin-bottom:26px;padding:14px 0;border-block:1px solid var(--rule)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:500 13.5px/1 var(--sans);border:1px solid var(--rule-2);background:transparent;border-radius:999px;padding:8px 12px 7px;cursor:pointer;color:var(--ink-2);min-height:34px}
+.chip:hover{border-color:var(--ink);color:var(--ink)}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid var(--ink);border-radius:999px;padding:3px;gap:2px}
+.seg button{border:0;background:none;border-radius:999px;padding:7px 12px;font:500 12.5px/1 var(--mono);cursor:pointer;color:var(--ink-2);min-height:30px}
+.seg button[aria-pressed=true]{background:var(--nila);color:#fff}
+.tk-status{font:400 12px/1.3 var(--mono);color:var(--ink-3);margin-left:auto}
+.pt-grid{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:24px 10px;align-items:start}
+.pt-col h3{font:600 15px/1.2 var(--serif);min-height:2.5em;padding-bottom:6px;border-bottom:1px solid var(--ink);margin-bottom:8px;display:flex;flex-direction:column;justify-content:flex-end}
+.pt-col h3 small{display:block;font:500 10.5px/1.3 var(--mono);color:var(--ink-3);margin-top:3px}
+.pt-col ul{display:grid;gap:8px}
+.pt{position:relative;display:block;width:100%;min-height:124px;text-align:left;padding:8px 9px 10px;background:var(--card);border:1px solid var(--rule-2);border-radius:8px;cursor:pointer;color:var(--ink);transition:opacity .25s ease,box-shadow .2s ease,transform .2s ease}
+.pt .no{font:500 10px/1 var(--mono);color:var(--ink-3)}
+.pt .sy{display:block;font:600 28px/1 var(--serif);margin-top:7px;letter-spacing:-.01em}
+.pt .nm{padding-right:10px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;font:500 12.5px/1.25 var(--sans);color:var(--ink-2);margin-top:6px}
+.pt .new{position:absolute;top:7px;right:7px}
+.pt .mk{position:absolute;right:8px;bottom:8px;width:9px;height:9px;border-radius:2px}
+.pt.w{border-color:var(--nila);box-shadow:inset 0 3px 0 var(--nila)}
+.pt.w .sy,.pt.d .sy{color:var(--nila)}
+.pt.d{border:1.5px dashed var(--nila)}
+.pt:hover{transform:translateY(-2px);box-shadow:0 10px 18px -12px rgba(27,26,23,.4)}
+.pt.w:hover{box-shadow:inset 0 3px 0 var(--nila),0 10px 18px -12px rgba(27,26,23,.4)}
+.pt.dim{opacity:.2}
+.pt.dim:hover{transform:none}
+.pt-grid.one{grid-template-columns:1fr}
+.pt-grid.one .pt-col ul{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
+.pt-grid.one .pt-col h3{min-height:0}
+@media (prefers-reduced-motion:reduce){.pt,.pt:hover{transition:none;transform:none}}
+@media (max-width:1099px){.pt-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:28px 12px}}
+@media (max-width:759px){.pt-grid{grid-template-columns:1fr;gap:26px}.pt-col ul{grid-template-columns:repeat(3,minmax(0,1fr))}.pt-col h3{min-height:0}.tk-status{margin-left:0;width:100%}}
+@media (max-width:759px){.pt{min-height:112px}}
+@media (max-width:400px){.pt{min-height:108px;padding:7px 7px 9px}.pt .sy{font-size:24px}.pt .nm{font-size:11.5px}}
+@media (max-width:640px){.seg button{font-size:11px;padding:7px 8px}.seg{gap:0}}
+/* toolkit detail sheet */
+.tkd{position:fixed;inset:0 0 0 auto;margin:0;width:min(460px,100%);max-width:100%;height:100%;max-height:100%;padding:0;border:0;border-left:1px solid var(--ink);background:var(--card);color:var(--ink);flex-direction:column;transform:translateX(104%);transition:transform .35s cubic-bezier(.2,.8,.2,1);box-shadow:-30px 0 80px -30px rgba(27,26,23,.4)}
+.tkd[open]{display:flex}
+.tkd.is-open{transform:none}
+.tkd::backdrop{background:rgba(27,26,23,.3)}
+@media (prefers-reduced-motion:reduce){.tkd{transition:none}}
+@media (max-width:640px){.tkd{inset:auto 0 0 0;width:100%;height:auto;max-height:86vh;max-height:86svh;border-left:0;border-top:1px solid var(--ink);border-radius:16px 16px 0 0;transform:translateY(104%)}}
+html.tk-open{overflow:hidden}
+html.tk-open .fab{opacity:0;pointer-events:none}
+.tkd-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px 12px 24px;border-bottom:1px solid var(--rule)}
+.tkd-k{font:500 11.5px/1.3 var(--mono);color:var(--ink-3)}
+.tkd-x,.tkd-nav button{font:500 13px/1 var(--mono);border:1px solid var(--ink);background:transparent;border-radius:999px;padding:9px 14px;cursor:pointer;color:var(--ink)}
+.tkd-x:hover,.tkd-nav button:hover{background:var(--ink);color:var(--paper)}
+.tkd-body{flex:1;overflow:auto;padding:20px 24px 8px;overscroll-behavior:contain}
+.tkd-head{display:flex;gap:16px;align-items:center;margin-bottom:8px}
+.tkd-sy{flex:none;display:grid;place-items:center;width:72px;height:72px;border:1.5px solid var(--rule-2);border-radius:12px;font:600 34px/1 var(--serif)}
+.tkd-sy.w{border-color:var(--nila);color:var(--nila);box-shadow:inset 0 4px 0 var(--nila)}
+.tkd-sy.d{border:1.5px dashed var(--nila);color:var(--nila)}
+.tkd-head h3{font-size:25px;line-height:1.12}
+.tkd-badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;align-items:center}
+.tkd-badges .bd{display:inline-flex;align-items:center;gap:6px;font:500 11.5px/1 var(--mono);border:1px solid var(--rule-2);border-radius:999px;padding:5px 9px 5px 7px}
+.tkd-body h4{font:600 10.5px/1.3 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin:20px 0 5px}
+.tkd-body p{font-size:16px;line-height:1.55;color:var(--ink-2)}
+.tkd-body #tkd-why{font:500 18px/1.4 var(--serif);color:var(--ink)}
+.tkd-map{border-left:2px solid var(--nila);padding-left:12px;color:var(--ink)!important}
+.tkd-src{font-size:15px!important}
+.tkd-src a{color:var(--nila)}
+.tkd-src span{display:block;font:400 12px/1.5 var(--mono);color:var(--ink-3);margin-top:4px}
+.tkd-nav{display:flex;justify-content:space-between;gap:10px;padding:12px 24px 18px;border-top:1px solid var(--rule)}
 /* ideas */
 .ideas-g{display:grid;gap:clamp(20px,2.4vw,32px)}
-@media (min-width:900px){.ideas-g{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:640px){.ideas-g{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1000px){.ideas-g{grid-template-columns:repeat(3,minmax(0,1fr))}}
 .idea{display:flex;flex-direction:column;border:1.5px dashed var(--rule-2);border-radius:16px;padding:22px 24px 24px}
 .idea .idea-k{margin:0;font:500 10.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
 .idea-art{width:100%;height:auto;margin:18px 0 20px;font-family:var(--mono)}
@@ -513,6 +591,7 @@ html.con-open .fab{opacity:0;pointer-events:none}
       <nav aria-label="Sections"><ul>
         <li><a href="#ride">The ride</a></li>
         <li><a href="#hood">Under the hood</a></li>
+        <li><a href="#toolkit">Toolkit</a></li>
         <li><a href="#powers">Superpowers</a></li>
         <li><a href="#availability">Availability</a></li>
       </ul></nav>
@@ -921,6 +1000,37 @@ html.con-open .fab{opacity:0;pointer-events:none}
   </div>
 </section>
 
+<section class="sec toolkit" id="toolkit" aria-labelledby="tk-h">
+  <div class="wrap">
+    <div class="tk-top">
+      <div class="sec-head">
+        <p class="eyebrow">My harness toolkit</p>
+        <h2 class="h2" id="tk-h">A periodic table of harness engineering.</h2>
+        <p class="lead">Every technique a modern harness is built from, with the ones I’ve used marked. The rest are what I’ll reach for on the day.</p>
+      </div>
+      <div class="tk-meta">
+        <p class="tk-count" id="tk-count">48 techniques</p>
+        <ul class="tk-legend" aria-label="Legend">
+          <li><span class="mk w" aria-hidden="true"></span>In my work</li>
+          <li><span class="mk d" aria-hidden="true"></span>In my design</li>
+          <li><span class="mk" aria-hidden="true"></span>In my playbook</li>
+          <li><span class="new" aria-hidden="true">New</span>Sep–Nov 2026</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tk-filters">
+      <div class="chips" role="group" aria-label="Filter by layer" id="tk-layers"></div>
+      <div class="seg" role="group" aria-label="Filter by where I’ve used it" id="tk-badges">
+        <button type="button" data-b="all" aria-pressed="true">All</button><button type="button" data-b="w" aria-pressed="false">In my work</button><button type="button" data-b="d" aria-pressed="false">In my design</button><button type="button" data-b="p" aria-pressed="false">In my playbook</button>
+      </div>
+      <p class="tk-status" id="tk-status" aria-live="polite"></p>
+    </div>
+    <div class="pt-grid" id="tk-grid"></div>
+    <noscript><p class="lead">The interactive table needs JavaScript. Its 48 sources are primary vendor posts, docs, changelogs and arXiv papers, dated 2022 to Nov 2026.</p></noscript>
+    <p class="source">Each tile links its primary source. Catalogue compiled 27 Nov 2026; “why it matters” figures are the sources’ own.</p>
+  </div>
+</section>
+
 <section class="sec powers" id="powers" aria-labelledby="pw-h">
   <div class="wrap">
     <div class="sec-head">
@@ -999,7 +1109,7 @@ html.con-open .fab{opacity:0;pointer-events:none}
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">What I’d build next</p>
-      <h2 class="h2" id="nx-h">Three ideas I’d bring, each grown from work I’ve done.</h2>
+      <h2 class="h2" id="nx-h">Six ideas I’d bring, each grown from work I’ve done.</h2>
       <p class="lead">These are proposals, not shipped products. Each one extends something on this page.</p>
     </div>
     <div class="ideas-g">
@@ -1013,9 +1123,9 @@ html.con-open .fab{opacity:0;pointer-events:none}
           <text x="218" y="54" font-size="10.5" fill="#2b3a8f" font-weight="600">fails here</text>
           <text x="26" y="114" font-size="9.5" fill="#6e6a62">one correlation ID per run</text>
         </svg>
-        <h3>A flight recorder for agents</h3>
-        <p>My request-path observability, applied to agent runs. Every tool call gets a correlation ID, the failing step is attributed automatically, and sampling keeps every failed trajectory.</p>
-        <p class="idea-from"><span>Grows from</span>Request-path observability at Databricks: failure-phase attribution, correlation IDs, consistent sampling that never drops a failure.</p>
+        <h3>Black Box: a flight recorder for agents</h3>
+        <p>I’d give every agent run, subagent and MCP call one correlation ID in standard OTel GenAI spans, with sampling that never drops a failed trajectory. A triage agent then pins each failure to a phase and files one root-cause fix.</p>
+        <p class="idea-from"><span>Grows from</span>My request-path observability at Databricks: correlation IDs, failure-phase attribution, sampling that never drops a failure.</p>
       </article>
       <article class="idea">
         <p class="idea-k">Idea, not shipped</p>
@@ -1030,23 +1140,80 @@ html.con-open .fab{opacity:0;pointer-events:none}
           <circle cx="252" cy="24" r="6" fill="#fdfcf9" stroke="#1b1a17" stroke-width="1.5"/>
           <circle cx="146" cy="32" r="7.5" fill="#2b3a8f"/><text x="158" y="29" font-size="10.5" fill="#2b3a8f" font-weight="600">pick</text>
         </svg>
-        <h3>A value router</h3>
-        <p>Send each task to the cheapest model whose expected success clears the bar, and judge it on cost per solved task.</p>
-        <p class="idea-from"><span>Grows from</span>My efficiency-vs-cost model report and my value-maxxing tiers.</p>
+        <h3>Value Router</h3>
+        <p>At session start, I’d pick the cheapest model-and-effort setup likely to solve the task and lock it, so prompt-cache hits survive. The executor calls a frontier advisor only on hard turns, and the router is scored on cost per solved task, not tokens spent.</p>
+        <p class="idea-from"><span>Grows from</span>My value-maxxing tiers and my efficiency-vs-cost model report.</p>
       </article>
       <article class="idea">
         <p class="idea-k">Idea, not shipped</p>
         <svg class="idea-art" viewBox="0 0 300 120" aria-hidden="true">
-          <g stroke="#c9c4b9" stroke-width="1.1" stroke-dasharray="3 3" fill="none"><path d="M52 30L126 52M52 90L126 68M248 30L174 52M248 90L174 68"/></g>
-          <circle cx="150" cy="60" r="27" fill="#fdfcf9" stroke="#2b3a8f" stroke-width="1.6"/>
-          <g fill="#2b3a8f"><circle cx="150" cy="33" r="3.4"/><circle cx="173.4" cy="46.5" r="3.4"/><circle cx="173.4" cy="73.5" r="3.4"/><circle cx="150" cy="87" r="3.4"/><circle cx="126.6" cy="73.5" r="3.4"/><circle cx="126.6" cy="46.5" r="3.4"/></g>
-          <text x="150" y="64" font-size="11" fill="#2b3a8f" text-anchor="middle" font-weight="600">org</text>
-          <g fill="#fdfcf9" stroke="#1b1a17" stroke-width="1.2"><circle cx="38" cy="26" r="15"/><circle cx="38" cy="94" r="15"/><circle cx="262" cy="26" r="15"/><circle cx="262" cy="94" r="15"/></g>
-          <g font-size="8.5" fill="#1b1a17" text-anchor="middle"><text x="38" y="29">team</text><text x="38" y="97">team</text><text x="262" y="29">team</text><text x="262" y="97">team</text></g>
+          <g fill="none" stroke="#1b1a17" stroke-width="1.2"><rect x="10" y="18" width="70" height="20" rx="4"/><rect x="10" y="48" width="70" height="20" rx="4"/><rect x="10" y="78" width="70" height="20" rx="4"/></g>
+          <g font-size="9.5" fill="#1b1a17" text-anchor="middle"><text x="45" y="31">session 1</text><text x="45" y="61">session 2</text><text x="45" y="91">session 3</text></g>
+          <g fill="#2b3a8f"><circle cx="88" cy="28" r="3"/><circle cx="88" cy="58" r="3"/><circle cx="88" cy="88" r="3"/></g>
+          <path d="M92 28C112 28 110 58 128 58M92 58H128M92 88C112 88 110 58 128 58" fill="none" stroke="#2b3a8f" stroke-width="1.2"/>
+          <path d="M128 40h46l10 10v36h-56z" fill="#fdfcf9" stroke="#2b3a8f" stroke-width="1.5"/><path d="M174 40v10h10" fill="none" stroke="#2b3a8f" stroke-width="1.2"/>
+          <text x="156" y="66" font-size="9" fill="#2b3a8f" text-anchor="middle" font-weight="600">SKILL.md</text>
+          <path d="M190 63H214M209 58.5l5.5 4.5-5.5 4.5" fill="none" stroke="#1b1a17" stroke-width="1.3"/>
+          <rect x="226" y="68" width="16" height="22" fill="#c9c4b9"/><rect x="252" y="46" width="16" height="44" fill="#2b3a8f"/>
+          <path d="M220 90H276" stroke="#1b1a17" stroke-width="1.2"/>
+          <g font-size="8.5" fill="#6e6a62" text-anchor="middle"><text x="234" y="102">base</text><text x="260" y="102">patch</text></g>
+          <text x="10" y="114" font-size="9.5" fill="#6e6a62">same mistake, three sessions</text>
         </svg>
-        <h3>SMRITI for the whole org</h3>
-        <p>My team-memory design, scaled from one team to many. More authors means more to merge and reconcile, which is what SMRITI’s middle stages are for.</p>
-        <p class="idea-from"><span>Grows from</span>SMRITI, and the team knowledge-base prototype a few teammates used.</p>
+        <h3>Skillsmith: a critic that writes skills</h3>
+        <p>When my self-critique skill flags the same mistake across sessions, Skillsmith drafts a SKILL.md patch from the trajectories that avoided it. The patch merges only if it beats the no-skill baseline on held-out tasks, with its context cost measured first.</p>
+        <p class="idea-from"><span>Grows from</span>My self-critique skill and my work on Isaac’s skills.</p>
+      </article>
+      <article class="idea">
+        <p class="idea-k">Idea, not shipped</p>
+        <svg class="idea-art" viewBox="0 0 300 120" aria-hidden="true">
+          <g fill="#fdfcf9" stroke="#1b1a17" stroke-width="1.1"><rect x="10" y="44" width="12" height="16" rx="1.5"/><rect x="26" y="44" width="12" height="16" rx="1.5"/><rect x="42" y="44" width="12" height="16" rx="1.5"/><rect x="58" y="44" width="12" height="16" rx="1.5"/><rect x="74" y="44" width="12" height="16" rx="1.5"/><rect x="90" y="44" width="12" height="16" rx="1.5"/><rect x="106" y="44" width="12" height="16" rx="1.5"/></g>
+          <path d="M124 52H146M141 47.5l5.5 4.5-5.5 4.5" fill="none" stroke="#2b3a8f" stroke-width="1.3"/>
+          <rect x="152" y="38" width="34" height="28" rx="2" fill="#fdfcf9" stroke="#2b3a8f" stroke-width="1.5"/>
+          <path d="M192 52H214M209 47.5l5.5 4.5-5.5 4.5" fill="none" stroke="#2b3a8f" stroke-width="1.3"/>
+          <rect x="220" y="28" width="56" height="48" rx="2" fill="#2b3a8f"/>
+          <g font-size="9.5" fill="#6e6a62" text-anchor="middle"><text x="64" y="76">days</text><text x="169" y="82">week</text><text x="248" y="92">month</text></g>
+          <path d="M272 10a9 9 0 1 0 9 12 7 7 0 0 1-9-12z" fill="none" stroke="#2b3a8f" stroke-width="1.3"/>
+          <text x="10" y="114" font-size="9.5" fill="#6e6a62">nightly: re-read, check, supersede</text>
+        </svg>
+        <h3>Dream Journal</h3>
+        <p>Each night, a pass re-reads the day’s raw transcripts and checks my daily, weekly and monthly journal pages against them, fixing any drift. Changed facts are superseded with valid-time stamps, never overwritten, so “what did we believe on 12 July?” stays answerable.</p>
+        <p class="idea-from"><span>Grows from</span>My work-journal agent and SMRITI’s bi-temporal ledger (a design).</p>
+      </article>
+      <article class="idea">
+        <p class="idea-k">Idea, not shipped</p>
+        <svg class="idea-art" viewBox="0 0 300 120" aria-hidden="true">
+          <rect x="10" y="86" width="280" height="14" fill="#1b1a17"/>
+          <rect x="10" y="70" width="58" height="14" fill="#6e6a62"/><rect x="70" y="70" width="96" height="14" fill="#2b3a8f"/><rect x="168" y="70" width="70" height="14" fill="#6b76b8"/><rect x="240" y="70" width="50" height="14" fill="#c9c4b9"/>
+          <rect x="70" y="54" width="44" height="14" fill="#6b76b8"/><rect x="116" y="54" width="30" height="14" fill="#a8afd8"/><rect x="168" y="54" width="40" height="14" fill="#a8afd8"/>
+          <g font-size="8.5" fill="#fff"><text x="14" y="96">one turn of context</text><text x="74" y="80">skill</text><text x="172" y="80">memory</text></g>
+          <g font-size="8.5" fill="#1b1a17"><text x="14" y="80" fill="#fff">system</text><text x="244" y="80">tools</text></g>
+          <text x="10" y="40" font-size="9.5" fill="#6e6a62">every token, attributed to its source</text>
+          <text x="290" y="114" font-size="9.5" fill="#2b3a8f" text-anchor="end">+ cache-hit share</text>
+        </svg>
+        <h3>Context Flame Graph</h3>
+        <p>I’d attribute every context token on every turn to its source (system prompt, skill, MCP schema, memory file, tool result) and draw it as a flame graph, with the cache-hit share alongside. That turns my “2–3× below the intern cohort” from a dashboard number into an explanation any team can reproduce.</p>
+        <p class="idea-from"><span>Grows from</span>My filesystem memory and my work on Isaac’s skills and context.</p>
+      </article>
+      <article class="idea">
+        <p class="idea-k">Idea, not shipped</p>
+        <svg class="idea-art" viewBox="0 0 300 120" aria-hidden="true">
+          <rect x="8" y="38" width="56" height="30" rx="5" fill="#fdfcf9" stroke="#6e6a62" stroke-width="1.2"/>
+          <text x="36" y="57" font-size="9" fill="#6e6a62" text-anchor="middle">untrusted</text>
+          <rect x="78" y="22" width="96" height="62" rx="8" fill="none" stroke="#2b3a8f" stroke-width="1.3" stroke-dasharray="4 3"/>
+          <text x="126" y="17" font-size="9" fill="#2b3a8f" text-anchor="middle">quarantine</text>
+          <rect x="94" y="40" width="64" height="26" rx="5" fill="#fdfcf9" stroke="#1b1a17" stroke-width="1.2"/>
+          <text x="126" y="57" font-size="9" fill="#1b1a17" text-anchor="middle">extractor</text>
+          <path d="M64 53H90M174 53H192" fill="none" stroke="#1b1a17" stroke-width="1.2"/>
+          <circle cx="206" cy="53" r="13" fill="#fdfcf9" stroke="#2b3a8f" stroke-width="1.5"/><path d="M200 53l4.5 4.5 8-9" fill="none" stroke="#2b3a8f" stroke-width="1.6"/>
+          <path d="M219 53H240M235 48.5l5.5 4.5-5.5 4.5" fill="none" stroke="#2b3a8f" stroke-width="1.3"/>
+          <rect x="246" y="38" width="46" height="30" rx="5" fill="#2b3a8f"/>
+          <text x="269" y="57" font-size="9" fill="#fff" text-anchor="middle">memory</text>
+          <g font-size="8.5" fill="#6e6a62" text-anchor="middle"><text x="126" y="100">typed cards only</text><text x="206" y="82">review</text></g>
+          <text x="8" y="114" font-size="9.5" fill="#6e6a62">no instructions or tool calls get through</text>
+        </svg>
+        <h3>Quarantine Scribe</h3>
+        <p>Untrusted text from Slack or the web is read only by a quarantined extractor, which may emit typed SMRITI cards but never instructions or tool calls. A separate clean-context reviewer approves each write-back before it reaches the memory every agent reads.</p>
+        <p class="idea-from"><span>Grows from</span>SMRITI and my shared markdown memory.</p>
       </article>
     </div>
   </div>
@@ -1127,6 +1294,21 @@ html.con-open .fab{opacity:0;pointer-events:none}
 
 <button class="fab" type="button" data-console="" aria-label="Open the console (shortcut: slash)"><kbd>/</kbd>console</button>
 
+<dialog class="tkd" id="tkd" aria-labelledby="tkd-name">
+  <div class="tkd-bar">
+    <p class="tkd-k" id="tkd-k"></p>
+    <button class="tkd-x" type="button" aria-label="Close details">Close</button>
+  </div>
+  <div class="tkd-body">
+    <div class="tkd-head"><span class="tkd-sy" id="tkd-sy" aria-hidden="true"></span><div><h3 id="tkd-name"></h3><p class="tkd-badges" id="tkd-badges"></p></div></div>
+    <h4>What it is</h4><p id="tkd-what"></p>
+    <h4>Why it matters</h4><p id="tkd-why"></p>
+    <div id="tkd-mapw"><h4 id="tkd-maph"></h4><p id="tkd-map" class="tkd-map"></p></div>
+    <h4>Source</h4><p class="tkd-src"><a id="tkd-src" target="_blank" rel="noopener"></a><span id="tkd-date"></span></p>
+  </div>
+  <div class="tkd-nav"><button type="button" id="tkd-prev">Previous</button><button type="button" id="tkd-next">Next</button></div>
+</dialog>
+
 <dialog class="con" id="con" aria-labelledby="con-title">
   <div class="con-bar">
     <p class="con-title" id="con-title"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-ratha"/></svg>why-pradyuman <span>harness console</span></p>
@@ -1135,7 +1317,7 @@ html.con-open .fab{opacity:0;pointer-events:none}
   <div class="con-out" id="con-out"></div>
   <div class="sr-only" id="con-sr" aria-live="polite"></div>
   <div class="con-chips" role="group" aria-label="Commands">
-    <button type="button" data-cmd="/why-pradyuman">/why-pradyuman</button><button type="button" data-cmd="/databricks">/databricks</button><button type="button" data-cmd="/memory">/memory</button><button type="button" data-cmd="/planner">/planner</button><button type="button" data-cmd="/value">/value</button><button type="button" data-cmd="/journal">/journal</button><button type="button" data-cmd="/critic">/critic</button><button type="button" data-cmd="/hipe">/hipe</button><button type="button" data-cmd="/smriti">/smriti</button><button type="button" data-cmd="/systems">/systems</button><button type="button" data-cmd="/superpowers">/superpowers</button><button type="button" data-cmd="/availability">/availability</button><button type="button" data-cmd="/rulebook">/rulebook</button><button type="button" data-cmd="/help">/help</button><button type="button" data-cmd="/clear">/clear</button>
+    <button type="button" data-cmd="/why-pradyuman">/why-pradyuman</button><button type="button" data-cmd="/databricks">/databricks</button><button type="button" data-cmd="/memory">/memory</button><button type="button" data-cmd="/planner">/planner</button><button type="button" data-cmd="/value">/value</button><button type="button" data-cmd="/journal">/journal</button><button type="button" data-cmd="/critic">/critic</button><button type="button" data-cmd="/toolkit">/toolkit</button><button type="button" data-cmd="/ideas">/ideas</button><button type="button" data-cmd="/hipe">/hipe</button><button type="button" data-cmd="/smriti">/smriti</button><button type="button" data-cmd="/systems">/systems</button><button type="button" data-cmd="/superpowers">/superpowers</button><button type="button" data-cmd="/availability">/availability</button><button type="button" data-cmd="/rulebook">/rulebook</button><button type="button" data-cmd="/help">/help</button><button type="button" data-cmd="/clear">/clear</button>
   </div>
   <form class="con-in" id="con-form" autocomplete="off">
     <span aria-hidden="true">›</span>
@@ -1381,6 +1563,174 @@ html.con-open .fab{opacity:0;pointer-events:none}
     });
   });
 
+
+  /* ---------- harness toolkit: a periodic table ---------- */
+  const TK = [{"l":"Context","n":"Progressive disclosure","s":"Pd","w":"Keep a short index in context (AGENTS.md map, skill names); load full docs and files only when needed.","y":"OpenAI replaced a bloated instruction file with a ~100-line AGENTS.md that points into a docs/ tree.","t":"OpenAI: Harness engineering: leveraging Codex in an agent-first world","u":"https://openai.com/index/harness-engineering/","d":"2026-02-11","b":"w","m":"My work on Isaac’s skills and context, and my nested markdown memory tree."},{"l":"Context","n":"Context editing","s":"Ce","w":"Automatically clear stale tool results and old thinking blocks once the window passes a set threshold.","y":"Anthropic: editing alone lifted an agentic-search eval 29% and cut tokens 84% in a 100-turn run.","t":"Anthropic: Managing context on the Claude Developer Platform","u":"https://claude.com/resources/articles/context-management","d":"2025-09-29","b":"p","m":""},{"l":"Context","n":"Cache-aware compaction","s":"Cc","w":"Summarise old turns into a fresh window, timed so the summary is built while the prompt cache is warm.","y":"Claude Code now compacts 200K+ token sessions idle ~54 minutes, before the one-hour cache expires.","t":"Claude Code changelog, v2.1.299 (idle compaction)","u":"https://code.claude.com/docs/en/changelog","d":"2026-10-14","b":"p","m":""},{"l":"Context","n":"Ralph loop","s":"Rl","w":"Re-run the agent in a bash loop on one prompt file, one task per pass, with state kept in files.","y":"Every pass starts from a clean context window, so long jobs stop accumulating stale tokens.","t":"Geoffrey Huntley: Ralph Wiggum as a software engineer","u":"https://ghuntley.com/ralph/","d":"2025-07-14","b":"p","m":""},{"l":"Context","n":"Automatic harness search","s":"Hs","w":"An agent reads earlier harness code, scores and traces from a filesystem, then writes better harness code.","y":"Meta-Harness beat a state-of-the-art context manager by 7.7 points using 4x fewer context tokens.","t":"Meta-Harness: End-to-End Optimization of Model Harnesses (Lee et al.)","u":"https://arxiv.org/abs/2603.28052","d":"2026-03-30","b":"p","m":""},{"l":"Tools & MCP","n":"MCP connectors","s":"Mc","w":"Plug tools and data (Slack, GitHub, Google Workspace) into any agent through one open protocol.","y":"MCP passed 400M monthly SDK downloads; the 2026-07-28 spec went stateless and added long-running Tasks.","t":"Claude: Bringing MCP 2026-07-28 to Claude","u":"https://claude.com/blog/bringing-mcp-2026-07-28-to-claude","d":"2026-07-28","b":"w","m":"MCP servers daily in Isaac; my daily planner reads Slack, GitHub and Google Workspace through connectors."},{"l":"Tools & MCP","n":"Tool search","s":"Ts","w":"Defer loading tool schemas; the agent searches a tool index and loads only the definitions it needs.","y":"Cut tool-definition tokens ~85% and lifted Opus 4's MCP-eval accuracy from 49% to 74%.","t":"Anthropic: Introducing advanced tool use on the Claude Developer Platform","u":"https://www.anthropic.com/research/advanced-tool-use","d":"2025-11-24","b":"p","m":""},{"l":"Tools & MCP","n":"Code execution with MCP","s":"Cx","w":"Expose MCP servers as code modules; the model writes a script, so intermediate data never enters context.","y":"Anthropic's example workflow dropped from about 150K to 2K tokens, a 98.7% cut.","t":"Anthropic: Code execution with MCP: building more efficient AI agents","u":"https://www.anthropic.com/engineering/code-execution-with-mcp","d":"2025-11-04","b":"p","m":""},{"l":"Tools & MCP","n":"Tool-grounded reasoning","s":"Tg","w":"Interleave reasoning with live lookups (Wikipedia, Wikidata SPARQL) so each claim rests on retrieved facts.","y":"ReAct's Wikipedia lookups curbed chain-of-thought hallucination; it beat RL baselines by 34 points on ALFWorld.","t":"ReAct: Synergizing Reasoning and Acting in Language Models (Yao et al.)","u":"https://arxiv.org/abs/2210.03629","d":"2022-10-06","b":"w","m":"HIPE-2026: GPT-OSS-120B grounded in live Wikidata lookups."},{"l":"Tools & MCP","n":"Schema-validated output","s":"Sv","w":"Constrain or validate every model output against a JSON schema; reject and retry on any violation.","y":"OpenAI's constrained decoding scored 100% on complex schemas, where gpt-4-0613 scored under 40%.","t":"OpenAI: Introducing Structured Outputs in the API","u":"https://openai.com/index/introducing-structured-outputs-in-the-api/","d":"2024-08-06","b":"w","m":"HIPE-2026: strict JSON validation of every answer."},{"l":"Tools & MCP","n":"A2A protocol","s":"A2","w":"An open protocol that lets agents from different vendors discover each other and delegate tasks.","y":"Reached a stable v1.0 with 150+ supporting organisations and support in Azure and AWS agent platforms.","t":"Linux Foundation: A2A Protocol Surpasses 150 Organizations, Lands in Major Cloud Platforms","u":"https://www.linuxfoundation.org/press/a2a-protocol-surpasses-150-organizations-lands-in-major-cloud-platforms-and-sees-enterprise-production-use-in-first-year","d":"2026-04-09","b":"p","m":""},{"l":"Skills","n":"Agent Skills","s":"Sk","w":"Folders holding a SKILL.md (name, description) plus scripts, loaded in stages only when relevant.","y":"Now an AAIF open standard on 70+ platforms, with ~1M skills published and ~280M installs.","t":"Anthropic: Donating Agent Skills to the Agentic AI Foundation","u":"https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation","d":"2026-10-22","b":"w","m":"I worked on Isaac’s skills and used skills every day."},{"l":"Skills","n":"Skill evals and cost audits","s":"Se","w":"Score each skill or plugin against a no-skill baseline, and measure its context cost and usage.","y":"Claude Code shipped /skill-doctor and claude plugin eval in Sep 2026: skills must earn their tokens.","t":"Claude Code: What's new (Weeks 36 and 37)","u":"https://code.claude.com/docs/en/whats-new","d":"2026-09-07","b":"p","m":""},{"l":"Skills","n":"Self-critique skill","s":"Sc","w":"The agent reflects in words on feedback, stores the lessons, and applies them on the next attempt.","y":"Reflexion reached 91% pass@1 on HumanEval, against 80% reported for GPT-4.","t":"Reflexion: Language Agents with Verbal Reinforcement Learning (Shinn et al.)","u":"https://arxiv.org/abs/2303.11366","d":"2023-03-20","b":"w","m":"My self-critique skill, which compared my work with the team’s."},{"l":"Skills","n":"Reflective prompt evolution","s":"Rp","w":"An LLM reads execution traces, diagnoses failures in plain language, and evolves prompts along a Pareto front.","y":"GEPA beat GRPO reinforcement learning by 6% on average with up to 35x fewer rollouts.","t":"GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning (Agrawal et al.)","u":"https://arxiv.org/abs/2507.19457","d":"2025-07-25; rev. 2026-02-14, ICLR 2026 oral","b":"p","m":""},{"l":"Skills","n":"Skill induction","s":"Si","w":"Mine repeated successful trajectories into reusable workflows the agent loads on similar future tasks.","y":"Agent Workflow Memory raised success 24.6% on Mind2Web and 51.1% on WebArena, relative to baselines.","t":"Agent Workflow Memory (Wang et al.)","u":"https://arxiv.org/abs/2409.07429","d":"2024-09-11","b":"p","m":""},{"l":"Orchestration","n":"Context-isolating subagents","s":"Sa","w":"Hand a bounded job to a helper with a fresh context window; it returns only a short summary.","y":"Anthropic's Opus-lead, Sonnet-subagent system beat single-agent Opus by 90.2%, at ~15x chat tokens.","t":"Anthropic: How we built our multi-agent research system","u":"https://www.anthropic.com/engineering/multi-agent-research-system","d":"2025-06","b":"w","m":"I used subagents every day in Isaac."},{"l":"Orchestration","n":"Background and fork subagents","s":"Bf","w":"Subagents run while the parent keeps working; forks inherit the full conversation instead of starting blank.","y":"Claude Code made both the default in mid-2026; subagent chains can nest five levels deep.","t":"Claude Code: What's new (Weeks 24, 27 and 33)","u":"https://code.claude.com/docs/en/whats-new","d":"2026-08-10","b":"p","m":""},{"l":"Orchestration","n":"Inter-agent messaging","s":"Im","w":"Agents and sessions post findings to each other on a message board, instead of a human relaying them.","y":"Codex shipped an agent message-board MCP server on 13 Nov 2026; Claude Code sessions can message each other.","t":"OpenAI: Codex changelog (CLI 0.168.0)","u":"https://learn.chatgpt.com/docs/changelog","d":"2026-11-13","b":"p","m":""},{"l":"Orchestration","n":"Specialist arbiter ensemble","s":"Ar","w":"Several specialist agents answer in parallel; an aggregator or arbiter reads every draft and decides.","y":"Mixture-of-Agents, using only open models, scored 65.1% on AlpacaEval 2.0 against GPT-4o's 57.5%.","t":"Mixture-of-Agents Enhances Large Language Model Capabilities","u":"https://arxiv.org/abs/2406.04692","d":"2024-06-07","b":"w","m":"HIPE-2026: Historian and Geographer specialists (LoRA on Qwen2.5-7B) plus an Arbiter."},{"l":"Orchestration","n":"Meta-harness","s":"Mh","w":"One layer above Claude Code, Codex and others: a common session API, shared policies, swappable harnesses.","y":"Omnigent's authors say they often have 4 to 5 agents open at once.","t":"Databricks: Introducing Omnigent: A Meta-Harness to Combine, Control and Share Your Agents","u":"https://www.databricks.com/blog/introducing-omnigent-meta-harness-combine-control-and-share-your-agents","d":"2026-06-13","b":"w","m":"Isaac, Databricks’ internal harness on Claude Code and Codex."},{"l":"Orchestration","n":"Initializer and progress file","s":"If","w":"A first session writes a feature list, init script and progress log; each later session does one feature.","y":"Anthropic seeds 200+ features as JSON, all marked failing, giving every session an explicit definition of done.","t":"Anthropic: Effective harnesses for long-running agents","u":"https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents","d":"2025-11-26","b":"p","m":""},{"l":"Orchestration","n":"Git worktrees","s":"Gw","w":"Give each parallel agent its own git checkout and branch, so simultaneous edits never collide.","y":"Claude Code can pin subagents to worktrees and blocks edits or git commands that escape to the main checkout.","t":"Claude Code docs: Run parallel sessions with worktrees","u":"https://code.claude.com/docs/en/worktrees","d":"current docs, read 2026-11-27","b":"p","m":""},{"l":"Memory","n":"Shared filesystem memory","s":"Fm","w":"Agents read and write a folder of markdown notes; a small index loads first, details on demand.","y":"Anthropic: a memory store raised Opus 5.5's CL-Bench mean reward from 0.655 to 0.838.","t":"Anthropic: The components of agent memory","u":"https://www.anthropic.com/research/components-of-agent-memory","d":"2026-11-06","b":"w","m":"My nested markdown tree, read and written by all my agents and subagents."},{"l":"Memory","n":"Episodic-to-semantic rollups","s":"Er","w":"Keep raw session traces, and distil them into durable summary files that agents read instead.","y":"Databricks MemCurrent: distilled memory alone scored 66.1%; raw episodic traces alone scored 35.8%.","t":"Databricks: MemCurrent: Designing Persistent Memory for Production Agents","u":"https://www.databricks.com/blog/memcurrent-designing-persistent-memory-production-agents","d":"2026-10-20","b":"w","m":"My work journal: daily Confluence pages rolled up into weekly and monthly documentation."},{"l":"Memory","n":"Dreaming consolidation","s":"Dr","w":"An offline pass re-reads transcripts, corrects notes, merges duplicates and promotes key facts to the index.","y":"Over 128 dreaming sessions, Anthropic's wiki-only score rose from 13% to 48% of graded criteria.","t":"Anthropic: The components of agent memory","u":"https://www.anthropic.com/research/components-of-agent-memory","d":"2026-11-06","b":"d","m":"SMRITI’s merge and reconcile stages consolidate the team’s notes offline. A design: only the team-KB merge was prototyped."},{"l":"Memory","n":"Bi-temporal memory ledger","s":"Bt","w":"Append-only facts record when they were true and when they were learned; contradictions invalidate, never delete.","y":"Zep's temporal graph reported up to 18.5% higher LongMemEval accuracy and ~90% lower latency.","t":"Zep: A Temporal Knowledge Graph Architecture for Agent Memory (Rasmussen et al.)","u":"https://arxiv.org/abs/2501.13956","d":"2025-01-20","b":"d","m":"SMRITI’s append-only, bi-temporal ledger. A design, not built."},{"l":"Memory","n":"Purpose-not-procedure memory","s":"Pp","w":"Tell the model what memory is for and let it choose what to record, rather than imposing rigid rules.","y":"A 'record only failures' rule cut Opus 5's memory gain by 0.234 in Anthropic's tests.","t":"Anthropic: The components of agent memory","u":"https://www.anthropic.com/research/components-of-agent-memory","d":"2026-11-06","b":"p","m":""},{"l":"Verification & Evals","n":"Back-pressure via tests","s":"Bp","w":"Fast deterministic checks (tests, types, contract mocks) push back on bad output during the loop.","y":"A test-and-spec harness lifted cheap GPT-6 Luna from 3/10 to 10/10 accepted builds.","t":"Naresh Jain: Are Harnesses Worth the Cost? (martinfowler.com)","u":"https://martinfowler.com/articles/are-harnesses-worth-the-cost.html","d":"2026-10-13","b":"p","m":""},{"l":"Verification & Evals","n":"Clean-context reviewer","s":"Cr","w":"A separate agent with a fresh context reviews the work, because generators grade their own output too kindly.","y":"Cognition's Devin Review finds about two bugs per PR, roughly 58% of them severe.","t":"Cognition: Multi-Agents: What's Actually Working","u":"https://cognition.com/blog/multi-agents-working","d":"2026-04-22","b":"p","m":""},{"l":"Verification & Evals","n":"LLM-as-judge","s":"Lj","w":"A model grades open-ended outputs against a rubric, where code-based checks cannot.","y":"Scales grading of open-ended answers; Anthropic's guide pairs it with code-based and human graders.","t":"Anthropic: Demystifying evals for AI agents","u":"https://www.anthropic.com/research/demystifying-evals-for-ai-agents","d":"2026-01-09","b":"w","m":"My LLM-as-judge script for HIPE-2026."},{"l":"Verification & Evals","n":"pass^k reliability","s":"Pk","w":"Score the chance that all k independent trials succeed, which measures consistency rather than lucky wins.","y":"On tau-bench, gpt-4o solved under half the tasks, and pass^8 fell below 25% in retail.","t":"tau-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains (Yao et al.)","u":"https://arxiv.org/abs/2406.12045","d":"2024-06-17","b":"p","m":""},{"l":"Verification & Evals","n":"Trajectory evals","s":"Te","w":"Grade the path, not just the answer: compare the agent's tool calls with a reference trajectory.","y":"Google's agent-eval docs define six trajectory metrics: exact, in-order, any-order, precision, recall, single-tool.","t":"Google Cloud: Evaluate Gen AI agents","u":"https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-agents","d":"2026-11-20 (last updated)","b":"p","m":""},{"l":"Verification & Evals","n":"Self-evolving harness","s":"Eh","w":"An evolver agent edits harness files, predicts what each edit fixes, and checks against the next run.","y":"AHE took Terminal-Bench 2 from 69.7% to 77.0% in ten rounds, beating Codex CLI's 71.9%.","t":"Agentic Harness Engineering: Observability-Driven Automatic Evolution of Coding-Agent Harnesses (Lin et al.)","u":"https://arxiv.org/abs/2604.25850","d":"2026-04-29","b":"p","m":""},{"l":"Verification & Evals","n":"OTel GenAI tracing","s":"Ot","w":"Emit standard spans (create_agent, invoke_agent, execute_tool, plan) with model, tokens and conversation ID.","y":"One vendor-neutral schema makes runs queryable across harnesses; the conventions are still in Development status.","t":"OpenTelemetry: Semantic conventions for GenAI agent and framework spans","u":"https://raw.githubusercontent.com/open-telemetry/semantic-conventions-genai/main/docs/gen-ai/gen-ai-agent-spans.md","d":"living spec, read 2026-11-27","b":"p","m":"Builds on my request-path tracing (correlation IDs) at Databricks."},{"l":"Verification & Evals","n":"Trace-driven failure triage","s":"Tt","w":"Query traces to cluster recurring failures by tool and phase, then fix the root cause once.","y":"Databricks found seven MCP tool bugs costing ~$1.2M a year from gateway traces in about an hour.","t":"Databricks: How We Eliminated $1 Million/Year of Wasted AI Agent Spend in One Hour","u":"https://www.databricks.com/blog/how-we-eliminated-1-million-year-wasted-ai-agent-spend-one-hour","d":"2026-09-01","b":"w","m":"Failure-phase attribution in my day job: same method, on a network request path."},{"l":"Safety & Policy","n":"Sandbox with egress proxy","s":"Sb","w":"OS-level filesystem and network isolation; all traffic leaves through a proxy that enforces an allowlist.","y":"Anthropic's Claude Code sandbox cut permission prompts by 84% while tightening containment.","t":"Anthropic: Beyond permission prompts: making Claude Code more secure and autonomous","u":"https://www.anthropic.com/research/claude-code-sandboxing","d":"2025-10-20","b":"p","m":""},{"l":"Safety & Policy","n":"Credential broker and agent identity","s":"Cb","w":"Secrets stay outside the sandbox and are injected on approved calls; each agent gets its own auditable identity.","y":"OpenAI runs 500+ persistent background agents this way, with egress limited to an organisation allowlist.","t":"OpenAI: Securing persistent agents like OpenClaw at OpenAI","u":"https://developers.openai.com/blog/securing-persistent-agents-like-openclaw-at-openai","d":"2026-11-12","b":"p","m":""},{"l":"Safety & Policy","n":"Classifier-gated auto mode","s":"Am","w":"A classifier reviews each action before it runs, replacing approval prompts that humans rubber-stamp.","y":"Users approved 93% of prompts; the classifier wrongly blocks 0.4% of benign actions but misses 17% of overeager ones.","t":"Anthropic: How we built Claude Code auto mode: a safer way to skip permissions","u":"https://www.anthropic.com/research/claude-code-auto-mode","d":"2026-03-25","b":"p","m":""},{"l":"Safety & Policy","n":"Contextual and cost policies","s":"Cp","w":"Stateful rules that react to what a session has already done, read or spent.","y":"Omnigent applies one policy set to Claude Code, Codex and custom agents, e.g. blocking a push after untrusted reads.","t":"Databricks: Contextual Policies in Omnigent: Using session state to better govern AI agents","u":"https://www.databricks.com/blog/contextual-policies-omnigent-using-session-state-better-govern-ai-agents","d":"2026-07-07","b":"p","m":""},{"l":"Safety & Policy","n":"CaMeL-style isolation","s":"Ca","w":"Take control flow only from the trusted request; untrusted data cannot redirect it, and capabilities gate tool calls.","y":"CaMeL solved 77% of AgentDojo tasks with provable security, against 84% for an undefended agent.","t":"Defeating Prompt Injections by Design (Debenedetti et al.)","u":"https://arxiv.org/abs/2503.18813","d":"2025-03-24","b":"p","m":""},{"l":"Safety & Policy","n":"Hook gates","s":"Hg","w":"Deterministic hooks at lifecycle points inspect risky actions and block them before they execute.","y":"Google's ADK guardrail hooks block recursive deletes, database drops and unauthorised pushes; fix loops cap at five rounds.","t":"Google Cloud: Agent Factory recap: Agent harnesses, shifting left, and autonomous coding","u":"https://cloud.google.com/blog/topics/developers-practitioners/agent-factory-recap-agent-harnesses-shifting-left-and-autonomous-coding","d":"2026-09-25","b":"p","m":""},{"l":"Cost & Routing","n":"Prompt caching","s":"Pc","w":"Keep the prompt prefix byte-stable and append-only, so repeated context is served from the cache.","y":"Manus: cached input cost $0.30 against $3 per million tokens on Claude Sonnet, a 10x gap.","t":"Manus: Context Engineering for AI Agents: Lessons from Building Manus","u":"https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus","d":"2025-07-18","b":"p","m":""},{"l":"Cost & Routing","n":"Cache-aware model routing","s":"Mr","w":"A small classifier picks the model once, at session start, and keeps it so cache hits survive.","y":"Databricks Smart Routing beat any single model at 65% of Opus 5's cost per task on internal work.","t":"Databricks: Smart Routing in Unity AI Gateway","u":"https://databricks.com/blog/smart-routing-unity-ai-gateway-match-frontier-quality-30-lower-cost-task","d":"2026-08-13","b":"p","m":""},{"l":"Cost & Routing","n":"Advisor pattern","s":"Ad","w":"A cheap executor model does the work and consults a stronger advisor model only at hard decisions.","y":"Haiku with an Opus advisor scored 41.2% on BrowseComp, against 19.7% for Haiku alone.","t":"Claude: The advisor strategy: Give agents an intelligence boost","u":"https://claude.com/blog/the-advisor-strategy","d":"2026-04-09","b":"p","m":""},{"l":"Cost & Routing","n":"Reasoning sandwich","s":"Rs","w":"Spend high reasoning effort on planning and verification, and less on the build phase in between.","y":"LangChain: xhigh-high-xhigh scored 66.5% on Terminal-Bench 2.0; xhigh throughout scored 53.9%, hitting timeouts.","t":"LangChain: Improving Deep Agents with harness engineering","u":"https://www.langchain.com/blog/improving-deep-agents-with-harness-engineering","d":"2026-02-17","b":"p","m":""},{"l":"Cost & Routing","n":"Cost per solved task","s":"Cs","w":"Judge models and harnesses by dollars per successfully completed task, not by price per token.","y":"Anthropic reports Opus 5.5 cost 78% less per solved task than Opus 5 on a long-horizon coding benchmark.","t":"Claude: Building always-on agents (William Hu)","u":"https://claude.com/blog/building-always-on-agents","d":"2026-11-13","b":"w","m":"Value-maxxing: I tiered users by tokens used against output delivered."},{"l":"Cost & Routing","n":"Efficiency-frontier benchmarking","s":"Ef","w":"Benchmark model-plus-harness setups on real tasks, plotting quality against cost to find the frontier.","y":"Databricks found GLM 5.2 statistically tied Opus 4.8 at $1.28 against $1.94 per task.","t":"Databricks: Benchmarking coding agents on Databricks' multi-million-line codebase","u":"https://databricks.com/blog/benchmarking-coding-agents-databricks-multi-million-line-codebase","d":"2026-07-08","b":"w","m":"My efficiency-vs-cost report across Claude, OpenAI, Grok and Cursor’s agent."}];
+  const LAYERS = TK.reduce((a, t) => (a.includes(t.l) ? a : a.concat(t.l)), []);
+  const BADGE = { w: 'In my work', d: 'In my design', p: 'In my playbook' };
+  const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const isNew = d => /^2026-(09|10|11)\b/.test(d);
+  const fmtDate = d => {
+    let m = /^(\d{4})-(\d{2})-(\d{2})(.*)$/.exec(d);
+    if (m) return (+m[3]) + ' ' + MON[+m[2] - 1] + ' ' + m[1] + m[4];
+    m = /^(\d{4})-(\d{2})$/.exec(d);
+    if (m) return MON[+m[2] - 1] + ' ' + m[1];
+    return d;
+  };
+  const el = (tag, cls, text) => {
+    const n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  };
+  const count = (b, l) => TK.filter(t => (!b || t.b === b) && (!l || t.l === l)).length;
+  const tkGrid = $('#tk-grid');
+  const tkState = { layer: 'all', badge: 'all' };
+  let tkTiles = [];
+  let tkCur = -1;
+  const tkd = $('#tkd');
+  let tkOpener = null;
+
+  const tkVisible = () => tkTiles.filter(b => !b.closest('.pt-col').hidden && !b.classList.contains('dim'));
+  const tkFill = i => {
+    const t = TK[i];
+    tkCur = i;
+    $('#tkd-k').textContent = String(i + 1).padStart(2, '0') + ' · ' + t.l;
+    const sy = $('#tkd-sy'); sy.textContent = t.s; sy.className = 'tkd-sy ' + t.b;
+    $('#tkd-name').textContent = t.n;
+    const bd = $('#tkd-badges'); bd.textContent = '';
+    const b1 = el('span', 'bd'); b1.append(el('span', 'mk ' + (t.b === 'p' ? '' : t.b)), BADGE[t.b]); bd.append(b1);
+    if (isNew(t.d)) bd.append(el('span', 'new', 'New'));
+    $('#tkd-what').textContent = t.w;
+    $('#tkd-why').textContent = t.y;
+    const mw = $('#tkd-mapw');
+    mw.hidden = !t.m;
+    $('#tkd-maph').textContent = t.b === 'w' ? 'Where it shows up in my work' : t.b === 'd' ? 'Where it shows up in my design' : 'How it connects to my work';
+    $('#tkd-map').textContent = t.m || '';
+    const a = $('#tkd-src'); a.href = t.u; a.textContent = t.t;
+    $('#tkd-date').textContent = fmtDate(t.d);
+  };
+  const tkOpen = i => {
+    if (!tkd) return;
+    tkFill(i);
+    if (!tkd.open) {
+      tkOpener = document.activeElement;
+      const keepY = window.scrollY;
+      if (typeof tkd.showModal === 'function') tkd.showModal(); else tkd.setAttribute('open', '');
+      if (window.scrollY !== keepY) window.scrollTo(0, keepY);
+      doc.classList.add('tk-open');
+      if (reduce) tkd.classList.add('is-open');
+      else requestAnimationFrame(() => requestAnimationFrame(() => tkd.classList.add('is-open')));
+    }
+    $('.tkd-body', tkd).scrollTop = 0;
+    $('.tkd-x', tkd).focus({ preventScroll: true });
+  };
+  const tkClose = () => {
+    if (!tkd || !tkd.open) return;
+    tkd.classList.remove('is-open');
+    const done = () => {
+      if (tkd.open) { if (typeof tkd.close === 'function') tkd.close(); else tkd.removeAttribute('open'); }
+      doc.classList.remove('tk-open');
+      const back = tkTiles[tkCur] || tkOpener;
+      if (back && typeof back.focus === 'function') back.focus({ preventScroll: true });
+    };
+    if (reduce) done(); else setTimeout(done, 320);
+  };
+  const tkStep = d => {
+    const vis = tkVisible();
+    if (!vis.length) return;
+    let k = vis.indexOf(tkTiles[tkCur]);
+    k = k < 0 ? 0 : (k + d + vis.length) % vis.length;
+    tkFill(+vis[k].dataset.i);
+  };
+  const tkApply = () => {
+    $$('.pt-col', tkGrid).forEach(c => { c.hidden = tkState.layer !== 'all' && c.dataset.l !== tkState.layer; });
+    tkGrid.classList.toggle('one', tkState.layer !== 'all');
+    tkTiles.forEach(b => b.classList.toggle('dim', tkState.badge !== 'all' && b.dataset.b !== tkState.badge));
+    $$('#tk-layers .chip').forEach(c => c.setAttribute('aria-pressed', String(c.dataset.l === tkState.layer)));
+    $$('#tk-badges button').forEach(c => c.setAttribute('aria-pressed', String(c.dataset.b === tkState.badge)));
+    const st = $('#tk-status');
+    if (st) {
+      const n = tkVisible().length;
+      st.textContent = tkState.layer === 'all' && tkState.badge === 'all' ? '' : 'Showing ' + n + ' of ' + TK.length;
+    }
+  };
+  if (tkGrid && TK.length) {
+    const cnt = $('#tk-count');
+    cnt.textContent = '';
+    cnt.append(el('b', null, String(TK.length)), ' techniques · ', el('b', 'w', String(count('w'))), ' in my work · ',
+      el('b', 'w', String(count('d'))), ' in my design · ', el('b', null, String(count('p'))), ' in my playbook');
+    const chips = $('#tk-layers');
+    ['all'].concat(LAYERS).map(l => {
+      const c = el('button', 'chip', l === 'all' ? 'All layers' : l);
+      c.type = 'button'; c.dataset.l = l; c.setAttribute('aria-pressed', String(l === 'all'));
+      c.addEventListener('click', () => { tkState.layer = l; tkApply(); });
+      return c;
+    }).forEach(c => chips.append(c));
+    $$('#tk-badges button').forEach(b => b.addEventListener('click', () => { tkState.badge = b.dataset.b; tkApply(); }));
+    LAYERS.map(l => {
+      const col = el('section', 'pt-col');
+      col.dataset.l = l;
+      const h = el('h3', null, l);
+      const mine = count('w', l) + count('d', l);
+      h.append(el('small', null, count(null, l) + ' techniques' + (mine ? ' · ' + mine + ' mine' : '')));
+      const ul = el('ul');
+      TK.map((t, i) => [t, i]).filter(([t]) => t.l === l).map(([t, i]) => {
+        const li = el('li');
+        const b = el('button', 'pt ' + t.b);
+        b.type = 'button'; b.dataset.i = i; b.dataset.b = t.b;
+        b.setAttribute('aria-label', t.n + '. ' + BADGE[t.b] + (isNew(t.d) ? '. New' : '') + '. Open details');
+        b.append(el('span', 'no', String(i + 1)), el('span', 'sy', t.s), el('span', 'nm', t.n), el('span', 'mk ' + (t.b === 'p' ? '' : t.b)));
+        if (isNew(t.d)) b.append(el('span', 'new', 'New'));
+        b.addEventListener('click', () => tkOpen(i));
+        li.append(b);
+        return li;
+      }).forEach(li => ul.append(li));
+      col.append(h, ul);
+      return col;
+    }).forEach(col => tkGrid.append(col));
+    tkTiles = $$('.pt', tkGrid);
+    tkApply();
+  }
+  if (tkd) {
+    $('.tkd-x', tkd).addEventListener('click', tkClose);
+    $('#tkd-prev').addEventListener('click', () => tkStep(-1));
+    $('#tkd-next').addEventListener('click', () => tkStep(1));
+    tkd.addEventListener('cancel', e => { e.preventDefault(); tkClose(); });
+    tkd.addEventListener('click', e => {
+      if (e.target !== tkd) return;
+      const r = tkd.getBoundingClientRect();
+      if (e.clientY < r.top || e.clientY > r.bottom || e.clientX < r.left || e.clientX > r.right) tkClose();
+    });
+    tkd.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { e.preventDefault(); tkClose(); return; }
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        if (e.target.tagName === 'A') return;
+        e.preventDefault(); tkStep(e.key === 'ArrowRight' ? 1 : -1); return;
+      }
+      if (e.key !== 'Tab') return;
+      const f = $$('button, a[href]', tkd).filter(n => n.getClientRects().length);
+      const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
+  }
+  const toolkitLines = () => {
+    const L = [['h', 'My harness toolkit: ' + TK.length + ' techniques in ' + LAYERS.length + ' layers'],
+      ['p', count('w') + ' in my work, ' + count('d') + ' in my design (SMRITI), ' + count('p') + ' in my playbook.']];
+    LAYERS.forEach(l => {
+      const w = count('w', l), d = count('d', l);
+      L.push(['kv', l + '|' + count(null, l) + ' techniques' + (w ? ', ' + w + ' in my work' : '') + (d ? ', ' + d + ' in my design' : '')]);
+    });
+    L.push(['p', 'Five from my own work:']);
+    ['Progressive disclosure', 'MCP connectors', 'Specialist arbiter ensemble', 'Episodic-to-semantic rollups', 'Cost per solved task'].forEach(n => {
+      const t = TK.find(x => x.n === n);
+      if (t) L.push(['li', t.s + '  ' + t.n + ': ' + t.m]);
+    });
+    L.push(['p', 'Open the full table: [My harness toolkit](#toolkit)']);
+    return L;
+  };
+
   /* ---------- the console ---------- */
   const C = {
     '/why-pradyuman': [
@@ -1450,6 +1800,17 @@ html.con-open .fab{opacity:0;pointer-events:none}
       ['p', 'A skill I built that compared my own work with the team’s, identified my mistakes and limitations, and gave me strict pointers on what to improve.'],
       ['p', 'Most reflection loops critique the code. This one critiques the engineer.'],
       ['src', 'In my daily loop, this is the Reflect step.']
+    ],
+    '/toolkit': toolkitLines(),
+    '/ideas': [
+      ['h', 'What I’d build next: six ideas, none shipped'],
+      ['li', 'Black Box: a flight recorder for agents. One correlation ID per run, every failed trajectory kept, each failure pinned to a phase.'],
+      ['li', 'Value Router: the cheapest model-and-effort setup likely to solve the task, locked at session start, scored on cost per solved task.'],
+      ['li', 'Skillsmith: when my critic flags the same mistake twice, draft a SKILL.md patch, and merge it only if it beats the no-skill baseline.'],
+      ['li', 'Dream Journal: a nightly pass that checks my journal pages against the raw transcripts and supersedes, never overwrites.'],
+      ['li', 'Context Flame Graph: every context token attributed to its source, so “2–3× below the cohort” becomes an explanation.'],
+      ['li', 'Quarantine Scribe: untrusted text becomes typed memory cards only, and a clean-context reviewer approves every write-back.'],
+      ['p', 'More on each: [What I’d build next](#next)']
     ],
     '/hipe': [
       ['h', 'HIPE-2026, a CLEF 2026 shared task'],
@@ -1522,6 +1883,8 @@ html.con-open .fab{opacity:0;pointer-events:none}
       ['kv', '/value|cost per outcome, not tokens burned'],
       ['kv', '/journal|days into weeks into months'],
       ['kv', '/critic|reflection pointed at the engineer'],
+      ['kv', '/toolkit|48 harness techniques, mine marked'],
+      ['kv', '/ideas|six things I’d build next'],
       ['kv', '/hipe|the multi-agent system, 11th of 46'],
       ['kv', '/smriti|my team-memory design, six stages'],
       ['kv', '/systems|what I’ve built under the agent'],
@@ -1577,7 +1940,9 @@ html.con-open .fab{opacity:0;pointer-events:none}
     while ((m = re.exec(it.s))) {
       if (m.index > last) el.append(it.s.slice(last, m.index));
       const a = document.createElement('a');
-      a.href = m[2]; a.textContent = m[1]; a.target = '_blank'; a.rel = 'noopener';
+      a.href = m[2]; a.textContent = m[1];
+      if (m[2].charAt(0) === '#') a.addEventListener('click', () => closeCon());
+      else { a.target = '_blank'; a.rel = 'noopener'; }
       el.append(a);
       last = m.index + m[0].length;
     }
@@ -1729,7 +2094,7 @@ html.con-open .fab{opacity:0;pointer-events:none}
       const t = e.target;
       const tag = (t && t.tagName || '').toLowerCase();
       if (tag === 'input' || tag === 'textarea' || tag === 'select' || (t && t.isContentEditable)) return;
-      if (con.open) return;
+      if (con.open || (tkd && tkd.open)) return;
       e.preventDefault();
       openCon();
       inp.value = '/';
