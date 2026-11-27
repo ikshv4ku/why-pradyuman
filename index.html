@@ -563,6 +563,53 @@ html.tk-open .fab{opacity:0;pointer-events:none}
 .paper:hover .paper-cap b{color:var(--nila)}
 @media (prefers-reduced-motion:reduce){.paper-sheet{transition:none}}
 @media (max-width:999px){.paper{max-width:240px}}
+/* round 9 */
+.tc{border-radius:3px;overflow:hidden}
+.tc img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.rc-fig .duo.tall img{aspect-ratio:4/5;object-position:50% 60%}
+.medals.compact{margin-top:10px;gap:4px}
+.medals.compact .medal svg{max-width:28px}
+.medals.compact .medal{font-size:10px}
+.summer{display:grid;grid-template-columns:.75fr 1fr;gap:12px;margin-top:14px;align-items:start}
+.summer figure{margin:0}
+.summer .duo{border-radius:6px}
+.summer .duo img{aspect-ratio:3/4;object-fit:cover}
+.summer figure:last-child .duo img{aspect-ratio:4/3}
+.summer figcaption{margin-top:6px;font:500 11px/1.35 var(--mono);color:var(--ink-3)}
+.cf{margin:14px 0 0}
+.cf-svg{width:100%;min-height:150px}
+.cf-svg svg{display:block;width:100%;height:auto;overflow:visible;font-family:var(--mono)}
+.cf .source{margin-top:6px;font-size:10.5px}
+.cf-line{fill:none;stroke:var(--nila);stroke-width:1.8;stroke-linejoin:round;stroke-linecap:round}
+.js .cf-line{stroke-dasharray:1 1;stroke-dashoffset:1}
+.cf.in .cf-line{stroke-dashoffset:0;transition:stroke-dashoffset 2s cubic-bezier(.4,0,.2,1) .1s}
+.js .cf-ann,.js .cf-dots{opacity:0}
+.cf.in .cf-ann,.cf.in .cf-dots{opacity:1;transition:opacity .5s ease 1.9s}
+@media (prefers-reduced-motion:reduce){.js .cf-line{stroke-dashoffset:0;transition:none}.js .cf-ann,.js .cf-dots{opacity:1;transition:none}}
+/* contact */
+.ct-grid{display:grid;gap:48px;align-items:center}
+@media (min-width:960px){.ct-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:80px}}
+.bell{width:min(220px,48vw);height:auto;margin:34px 0 0 4px;overflow:visible}
+.bell .swing{transform-origin:110px 8px}
+.bell .waves path{opacity:.0}
+.contact.in .bell .swing{animation:bellswing 1.8s cubic-bezier(.36,.07,.19,.97) .2s 2}
+.contact.in .bell .waves path{animation:ring 1.8s ease-out .3s 2}
+.contact.in .bell .waves .w2{animation-delay:.45s}
+.contact.in .bell .waves .w3{animation-delay:.6s}
+@keyframes bellswing{0%,100%{transform:rotate(0)}15%{transform:rotate(9deg)}35%{transform:rotate(-7deg)}55%{transform:rotate(4deg)}75%{transform:rotate(-2deg)}}
+@keyframes ring{0%{opacity:0}20%{opacity:.9}100%{opacity:0}}
+.bell:hover .swing{animation:bellswing 1.4s cubic-bezier(.36,.07,.19,.97) 1}
+@media (prefers-reduced-motion:reduce){.contact.in .bell .swing,.contact.in .bell .waves path,.bell:hover .swing{animation:none}.bell .waves path{opacity:.35}}
+.ct-list{display:grid;border-top:1px solid var(--ink)}
+.ct-row{padding:22px 0 20px;border-bottom:1px solid var(--rule)}
+.ct-k{font:600 11px/1.3 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+.ct-val{font:500 clamp(24px,2.6vw,34px)/1.2 var(--serif);margin-top:6px;letter-spacing:-.01em;overflow-wrap:anywhere;user-select:all}
+.ct-acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.ct-acts .pill{font-family:var(--sans);font-size:15px;padding:13px 20px}
+.ct-acts .opill{padding:13px 18px;cursor:pointer;color:var(--ink);font-family:var(--sans)}
+.ct-st{min-height:1.3em;margin-top:8px;font:500 12px/1.3 var(--mono);color:var(--nila)}
+.foot-n a{color:var(--ink-2)}
+.foot-n strong{font:600 16px/1.4 var(--serif);color:var(--ink)}
 /* ideas */
 .ideas-g{display:grid;gap:clamp(20px,2.4vw,32px)}
 @media (min-width:640px){.ideas-g{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -701,6 +748,7 @@ html.con-open .fab{opacity:0;pointer-events:none}
         <li><a href="#toolkit">Toolkit</a></li>
         <li><a href="#powers">Superpowers</a></li>
         <li><a href="#availability">Availability</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul></nav>
       <button class="kbtn" type="button" data-console=""><kbd>/</kbd>console</button>
     </div>
@@ -1006,6 +1054,16 @@ html.con-open .fab{opacity:0;pointer-events:none}
           </div>
           <div class="sub">
           <div class="card">
+            <div class="st-top"><span class="st-dbx">Station 3 of 5 ·<img class="dbx sm" src="assets/databricks-logo.png" width="280" height="280" alt="Databricks logo">summer 2026</span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-sarathi"/></svg></div>
+            <h4 class="st-h big">Where the loop ran.</h4>
+            <div class="summer">
+              <figure><div class="duo"><img src="assets/office-view.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="View from an office window: glass towers, low buildings and a cloudy sky."></div><figcaption>Summer 2026, the office view</figcaption></figure>
+              <figure><div class="duo"><img src="assets/office-selfie.jpg" width="1200" height="900" loading="lazy" decoding="async" alt="Pradyuman taking a selfie with three others in the Databricks office, the Databricks logo on the wall behind them."></div><figcaption>At the Databricks office, summer 2026</figcaption></figure>
+            </div>
+          </div>
+          </div>
+          <div class="sub">
+          <div class="card">
             <div class="st-top"><span>Station 3 of 5 · my daily loop</span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-sarathi"/></svg></div>
             <h4 class="st-h big">I ran my internship as one agent loop.</h4>
             <figure class="viz loopfig">
@@ -1201,7 +1259,8 @@ html.con-open .fab{opacity:0;pointer-events:none}
         <p class="rc-top"><span>Receipt 02</span><span>CGC 2025</span></p>
         <h3>Retrieval under a clock</h3>
         <p class="rc-p">Five medals in five different quiz formats, in one championship.</p>
-        <ul class="medals" aria-label="Five quiz medals at CGC 2025"><li class="medal gold" style="--i:0"><svg viewBox="0 0 48 66" aria-hidden="true"><path class="rib" d="M14 0h8l6 22h-8zM34 0h-8l-6 22h8z"/><circle class="disc" cx="24" cy="40" r="19"/><circle class="ring" cx="24" cy="40" r="14.5"/><text x="24" y="46.5" text-anchor="middle">1</text></svg><span>General</span><span class="sr-only">Gold, General quiz</span></li><li class="medal silver" style="--i:1"><svg viewBox="0 0 48 66" aria-hidden="true"><path class="rib" d="M14 0h8l6 22h-8zM34 0h-8l-6 22h8z"/><circle class="disc" cx="24" cy="40" r="19"/><circle class="ring" cx="24" cy="40" r="14.5"/><text x="24" y="46.5" text-anchor="middle">2</text></svg><span>India</span><span class="sr-only">Silver, India quiz</span></li><li class="medal silver" style="--i:2"><svg viewBox="0 0 48 66" aria-hidden="true"><path class="rib" d="M14 0h8l6 22h-8zM34 0h-8l-6 22h8z"/><circle class="disc" cx="24" cy="40" r="19"/><circle class="ring" cx="24" cy="40" r="14.5"/><text x="24" y="46.5" text-anchor="middle">2</text></svg><span>MELA</span><span class="sr-only">Silver, MELA quiz</span></li><li class="medal bronze" style="--i:3"><svg viewBox="0 0 48 66" aria-hidden="true"><path class="rib" d="M14 0h8l6 22h-8zM34 0h-8l-6 22h8z"/><circle class="disc" cx="24" cy="40" r="19"/><circle class="ring" cx="24" cy="40" r="14.5"/><text x="24" y="46.5" text-anchor="middle">3</text></svg><span>TLC</span><span class="sr-only">Bronze, TLC quiz</span></li><li class="medal bronze" style="--i:4"><svg viewBox="0 0 48 66" aria-hidden="true"><path class="rib" d="M14 0h8l6 22h-8zM34 0h-8l-6 22h8z"/><circle class="disc" cx="24" cy="40" r="19"/><circle class="ring" cx="24" cy="40" r="14.5"/><text x="24" y="46.5" text-anchor="middle">3</text></svg><span>SBT</span><span class="sr-only">Bronze, SBT quiz</span></li></ul>
+        <figure class="rc-fig"><div class="tc"><img src="assets/medals.jpg" width="1200" height="900" loading="lazy" decoding="async" alt="The five CGC 2025 quiz medals laid out on a wooden table, on green-and-yellow ribbons, one gold among them."></div><figcaption>Five medals, one championship</figcaption></figure>
+        <ul class="medals compact" aria-label="Five quiz medals at CGC 2025"><li class="medal gold" style="--i:0"><svg viewBox="0 0 48 66" aria-hidden="true"><path class="rib" d="M14 0h8l6 22h-8zM34 0h-8l-6 22h8z"/><circle class="disc" cx="24" cy="40" r="19"/><circle class="ring" cx="24" cy="40" r="14.5"/><text x="24" y="46.5" text-anchor="middle">1</text></svg><span>General</span><span class="sr-only">Gold, General quiz</span></li><li class="medal silver" style="--i:1"><svg viewBox="0 0 48 66" aria-hidden="true"><path class="rib" d="M14 0h8l6 22h-8zM34 0h-8l-6 22h8z"/><circle class="disc" cx="24" cy="40" r="19"/><circle class="ring" cx="24" cy="40" r="14.5"/><text x="24" y="46.5" text-anchor="middle">2</text></svg><span>India</span><span class="sr-only">Silver, India quiz</span></li><li class="medal silver" style="--i:2"><svg viewBox="0 0 48 66" aria-hidden="true"><path class="rib" d="M14 0h8l6 22h-8zM34 0h-8l-6 22h8z"/><circle class="disc" cx="24" cy="40" r="19"/><circle class="ring" cx="24" cy="40" r="14.5"/><text x="24" y="46.5" text-anchor="middle">2</text></svg><span>MELA</span><span class="sr-only">Silver, MELA quiz</span></li><li class="medal bronze" style="--i:3"><svg viewBox="0 0 48 66" aria-hidden="true"><path class="rib" d="M14 0h8l6 22h-8zM34 0h-8l-6 22h8z"/><circle class="disc" cx="24" cy="40" r="19"/><circle class="ring" cx="24" cy="40" r="14.5"/><text x="24" y="46.5" text-anchor="middle">3</text></svg><span>TLC</span><span class="sr-only">Bronze, TLC quiz</span></li><li class="medal bronze" style="--i:4"><svg viewBox="0 0 48 66" aria-hidden="true"><path class="rib" d="M14 0h8l6 22h-8zM34 0h-8l-6 22h8z"/><circle class="disc" cx="24" cy="40" r="19"/><circle class="ring" cx="24" cy="40" r="14.5"/><text x="24" y="46.5" text-anchor="middle">3</text></svg><span>SBT</span><span class="sr-only">Bronze, SBT quiz</span></li></ul>
         <p class="rc-tot"><span>Total</span><span>5 medals</span></p>
         <p class="rc-day">An agent’s memory lookup, done by a human, against the buzzer.</p>
         <span class="stamp">Verified</span>
@@ -1229,7 +1288,11 @@ html.con-open .fab{opacity:0;pointer-events:none}
       <div class="rc-w"><article class="rc" style="--r:-.5deg">
         <p class="rc-top"><span>Receipt 06</span><span>Public profiles</span></p>
         <h3>Fast, correct code</h3>
-        <ul class="rc-items"><li><span>Codeforces</span><span>Specialist, 1538</span></li><li><span>CodeChef</span><span>3★, 1605</span></li><li><span>Starters 172 (Div. 4)</span><span>global rank 221</span></li><li><span>CODCOM, IIT Ropar</span><span>offline round 2</span></li></ul>
+        <ul class="rc-items"><li><span>Codeforces</span><span>max 1538, Specialist</span></li><li><span>CodeChef</span><span>3★, 1605</span></li><li><span>Starters 172 (Div. 4)</span><span>global rank 221</span></li><li><span>CODCOM, IIT Ropar</span><span>offline round 2</span></li></ul>
+        <figure class="cf">
+          <div class="cf-svg" id="cf-svg" role="img" aria-label="My Codeforces rating, about 42 rated contests from August 2024 to June 2025: from about 430 to about 1200 within August 2024, into the Specialist band in February 2025, a peak of 1538 in June 2025, and about 1400 at the last contest."></div>
+          <figcaption class="source"><a href="https://codeforces.com/profile/shekhawat_g">Redrawn from my Codeforces rating graph (approximate)</a></figcaption>
+        </figure>
         <p class="rc-day">Speed with correctness is the whole No-Prep brief.</p>
         <span class="stamp">Verified</span>
       </article></div>
@@ -1247,6 +1310,7 @@ html.con-open .fab{opacity:0;pointer-events:none}
       </article></div>
       <div class="rc-w"><article class="rc" style="--r:.5deg">
         <p class="rc-top"><span>Receipt 09</span><span>On court</span></p>
+        <figure class="rc-fig"><div class="duo tall"><img src="assets/basketball.jpg" width="900" height="1200" loading="lazy" decoding="async" alt="Pradyuman in a dark suit dribbling a basketball on an outdoor court, the hoop and trees behind him."></div><figcaption>Suit optional, teamwork not</figcaption></figure>
         <h3>Playing as a team, under a clock</h3>
         <p class="rc-p">Basketball taught me to play as a team under a clock.</p>
         <p class="rc-day">No-Prep is a two-person team racing a clock.</p>
@@ -1385,7 +1449,7 @@ html.con-open .fab{opacity:0;pointer-events:none}
       <p class="avail-p">The rulebook (§3.5, rule 14) lets a registered No-Prep member stand in for another member of the same contingent, if the Contingent Leader tells the organisers by 10 Dec. I’m available as a registered stand-in for Optimization/CP or Math if the contingent needs one.</p>
       <dl class="doms">
         <div class="ask"><span class="seat" aria-hidden="true"></span><dt>Harness Engineering<span>My ask</span></dt><dd>Databricks harness work, HIPE-2026, SMRITI</dd></div>
-        <div><span class="seat" aria-hidden="true"></span><dt>Optimization / CP<span>Stand-in if needed</span></dt><dd>Codeforces Specialist 1538, CodeChef 3★ 1605, CODCOM offline round, AlgoUnlock</dd></div>
+        <div><span class="seat" aria-hidden="true"></span><dt>Optimization / CP<span>Stand-in if needed</span></dt><dd>Codeforces max rating 1538 (Specialist), CodeChef 3★ 1605, CODCOM offline round, AlgoUnlock</dd></div>
         <div><span class="seat" aria-hidden="true"></span><dt>Math<span>Stand-in if needed</span></dt><dd>JEE Advanced AIR 1819, KVPY AIR 1521, A or A+ in Probability, Numerical Methods and Mathematics I–II</dd></div>
       </dl>
     </div>
@@ -1405,19 +1469,74 @@ html.con-open .fab{opacity:0;pointer-events:none}
     </div>
     </div>
     <div class="cta-links">
-      <a class="pill" href="mailto:pradyuman_ss@cs.iitr.ac.in">Email me</a>
-      <a class="opill" href="https://www.linkedin.com/in/pradyuman-shekhawat/">LinkedIn</a>
-      <a class="opill" href="https://github.com/ikshv4ku">GitHub</a>
+      <a class="pill" href="#contact">Summon me</a>
       <a class="opill" href="https://github.com/ikshv4ku/HIPE-2026-Team-Hansel-Gretel">HIPE-2026 repo</a>
     </div>
-    <p class="cta-mail">pradyuman_ss@cs.iitr.ac.in</p>
+  </div>
+</section>
+
+<section class="sec contact" id="contact" aria-labelledby="ct-h">
+  <div class="wrap ct-grid">
+    <div class="ct-art">
+      <p class="eyebrow">Contact</p>
+      <h2 class="h2" id="ct-h">Ring the chariot bell.</h2>
+      <p class="lead">Call, WhatsApp or write. Any of them reaches me, and I reply fast.</p>
+      <svg class="bell" viewBox="0 0 220 260" aria-hidden="true">
+          <defs><pattern id="bh" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(38)"><path d="M0 0V5" stroke="#2b3a8f" stroke-width=".8" opacity=".55"/></pattern></defs>
+          <g class="waves" fill="none" stroke="#2b3a8f" stroke-width="1.6" stroke-linecap="round">
+            <path class="w1" d="M40 120C30 136 30 156 40 172"/><path class="w2" d="M24 108C10 132 10 160 24 184"/><path class="w3" d="M8 96C-10 128-10 164 8 196"/>
+            <path class="w1" d="M180 120C190 136 190 156 180 172"/><path class="w2" d="M196 108C210 132 210 160 196 184"/><path class="w3" d="M212 96C230 128 230 164 212 196"/>
+          </g>
+          <g class="swing">
+            <path d="M110 6V34" stroke="#1b1a17" stroke-width="1.6"/>
+            <path d="M96 40C96 26 124 26 124 40" fill="none" stroke="#1b1a17" stroke-width="2.4"/>
+            <circle cx="110" cy="12" r="6" fill="#fdfcf9" stroke="#1b1a17" stroke-width="1.6"/>
+            <path d="M110 40C80 40 70 64 68 100C66 138 62 170 44 196H176C158 170 154 138 152 100C150 64 140 40 110 40Z" fill="#fdfcf9" stroke="#1b1a17" stroke-width="2"/>
+            <path d="M110 40C80 40 70 64 68 100C66 138 62 170 44 196H86C82 170 82 130 86 96C88 66 96 46 110 40Z" fill="url(#bh)"/>
+            <path d="M74 84H146M70 120H150M66 150H154" fill="none" stroke="#1b1a17" stroke-width="1"/>
+            <path d="M72 90H148" fill="none" stroke="#1b1a17" stroke-width=".6" stroke-dasharray="2 3"/>
+            <path d="M36 196H184C184 206 176 212 166 212H54C44 212 36 206 36 196Z" fill="#2b3a8f" stroke="#1b1a17" stroke-width="1.4"/>
+            <path d="M110 150V222" stroke="#1b1a17" stroke-width="1.6"/>
+            <circle class="clap" cx="110" cy="230" r="10" fill="#fdfcf9" stroke="#1b1a17" stroke-width="1.8"/>
+            <circle cx="110" cy="230" r="3" fill="#1b1a17"/>
+          </g>
+        </svg>
+    </div>
+    <div class="ct-list">
+      <div class="ct-row">
+        <p class="ct-k">Phone and WhatsApp</p>
+        <p class="ct-val" id="ct-phone">+91 81305 07389</p>
+        <div class="ct-acts">
+          <a class="pill" href="https://wa.me/918130507389" target="_blank" rel="noopener">WhatsApp me</a>
+          <a class="opill" href="tel:+918130507389">Call</a>
+          <button class="opill ct-copy" type="button" data-copy="+91 81305 07389" aria-describedby="ct-phone">Copy number</button>
+        </div>
+        <p class="ct-st" aria-live="polite"></p>
+      </div>
+      <div class="ct-row">
+        <p class="ct-k">Email</p>
+        <p class="ct-val" id="ct-mail">pradyuman_ss@cs.iitr.ac.in</p>
+        <div class="ct-acts">
+          <a class="pill" href="mailto:pradyuman_ss@cs.iitr.ac.in">Email me</a>
+          <button class="opill ct-copy" type="button" data-copy="pradyuman_ss@cs.iitr.ac.in" aria-describedby="ct-mail">Copy email</button>
+        </div>
+        <p class="ct-st" aria-live="polite"></p>
+      </div>
+      <div class="ct-row">
+        <p class="ct-k">Elsewhere</p>
+        <div class="ct-acts">
+          <a class="opill" href="https://www.linkedin.com/in/pradyuman-shekhawat/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="opill" href="https://github.com/ikshv4ku" target="_blank" rel="noopener">GitHub · ikshv4ku</a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 </main>
 
 <footer class="foot">
   <div class="wrap foot-in">
-    <p><strong>Built with Claude Code as harness, of course.</strong><br>27 Nov 2026. Every public figure on this page links to its source.</p>
+    <p class="foot-n"><strong>Pradyuman Singh Shekhawat</strong> · 2026 · <a href="#contact">Contact</a> · <a href="#main">Back to top</a></p>
     <details>
       <summary>Sources</summary>
       <ul>
@@ -1814,11 +1933,81 @@ html.con-open .fab{opacity:0;pointer-events:none}
   drawHipe();
   window.addEventListener('resize', () => { hpW = 0; drawHipe(); });
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { hpW = 0; drawHipe(); });
+
+  /* ---------- Codeforces rating, redrawn (approximate, read off the official graph) ---------- */
+  // [months since 1 Aug 2024, rating]
+  const CF = [[-0.04,425],[0.12,697],[0.19,862],[0.32,1002],[0.35,1122],[0.42,1171],[0.48,1188],[0.64,1221],[0.96,1229],[1.03,1179],[1.65,1146],[1.68,1142],[1.95,1208],[2.15,1229],[2.43,1163],[2.63,1233],[2.76,1241],[2.83,1262],[2.9,1254],[4.6,1266],[4.64,1315],[4.7,1315],[4.9,1344],[5.61,1357],[5.83,1377],[6.06,1373],[6.32,1431],[6.39,1423],[6.55,1497],[6.64,1406],[7.71,1431],[7.72,1468],[7.8,1447],[7.93,1377],[8.09,1373],[8.27,1402],[8.62,1419],[8.93,1480],[10.25,1538],[10.38,1522],[10.55,1505],[10.75,1398]];
+  const cfBox = $('#cf-svg');
+  let cfW = 0;
+  const drawCF = () => {
+    if (!cfBox) return;
+    const W = Math.round(cfBox.clientWidth);
+    if (!W || W === cfW) return;
+    cfW = W;
+    const H = Math.round(Math.min(220, Math.max(168, W * 0.62)));
+    const m = { l: 34, r: 6, t: 10, b: 22 };
+    const r0 = 350, r1 = 1750, t0 = -0.2, t1 = 11;
+    const X = t => m.l + (W - m.l - m.r) * (t - t0) / (t1 - t0);
+    const Y = r => m.t + (H - m.t - m.b) * (1 - (r - r0) / (r1 - r0));
+    const svg = sv('svg', { viewBox: '0 0 ' + W + ' ' + H, width: W, height: H });
+    [[1200, 1400, '#e7ebe2', 'Pupil'], [1400, 1600, '#e4e7f4', 'Specialist'], [1600, 1750, '#ece6f1', 'Expert']].forEach(b => {
+      svg.appendChild(sv('rect', { x: m.l, y: Y(b[1]), width: W - m.l - m.r, height: Y(b[0]) - Y(b[1]), fill: b[2] }));
+      svg.appendChild(sv('text', { x: m.l + 4, y: Y(b[1]) + 10, 'font-size': 8.5, fill: '#6e6a62' }, b[3]));
+    });
+    [400, 800, 1200, 1400, 1600].forEach(v => {
+      svg.appendChild(sv('line', { x1: m.l, x2: W - m.r, y1: Y(v), y2: Y(v), stroke: '#dcd8cf', 'stroke-width': 0.8 }));
+      svg.appendChild(sv('text', { x: m.l - 4, y: Y(v) + 3, 'text-anchor': 'end', 'font-size': 9, fill: '#6e6a62' }, String(v)));
+    });
+    svg.appendChild(sv('line', { x1: m.l, x2: W - m.r, y1: H - m.b, y2: H - m.b, stroke: '#1b1a17', 'stroke-width': 1 }));
+    [[0, 'Aug ’24', 'start'], [3, 'Nov', 'middle'], [7, 'Mar', 'middle'], [t1, 'Jun ’25', 'end']].forEach(k => {
+      if (k[0] !== t1) svg.appendChild(sv('line', { x1: X(k[0]), x2: X(k[0]), y1: H - m.b, y2: H - m.b + 3, stroke: '#1b1a17', 'stroke-width': 1 }));
+      svg.appendChild(sv('text', { x: k[0] === t1 ? W - m.r : X(k[0]), y: H - m.b + 13, 'text-anchor': k[2], 'font-size': 9, fill: '#55524b' }, k[1]));
+    });
+    const pts = CF.map(p => [X(p[0]), Y(p[1])]);
+    svg.appendChild(sv('path', { class: 'cf-line', pathLength: 1, d: pts.map((p, i) => (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join('') }));
+    const dots = sv('g', { class: 'cf-dots' });
+    pts.forEach(p => dots.appendChild(sv('circle', { cx: p[0], cy: p[1], r: 1.6, fill: '#2b3a8f' })));
+    svg.appendChild(dots);
+    const pk = pts[38], ann = sv('g', { class: 'cf-ann' });
+    ann.appendChild(sv('circle', { cx: pk[0], cy: pk[1], r: 4.5, fill: '#fdfcf9', stroke: '#2b3a8f', 'stroke-width': 2 }));
+    ann.appendChild(sv('line', { x1: pk[0], x2: pk[0], y1: pk[1] - 6, y2: pk[1] - 20, stroke: '#2b3a8f', 'stroke-width': 1 }));
+    ann.appendChild(sv('text', { x: pk[0] + 2, y: pk[1] - 24, 'text-anchor': 'end', 'font-size': 10, 'font-weight': 600, fill: '#2b3a8f' }, 'peak 1538 · Specialist'));
+    svg.appendChild(ann);
+    cfBox.textContent = '';
+    cfBox.appendChild(svg);
+  };
+  drawCF();
+  window.addEventListener('resize', () => { cfW = 0; drawCF(); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { cfW = 0; drawCF(); });
+
+  /* ---------- copy buttons ---------- */
+  $$('.ct-copy').forEach(btn => btn.addEventListener('click', async () => {
+    const row = btn.closest('.ct-row');
+    const st = row && row.querySelector('.ct-st');
+    const val = btn.dataset.copy;
+    let ok = false;
+    try {
+      await navigator.clipboard.writeText(val);
+      ok = true;
+    } catch (err) {
+      ok = false;
+    }
+    if (!ok) {
+      const t = row && row.querySelector('.ct-val');
+      if (t) { const r = document.createRange(); r.selectNodeContents(t); const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r); }
+    }
+    if (st) {
+      st.textContent = ok ? 'Copied: ' + val : 'Selected. Press Ctrl+C (or ⌘C) to copy.';
+      clearTimeout(st._t);
+      st._t = setTimeout(() => { st.textContent = ''; }, 2600);
+    }
+  }));
+
   // reveal-on-scroll targets (after the toolkit has rendered)
   const setupReveal = () => {
   $$('.spread.draw li').forEach((li, i) => li.style.setProperty('--i', i));
   const fade = ['.sec-head', '.hood-list > li', '.rc-w', '.idea', '.doms > div', '.pt-col', '.cta-grid', '.sloka', '.map > div', '.hipe-grid > *', '.hood-foot > *', '.cal', '.why .proof'];
-  const trig = ['.proof', '.medals', '.spread.draw', '.sgpa', '.hp-chart'];
+  const trig = ['.proof', '.medals', '.spread.draw', '.sgpa', '.hp-chart', '.cf', '.contact'];
   const targets = new Set();
   if (!reduce) fade.forEach(sel => $$(sel).forEach(el => {
     if (el.closest('.hero') || el.closest('.ride')) return;
@@ -2085,6 +2274,17 @@ html.con-open .fab{opacity:0;pointer-events:none}
       ['li', 'Quarantine Scribe: untrusted text becomes typed memory cards only, and a clean-context reviewer approves every write-back.'],
       ['p', 'More on each: [What I’d build next](#next)']
     ],
+    '/contact': [
+      ['h', 'Ring the chariot bell'],
+      ['kv', 'Phone|+91 81305 07389 (call or WhatsApp)'],
+      ['kv', 'Email|pradyuman_ss@cs.iitr.ac.in'],
+      ['li', 'WhatsApp: [wa.me/918130507389](https://wa.me/918130507389)'],
+      ['li', 'Call: [+91 81305 07389](tel:+918130507389)'],
+      ['li', 'Email: [pradyuman_ss@cs.iitr.ac.in](mailto:pradyuman_ss@cs.iitr.ac.in)'],
+      ['li', 'LinkedIn: [linkedin.com/in/pradyuman-shekhawat](https://www.linkedin.com/in/pradyuman-shekhawat/)'],
+      ['li', 'GitHub: [github.com/ikshv4ku](https://github.com/ikshv4ku)'],
+      ['p', 'Or jump to the [contact section](#contact).']
+    ],
     '/hipe': [
       ['h', 'HIPE-2026, a CLEF 2026 shared task'],
       ['p', 'I built it with a teammate. The task: decide from historical newspaper articles whether a person was at a place, a relation-extraction problem across languages and eras.'],
@@ -2124,7 +2324,7 @@ html.con-open .fab{opacity:0;pointer-events:none}
       ['li', 'Owning a stage: the lead role in a classical Sanskrit play at Pragyotsav 2024; I’ve hosted many guest lectures for the Sanskrit Club.'],
       ['li', 'Explaining for a living: DSA Teaching Assistant, quantum-computing lecturer, IBM Qiskit workshop co-organiser.'],
       ['li', 'Black-box detective: I rebuilt AlgoUnlock’s algorithms from compiled binaries, by input and output alone.'],
-      ['li', 'Fast, correct code: Codeforces Specialist (1538), CodeChef 3★ (1605), global rank 221 in CodeChef Starters 172 (Div. 4).'],
+      ['li', 'Fast, correct code: Codeforces max rating 1538 (Specialist), CodeChef 3★ (1605), global rank 221 in CodeChef Starters 172 (Div. 4).'],
       ['li', 'Thinking like an attacker: CTF at Advitiya’25, in cryptography, reverse engineering and web exploitation.'],
       ['li', 'Measuring everything: I timed Black-Scholes at 0.08 ms against a binomial tree up to 69× slower.'],
       ['li', 'Playing as a team under a clock: basketball taught me that.']
@@ -2134,7 +2334,7 @@ html.con-open .fab{opacity:0;pointer-events:none}
       ['li', 'I hold a Databricks PPO, so I’m not sitting campus placements.'],
       ['li', 'I can stay from the travel window (8–10 Dec) to checkout on 15 Dec. The Meet runs 11–14 Dec at IIT Guwahati.'],
       ['p', 'My ask is Harness Engineering. Under the No-Prep substitution rule (rulebook §3.5, rule 14) I’m also available as a registered stand-in for Optimization/CP or Math, if the contingent needs one:'],
-      ['kv', 'Optimization/CP|Codeforces Specialist 1538, CodeChef 3★ 1605, CODCOM offline round, AlgoUnlock'],
+      ['kv', 'Optimization/CP|Codeforces peaked at 1538 (Specialist), CodeChef 3★ 1605, CODCOM offline round, AlgoUnlock'],
       ['kv', 'Math|JEE Advanced AIR 1819, KVPY AIR 1521, A or A+ in Probability, Numerical Methods, Mathematics I–II'],
       ['src', 'A stand-in must be notified to the organisers by the Contingent Leader by 10 Dec.']
     ],
@@ -2164,6 +2364,7 @@ html.con-open .fab{opacity:0;pointer-events:none}
       ['kv', '/superpowers|my no-prep temperament'],
       ['kv', '/availability|dates, PPO, stand-in cover'],
       ['kv', '/rulebook|five rulebook facts'],
+      ['kv', '/contact|phone, WhatsApp, email'],
       ['kv', '/clear|clear the screen; memory persists'],
       ['kv', '/help|this list'],
       ['src', 'Press / anywhere on the page to open this console. Esc closes it. Tab completes a command.']
@@ -2215,7 +2416,7 @@ html.con-open .fab{opacity:0;pointer-events:none}
       const a = document.createElement('a');
       a.href = m[2]; a.textContent = m[1];
       if (m[2].charAt(0) === '#') a.addEventListener('click', () => closeCon());
-      else { a.target = '_blank'; a.rel = 'noopener'; }
+      else if (!/^(mailto|tel):/.test(m[2])) { a.target = '_blank'; a.rel = 'noopener'; }
       el.append(a);
       last = m.index + m[0].length;
     }
